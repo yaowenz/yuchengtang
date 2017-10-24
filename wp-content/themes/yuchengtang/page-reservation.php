@@ -14,11 +14,15 @@
 	<link rel="stylesheet" href="http://m.360antique.com/files/m3d/d_1.css?v=52">
 	<script type="text/javascript" src="<?php echo home_url('wp-includes/js/jquery/jquery.js?ver=1.12.4')?>"></script>
 	<style>
+		table.reservation-confirm {color:#666;padding-right:10px}
+        table.reservation-confirm td {line-height:30px}
+        table.reservation-confirm td.label {width:100px}
         table.form-reservation td.label {color:#666;padding-right:10px}
         table.form-reservation td {line-height:45px}
         table.form-reservation input {height:35px}
         input[type="radio"] {-webkit-appearance:radio;width:15px;height:15px;margin-right:5px;background:none!important;border:none!important;outline:none!important}
-        input[type="radio"]:after {content:''}
+        input[type="radio"]::after {content:''!important}
+        input[type="radio"]:checked::after {content:''!important}
         span.required {color:red}
         .notice h2 {color:#896527;margin-top:15px;margin-bottom:5px;font-size:16px;font-weight:normal}
         .notice p {line-height:1.6;color:#666;font-size:12px}
@@ -27,6 +31,8 @@
 <body style="width:100%;-ms-touch-action:none;position:absolute;" class="bsy">
 	<div class="imx">
 		<div><img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/header-reservation.jpg" width="100%" /></div>
+		
+		
 		<ul class="listitem wp100">
 			<!-- 表单 -->
 			<li>
@@ -35,6 +41,29 @@
 					<tr class="mi">
 						<td class="lt"></td>
 						<td class="ce" id="sw1">
+							<?php if ($_GET['success'] == 1):?>
+							<div class="notice">
+								<h2 style="text-align:center;margin-top:0px;border-bottom:1px dotted #999;padding-bottom:15px">预约成功!</h2>
+								<table class="reservation-confirm">
+									<tr>
+										<td class="label">联系人姓名：</td>
+										<td>周</td>
+									</tr>
+									<tr>
+										<td class="label">联系人手机：</td>
+										<td>13355225565</td>
+									</tr>
+									<tr>
+										<td class="label">参观时间：</td>
+										<td>2017-10-29</td>
+									</tr>
+									<tr>
+										<td class="label">参观类型：</td>
+										<td>团体/8人</td>
+									</tr>
+								</table>
+							</div>
+							<?php else:?>
 							<div class="swd" style="background-image:url('<?php echo get_stylesheet_directory_uri()?>/assets/images/reservation-title.png')"></div>
 							<form>
 							<table class="form-reservation">
@@ -64,8 +93,7 @@
 								<tr>
 									<td class="label">验证码<span class="required">*</span>：</td>
 									<?php
-                                    use Gregwar\Captcha\CaptchaBuilder;
-                                    $captcha = new CaptchaBuilder();
+                                    $captcha = new \Gregwar\Captcha\CaptchaBuilder();
                                     $captcha->setDistortion(true);
                                     $captcha->setPhrase(rand(1000,9999));
                                     $captcha->buildAgainstOCR(80,30);
@@ -101,13 +129,14 @@
                                 <p>7. “六一”儿童节，14周岁以下儿童（含14周岁），免费参观。随同家长一人，享受半价优惠。</p>
                                 <p>8. “八一”建军节，现役军人凭有效证件，免费参观。</p>
 							</div>
+							<?php endif;?>
 						</td>
 						<td class="rt"></td>
 					</tr>
 					<tr class="bn"><td class="lt"></td><td class="ce"></td><td class="rt"></td></tr>
 				</table>
 			</li>
-			<li class="ttp" style="background-position:top center;border-top:none;height:50px;margin-top:5px;" onclick="history.length>2?history.go(-1):window.scrollTo(0,0);"></li>
+			<li class="ttp" style="background-position:top center;border-top:none;height:50px;margin-top:5px;" onclick="location.href='http://m.360antique.com'"></li>
 		</ul>
 	</div>
 	<script type="text/javascript">
@@ -120,6 +149,9 @@
 					return false;
 				}
 			});
+			if (formValid) {
+				location.href = location.href + '?success=1';
+			}
 		}
 	</script>
 </body>
