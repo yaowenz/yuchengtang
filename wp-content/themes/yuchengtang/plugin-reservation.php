@@ -61,7 +61,10 @@ function my_ajax() {
 }
 add_action( 'wp_ajax_nopriv_add_foobar', 'prefix_ajax_add_foobar' );
 
+/**
+ * Hook Page Request
+ */
 add_filter( 'request', function($request) {
-    echo "i am filter";
+    //echo "i am filter";
     return $request;
 } );
