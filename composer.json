@@ -1,0 +1,13 @@
+{
+    "name": "yuchangtang/www",
+    "type": "project",
+    "require": {
+        "gregwar/captcha": "^1.1"
+    },
+    "authors": [
+        {
+            "name": "BigWhite",
+            "email": "yaowen.zhang@qq.com"
+        }
+    ]
+}
