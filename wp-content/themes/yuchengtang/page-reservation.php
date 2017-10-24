@@ -48,7 +48,7 @@
 								</tr>
 								<tr>
 									<td class="label">参观时间<span class="required">*</span>：</td>
-									<td><input type="date" name="reserve_at" /></td>
+									<td><input type="date" name="reserve_at" style="width:120px" /></td>
 								</tr>
 								<tr>
 									<td class="label">参观类型<span class="required">*</span>：</td>
@@ -107,7 +107,7 @@
 					<tr class="bn"><td class="lt"></td><td class="ce"></td><td class="rt"></td></tr>
 				</table>
 			</li>
-			<li class="ttp" style="border-top:none;height:42px;margin-top:5px;margin-bottom:15px" onclick="history.length>2?history.go(-1):window.scrollTo(0,0);"></li>
+			<li class="ttp" style="background-position:top center;border-top:none;height:50px;margin-top:5px;" onclick="history.length>2?history.go(-1):window.scrollTo(0,0);"></li>
 		</ul>
 	</div>
 	<script type="text/javascript">
