@@ -2,8 +2,6 @@
 session_start();
 $_SESSION['verify_code'] = mt_rand(1000, 9999);
 ?>
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -33,10 +31,15 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
         input[type="radio"] {-webkit-appearance:radio;width:15px;height:15px;margin-right:5px;background:none!important;border:none!important;outline:none!important}
         input[type="radio"]::after {content:''!important}
         input[type="radio"]:checked::after {content:''!important}
-        input {padding:0px!important}
+        input {padding:0px 10px!important;width:150px}
         span.required {color:red}
         .notice h2 {color:#896527;margin-top:15px;margin-bottom:5px;font-size:16px;font-weight:normal}
         .notice p {line-height:1.6;color:#666;font-size:12px}
+        .sc-item .day {font-size:1.2em}
+        .sc-item {height:20%}
+        .sc-week {height:10%}
+        .sc-days {height:95%}
+        .sc-body {height:80%}
     </style>
 </head>
 <body style="width:100%;-ms-touch-action:none;position:absolute;" class="bsy">
@@ -54,25 +57,27 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 					<tr class="mi">
 						<td class="lt"></td>
 						<td class="ce" id="sw1">
-							<?php if ($_GET['success'] == 1):?>
+							<?php if ($_GET['success'] == 1 && !empty(intval($_GET['post_id'])) && $post = get_post(intval($_GET['post_id']))):?>
+							<?php $reservation = json_decode($post->post_content, true)?>
 							<div class="notice">
-								<h2 style="text-align:center;margin-top:0px;border-bottom:1px dotted #999;padding-bottom:15px">预约成功!</h2>
+								<h2 style="text-align:center;margin-top:0px">预约成功!</h2>
+								<p style="font-size:14px;color:red;text-align:center;border-bottom:1px dotted #999;;padding-bottom:15px;margin-bottom:10px">请截图保存，可享8折优惠！</p>
 								<table class="reservation-confirm">
 									<tr>
 										<td class="label">联系人姓名：</td>
-										<td>周</td>
+										<td><?php echo $reservation['name'];?></td>
 									</tr>
 									<tr>
 										<td class="label">联系人手机：</td>
-										<td>13355225565</td>
+										<td><?php echo $reservation['mobile'];?></td>
 									</tr>
 									<tr>
 										<td class="label">参观时间：</td>
-										<td>2017-10-29</td>
+										<td><?php echo $reservation['reserve_date'] . '  ' . yct_reservation_translation($reservation['reserve_time']); ?></td>
 									</tr>
 									<tr>
 										<td class="label">参观类型：</td>
-										<td>团体/8人</td>
+										<td><?php echo yct_reservation_translation($reservation['reserve_type']) . '  ' . $reservation['reserve_number'];?></td>
 									</tr>
 								</table>
 							</div>
@@ -89,14 +94,18 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 									<td><input type="text" name="mobile" /></td>
 								</tr>
 								<tr>
-									<td class="label">参观时间<span class="required">*</span>：</td>
-									<td><input type="text" readonly="readonly" name="reserve_at" style="width:120px" /></td>
-								</tr>
-								<tr>
 									<td class="label">参观类型<span class="required">*</span>：</td>
 									<td>
 										<input type="radio" name="reserve_type" value="group" />团体
 										<input type="radio" name="reserve_type" value="individual" />散客
+									</td>
+								</tr>
+								<tr>
+									<td class="label">参观时间<span class="required">*</span>：</td>
+									<td>
+										<input type="text" readonly="readonly" name="reserve_date" style="width:120px" /><br/>
+										<input type="radio" name="reserve_time" value="morning" />上午
+										<input type="radio" name="reserve_time" value="afternoon" />下午
 									</td>
 								</tr>
 								<tr>
@@ -113,7 +122,7 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
                                     $captchaData = $captcha->inline(70);
                                     ?>
 									<td>
-										<input type="text" name="_code" style="width:100px" />
+										<input type="text" name="_verify_code" style="width:100px" />
 										<img src="<?php echo $captchaData; ?>" valign="middle" width="80" height="30" />
 									</td>
 								</tr>
@@ -124,7 +133,7 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 							</form>
 							<div class="notice" style="border-top:1px dotted #666;margin-top:15px">
 								<h2>购票须知</h2>
-								<p style="margin-bottom:5px"><strong>票价：</strong><br/>168元/张</p>
+								<p style="margin-bottom:5px"><strong>票价：</strong><br/>128元/张</p>
             					<p style="margin-bottom:5px"><strong>场馆地址：</strong><br/>上海市浦东新区浦三路21弄55-56号银亿滨江中心17楼（和颐酒店旁右转）</p>
             					<p style="margin-bottom:5px"><strong>场馆电话：</strong><br/>021-61553566</p>
             					<p><strong>开馆时间：</strong><br/>周二至周日 10:00-17:30（16:30停止入场）；周一闭馆。</p>
@@ -157,12 +166,12 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 	    	showFestival: false,
 	    	onSelect: function(date) {
 		    	jQuery('#calendar-container').hide();
-		    	jQuery('input[name=reserve_at]').val(moment(date).format('YYYY-MM-DD'));
+		    	jQuery('input[name=reserve_date]').val(moment(date).format('YYYY-MM-DD'));
 	    	},
 		});
 
 	    jQuery(function ($) {
-		    $('input[name=reserve_at]').click(function () {
+		    $('input[name=reserve_date]').click(function () {
 			    $(this).blur(); // leave input box
 			    $('#calendar-container').show();
 		    });
@@ -178,24 +187,24 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 				}
 			});
 			if (formValid) {
-// 				 $.ajax({
-//                     type: "POST",
-//                     dataType: "json",
-//                     url: AjaxURL + '?Action=' + 'SubmitHandlingFee' + '&OrderNumber=' + $.trim($("#<%=this.txtOrderNumber.ClientID %>").val()),
-//                     data: $('#formAddHandlingFee').serialize(),
-//                     success: function (result) {
-//                         var strresult=result;
-//                         alert(strresult);
-//                         //加载最大可退金额
-//                         $("#spanMaxAmount").html(strresult);
-//                     	location.href = location.href + '?success=1&post_id=' + reponse.data.post_id;
+				 jQuery.ajax({
+                    type: "POST",
+                    dataType: "json",
+                    url: '<?php echo admin_url( 'admin-ajax.php' )?>' + '?action=reservation_create',
+                    data: jQuery('form').serialize(),
+                    success: function (response) {
+                        if (response.err != 0) {
+                            alert(response.msg);
+                            return;
+                        }
+                        console.log(response);
+                    	location.href = location.href + '?success=1&post_id=' + response.data.post_id;
             			
-//                     },
-//                     error: function(data) {
-//                         alert("保存失败，请稍候再试!");
-// 	                }
-				
-				 //data: $('#formAddHandlingFee').serialize(),
+                    },
+                    error: function(data) {
+                        alert("保存失败，请稍候再试!");
+	                }
+				 });
 			}
 		}
 	</script>

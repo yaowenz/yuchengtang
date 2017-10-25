@@ -23,7 +23,7 @@ function yct_reservation_post_type() {
         'description'   => '预约信息',
         'public'        => true,
         'menu_position' => 5,
-        'supports'      => ['title'],
+        'supports'      => ['title', 'editor'],
         'has_archive'   => true,
         'capability_type' => 'post',
         'capabilities' => array(
@@ -38,22 +38,33 @@ add_action( 'init', 'yct_reservation_post_type' );
 add_action("manage_yct_reservation_posts_custom_column",  "yct_reservation_custom_columns");
 add_filter("manage_yct_reservation_posts_columns", "yct_reservation_edit_columns");
 
+function yct_reservation_translation($slug)
+{
+	$translation = [
+		'group' => '团体',
+		'individual' => '个人',
+		'afternoon' => '下午',
+		'morning' => '上午',
+	];
+	
+	return $translation[$slug];
+}
+
 function yct_reservation_custom_columns($column){
     global $post;
     $content = json_decode($post->post_content, true);
-    $translation = [
-        'group' => '团体',
-        'individual' => '个人'
-    ];
+    
     if ($column == 'reserve_type') {
-        echo $translation[$content[$column]];
+        echo yct_reservation_translation($content[$column]);
+    } elseif ($column == 'reserve_date') {
+    	echo $content[$column] . '/' . yct_reservation_translation($content['reserve_time']);
     } else {
         echo $content[$column];
     }
 }
 
 function yct_reservation_edit_columns($columns){
-    $columns['reserve_at'] = '预约时间';
+    $columns['reserve_date'] = '预约时间';
     $columns['reserve_type'] = '预约类型';
     $columns['reserve_number'] = '预约人数';
     return $columns;
@@ -70,16 +81,17 @@ function yct_ajax_reservation_create() {
         echo json_encode(['err' => 1, 'msg' => '数据无效']);
         wp_die();
     }
-    if (!empty($_SESSION['verify_code']) || $_SESSION['verify_code'] != $_POST['verify_code']) {
+    if (empty($_SESSION['verify_code']) || $_SESSION['verify_code'] != $_POST['_verify_code']) {
         echo json_encode(['err' => 1, 'msg' => '验证码不正确']);
         wp_die();
     }
     
     $form_data= array_filter($_POST, function ($key) {
-        return in_array($key, ['name', 'mobile', 'reserve_at', 'reserve_type', 'reserve_number']);
+        return in_array($key, ['name', 'mobile', 'reserve_date', 'reserve_time', 'reserve_type', 'reserve_number']);
     }, ARRAY_FILTER_USE_KEY);
         
     $postId = wp_insert_post([
+    	'post_status' => 'publish',
         'post_title' => $form_data['name'] . '-' . $form_data['reserve_at'],
         'post_type' => 'yct_reservation',
         'post_content' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
