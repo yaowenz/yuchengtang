@@ -1,3 +1,9 @@
+<?php
+session_start();
+$_SESSION['verify_code'] = mt_rand(1000, 9999);
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -7,32 +13,39 @@
 	<meta name="x5-orientation" content="portrait">
 	<meta name="msapplication-tap-highlight" content="no">
 	<title>御承堂</title>
-	<link rel="stylesheet" href="http://m.360antique.com/files/assets/agile/css/agile.layout.css">
-	<link rel="stylesheet" href="http://m.360antique.com/files/assets/agile/css/flat/flat.component.css">
-	<link rel="stylesheet" href="http://m.360antique.com/files/assets/agile/css/flat/flat.color.css">
-	<link rel="stylesheet" href="http://m.360antique.com/files/assets/agile/css/flat/iconline.css">
-	<link rel="stylesheet" href="http://m.360antique.com/files/m3d/d_1.css?v=52">
+	<link rel="stylesheet" href="http://m.360antique.com/files/assets/agile/css/agile.layout.css" />
+	<link rel="stylesheet" href="http://m.360antique.com/files/assets/agile/css/flat/flat.component.css" />
+	<link rel="stylesheet" href="http://m.360antique.com/files/assets/agile/css/flat/flat.color.css" />
+	<link rel="stylesheet" href="http://m.360antique.com/files/assets/agile/css/flat/iconline.css" />
+	<link rel="stylesheet" href="http://m.360antique.com/files/m3d/d_1.css?v=52" />
+	<script type="text/javascript" src="<?php echo home_url('wp-includes/js/jquery/jquery.js?ver=1.12.4')?>"></script>
+	<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/assets/js/simple-calendar.js"></script>
+	<script type="text/javascript" src="<?php echo get_stylesheet_directory_uri();?>/assets/js/moment.js"></script>
+	<link rel="stylesheet" href="<?php echo get_stylesheet_directory_uri();?>/assets/css/simple-calendar.css" />
 	<script type="text/javascript" src="<?php echo home_url('wp-includes/js/jquery/jquery.js?ver=1.12.4')?>"></script>
 	<style>
-		table.reservation-confirm {color:#666;padding-right:10px}
+		table.reservation-confirm {color:#666;padding-right:5px}
         table.reservation-confirm td {line-height:30px}
         table.reservation-confirm td.label {width:100px}
-        table.form-reservation td.label {color:#666;padding-right:10px}
+        table.form-reservation td.label {width:100px;color:#666;padding-right:5px}
         table.form-reservation td {line-height:45px}
         table.form-reservation input {height:35px}
         input[type="radio"] {-webkit-appearance:radio;width:15px;height:15px;margin-right:5px;background:none!important;border:none!important;outline:none!important}
         input[type="radio"]::after {content:''!important}
         input[type="radio"]:checked::after {content:''!important}
+        input {padding:0px!important}
         span.required {color:red}
         .notice h2 {color:#896527;margin-top:15px;margin-bottom:5px;font-size:16px;font-weight:normal}
         .notice p {line-height:1.6;color:#666;font-size:12px}
     </style>
 </head>
 <body style="width:100%;-ms-touch-action:none;position:absolute;" class="bsy">
+	<div id="calendar-container" style="z-index:100;display:none;position:absolute;top:0px;left:0px;width:100%;height:100%;background-color:white;padding:15px">
+		<div id="calendar" style="width:100%;margin-top:5px">
+		</div>
+	</div>
 	<div class="imx">
 		<div><img src="<?php echo get_stylesheet_directory_uri()?>/assets/images/header-reservation.jpg" width="100%" /></div>
-		
-		
 		<ul class="listitem wp100">
 			<!-- 表单 -->
 			<li>
@@ -77,13 +90,13 @@
 								</tr>
 								<tr>
 									<td class="label">参观时间<span class="required">*</span>：</td>
-									<td><input type="date" name="reserve_at" style="width:120px" /></td>
+									<td><input type="text" name="reserve_at" style="width:120px" /></td>
 								</tr>
 								<tr>
 									<td class="label">参观类型<span class="required">*</span>：</td>
 									<td>
 										<input type="radio" name="reserve_type" value="group" />团体
-										<input type="radio" name="reserve_type" value="group" />散客
+										<input type="radio" name="reserve_type" value="individual" />散客
 									</td>
 								</tr>
 								<tr>
@@ -95,7 +108,7 @@
 									<?php
                                     $captcha = new \Gregwar\Captcha\CaptchaBuilder();
                                     $captcha->setDistortion(true);
-                                    $captcha->setPhrase(rand(1000,9999));
+                                    $captcha->setPhrase($_SESSION['verify_code']);
                                     $captcha->buildAgainstOCR(80,30);
                                     $captchaData = $captcha->inline(70);
                                     ?>
@@ -140,6 +153,20 @@
 		</ul>
 	</div>
 	<script type="text/javascript">
+	    var calendar = new SimpleCalendar('#calendar', {
+	    	showFestival: false,
+	    	onSelect: function(date) {
+		    	jQuery('#calendar-container').hide();
+		    	jQuery('input[name=reserve_at]').val(moment(date).format('YYYY-MM-DD'));
+	    	},
+		});
+
+	    jQuery(function ($) {
+		    $('input[name=reserve_at]').click(function () {
+			    $('#calendar-container').show();
+		    });
+	    });
+
 		function formSubmit() {
 			var formValid = true;
 			jQuery('form input').each(function(index, ele) {
@@ -150,7 +177,24 @@
 				}
 			});
 			if (formValid) {
-				location.href = location.href + '?success=1';
+// 				 $.ajax({
+//                     type: "POST",
+//                     dataType: "json",
+//                     url: AjaxURL + '?Action=' + 'SubmitHandlingFee' + '&OrderNumber=' + $.trim($("#<%=this.txtOrderNumber.ClientID %>").val()),
+//                     data: $('#formAddHandlingFee').serialize(),
+//                     success: function (result) {
+//                         var strresult=result;
+//                         alert(strresult);
+//                         //加载最大可退金额
+//                         $("#spanMaxAmount").html(strresult);
+//                     	location.href = location.href + '?success=1&post_id=' + reponse.data.post_id;
+            			
+//                     },
+//                     error: function(data) {
+//                         alert("保存失败，请稍候再试!");
+// 	                }
+				
+				 //data: $('#formAddHandlingFee').serialize(),
 			}
 		}
 	</script>

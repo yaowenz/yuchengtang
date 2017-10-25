@@ -4,23 +4,23 @@
  */
 function yct_reservation_post_type() {
     $labels = array(
-        'name'               => _x( 'Reservations', 'post type 名称' ),
-        'singular_name'      => _x( 'Reservation', 'post type 单个 item 时的名称，因为英文有复数' ),
-        'add_new'            => _x( '新建电影', '添加新内容的链接名称' ),
-        'add_new_item'       => __( '新建一个电影' ),
-        'edit_item'          => __( '编辑电影' ),
-        'new_item'           => __( '新电影' ),
-        'all_items'          => __( '所有电影' ),
-        'view_item'          => __( '查看电影' ),
-        'search_items'       => __( '搜索电影' ),
-        'not_found'          => __( '没有找到有关电影' ),
-        'not_found_in_trash' => __( '回收站里面没有相关电影' ),
+        'name'               => _x( '观展预约', 'post type 名称' ),
+        'singular_name'      => _x( '观展预约', 'post type 单个 item 时的名称，因为英文有复数' ),
+        'add_new'            => _x( '新建预约', '添加新内容的链接名称' ),
+        'add_new_item'       => __( '新建一个预约' ),
+        'edit_item'          => __( '编辑预约' ),
+        'new_item'           => __( '新预约' ),
+        'all_items'          => __( '所有预约' ),
+        'view_item'          => __( '查看预约' ),
+        'search_items'       => __( '搜索预约' ),
+        'not_found'          => __( '没有找到有关预约' ),
+        'not_found_in_trash' => __( '回收站里面没有相关预约' ),
         'parent_item_colon'  => '',
-        'menu_name'          => '预约'
+        'menu_name'          => '观展预约'
     );
     $args = array(
         'labels'        => $labels,
-        'description'   => '我们网站的电影信息',
+        'description'   => '预约信息',
         'public'        => true,
         'menu_position' => 5,
         'supports'      => ['title'],
@@ -40,26 +40,53 @@ add_filter("manage_yct_reservation_posts_columns", "yct_reservation_edit_columns
 
 function yct_reservation_custom_columns($column){
     global $post;
-    switch ($column) {
-        case "movie_director":
-            echo get_post_meta( $post->ID, '_movie_director', true );
-            break;
+    $content = json_decode($post->post_content, true);
+    $translation = [
+        'group' => '团体',
+        'individual' => '个人'
+    ];
+    if ($column == 'reserve_type') {
+        echo $translation[$content[$column]];
+    } else {
+        echo $content[$column];
     }
 }
+
 function yct_reservation_edit_columns($columns){
     $columns['reserve_at'] = '预约时间';
-    $columns['vistor_type'] = '预约时间';
-    $columns['vistor_number'] = '预约时间';
+    $columns['reserve_type'] = '预约类型';
+    $columns['reserve_number'] = '预约人数';
     return $columns;
 }
 
 // Handler ajax request
-add_action( 'wp_ajax_my_ajax', 'my_ajax' );
+add_action( 'wp_ajax_reservation_create', 'yct_ajax_reservation_create' );
+add_action( 'wp_ajax_nopriv_reservation_create', 'yct_ajax_reservation_create' );
 
-function my_ajax() {
-    die( "Hello World" );
+function yct_ajax_reservation_create() {
+    @session_start();
+    // Store data
+    if (empty($_POST)) {
+        echo json_encode(['err' => 1, 'msg' => '数据无效']);
+        wp_die();
+    }
+    if (!empty($_SESSION['verify_code']) || $_SESSION['verify_code'] != $_POST['verify_code']) {
+        echo json_encode(['err' => 1, 'msg' => '验证码不正确']);
+        wp_die();
+    }
+    
+    $form_data= array_filter($_POST, function ($key) {
+        return in_array($key, ['name', 'mobile', 'reserve_at', 'reserve_type', 'reserve_number']);
+    }, ARRAY_FILTER_USE_KEY);
+        
+    $postId = wp_insert_post([
+        'post_title' => $form_data['name'] . '-' . $form_data['reserve_at'],
+        'post_type' => 'yct_reservation',
+        'post_content' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
+    ]);
+    echo json_encode(['err' => 0, 'data' => ['post_id' => $postId]]);
+    wp_die();
 }
-add_action( 'wp_ajax_nopriv_add_foobar', 'prefix_ajax_add_foobar' );
 
 /**
  * Hook Page Request
