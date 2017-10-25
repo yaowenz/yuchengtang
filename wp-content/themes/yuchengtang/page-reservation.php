@@ -90,7 +90,7 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 								</tr>
 								<tr>
 									<td class="label">参观时间<span class="required">*</span>：</td>
-									<td><input type="text" name="reserve_at" style="width:120px" /></td>
+									<td><input type="text" readonly="readonly" name="reserve_at" style="width:120px" /></td>
 								</tr>
 								<tr>
 									<td class="label">参观类型<span class="required">*</span>：</td>
@@ -163,6 +163,7 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 
 	    jQuery(function ($) {
 		    $('input[name=reserve_at]').click(function () {
+			    $(this).blur(); // leave input box
 			    $('#calendar-container').show();
 		    });
 	    });
