@@ -60,8 +60,7 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 							<?php if ($_GET['success'] == 1 && !empty(intval($_GET['post_id'])) && $post = get_post(intval($_GET['post_id']))):?>
 							<?php $reservation = json_decode($post->post_content, true)?>
 							<div class="notice">
-								<h2 style="text-align:center;margin-top:0px">预约成功!</h2>
-								<p style="font-size:14px;color:red;text-align:center;border-bottom:1px dotted #999;;padding-bottom:15px;margin-bottom:10px">请截图保存，可享8折优惠！</p>
+								<h2 style="text-align:center;margin-top:0px;margin-bottom:10px;border-bottom:1px dotted #999;padding-bottom:15px">预约成功!</h2>
 								<table class="reservation-confirm">
 									<tr>
 										<td class="label">联系人姓名：</td>
@@ -133,7 +132,7 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 							</form>
 							<div class="notice" style="border-top:1px dotted #666;margin-top:15px">
 								<h2>购票须知</h2>
-								<p style="margin-bottom:5px"><strong>票价：</strong><br/>128元/张</p>
+								<p style="margin-bottom:5px"><strong>票价：</strong><br/>128元/张，团队20人及以上可享8折优惠</p>
             					<p style="margin-bottom:5px"><strong>场馆地址：</strong><br/>上海市浦东新区浦三路21弄55-56号银亿滨江中心17楼（和颐酒店旁右转）</p>
             					<p style="margin-bottom:5px"><strong>场馆电话：</strong><br/>021-61553566</p>
             					<p><strong>开馆时间：</strong><br/>周二至周日 10:00-17:30（16:30停止入场）；周一闭馆。</p>
