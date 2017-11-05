@@ -132,23 +132,19 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
 							</form>
 							<div class="notice" style="border-top:1px dotted #666;margin-top:15px">
 								<h2>购票须知</h2>
-								<p style="margin-bottom:5px"><strong>票价：</strong><br/>128元/张，团队20人及以上可享8折优惠</p>
+								<p style="margin-bottom:5px"><strong>票价：</strong><br/>128元/张</p>
             					<p style="margin-bottom:5px"><strong>场馆地址：</strong><br/>上海市浦东新区浦三路21弄55-56号银亿滨江中心17楼（和颐酒店旁右转）</p>
             					<p style="margin-bottom:5px"><strong>场馆电话：</strong><br/>021-61553566</p>
-            					<p><strong>开馆时间：</strong><br/>周二至周日 10:00-17:30（16:30停止入场）；周一闭馆。</p>
+            					<p><strong>开馆时间：</strong><br/>周二至周六 10:00-16:30，周一、周日闭馆。</p>
             					<h2>参观须知</h2>
             					<p>1. 为了不妨碍、影响他人参观及展品安全，请勿在馆内拍照；</p>
                                 <p>2. 为了您和他人的健康，请勿在馆内吸烟、乱扔垃圾、随地吐痰；</p>
                                 <p>3. 请勿携带宠物进馆参观。</p>
                                 <h2>优惠信息</h2>
-                                <p>1. 大、中、小学学生（不含成人教育、研究生），可凭学生证或学校介绍信购买学生票，每张20元/人。</p>
-                                <p>2.  60岁以上（含60岁）老年人凭有效证件，门票半价优惠。</p>
-                                <p>3. 身高1.2米以下儿童随监护人参观，门票半价优惠。</p>
-                                <p>4. 残疾人凭残疾人证件，免费参观。</p>
-                                <p>5. 随团导游凭本人导游证，免费参观。</p>
-                                <p>6. “三八”妇女节，女性观众享受门票半价优惠。</p>
-                                <p>7. “六一”儿童节，14周岁以下儿童（含14周岁），免费参观。随同家长一人，享受半价优惠。</p>
-                                <p>8. “八一”建军节，现役军人凭有效证件，免费参观。</p>
+                                <p>1. 70岁以上（含70岁）老年人凭有效证件，免费参观。</p>
+                                <p>2. 身高1.2米以下儿童随监护人参观，门票半价优惠。</p>
+                                <p>3. 残疾人凭残疾人证件，免费参观。</p>
+                                <p>4. 随团导游凭本人导游证，免费参观。</p>
 							</div>
 							<?php endif;?>
 						</td>
@@ -192,12 +188,17 @@ $_SESSION['verify_code'] = mt_rand(1000, 9999);
                     url: '<?php echo admin_url( 'admin-ajax.php' )?>' + '?action=reservation_create',
                     data: jQuery('form').serialize(),
                     success: function (response) {
+			console.log(response);
                         if (response.err != 0) {
                             alert(response.msg);
                             return;
                         }
-                        console.log(response);
-                    	location.href = location.href + '?success=1&post_id=' + response.data.post_id;
+			var appendQuery = '?';
+			if (location.href.indexOf('?') > 0) {
+			    appendQuery = '&';
+			}
+                        //console.log(response);
+                    	location.href = location.href + appendQuery + 'success=1&post_id=' + response.data.post_id;
             			
                     },
                     error: function(data) {
