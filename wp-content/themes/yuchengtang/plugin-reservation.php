@@ -92,10 +92,14 @@ function yct_ajax_reservation_create() {
         
     $postId = wp_insert_post([
     	'post_status' => 'publish',
-        'post_title' => $form_data['name'] . '-' . $form_data['reserve_at'],
+        'post_title' => $form_data['name'] . '-' . $form_data['mobile'],
         'post_type' => 'yct_reservation',
         'post_content' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
     ]);
+    
+    // @TODO 增加Meta便于统计
+    //global $wpdb;
+    //$wpdb->update( $wpdb->posts, array('comment_count' => $new), array('ID' => $post_id) );
     echo json_encode(['err' => 0, 'data' => ['post_id' => $postId]]);
     wp_die();
 }
