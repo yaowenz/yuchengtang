@@ -1,43 +1,48 @@
 <?php
-/**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
- */
-
-get_header(); ?>
-
-<div class="wrap">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main" role="main">
-
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-
-				get_template_part( 'template-parts/post/content', get_post_format() );
-
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
-
-				the_post_navigation( array(
-					'prev_text' => '<span class="screen-reader-text">' . __( 'Previous Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Previous', 'twentyseventeen' ) . '</span> <span class="nav-title"><span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-left' ) ) . '</span>%title</span>',
-					'next_text' => '<span class="screen-reader-text">' . __( 'Next Post', 'twentyseventeen' ) . '</span><span aria-hidden="true" class="nav-subtitle">' . __( 'Next', 'twentyseventeen' ) . '</span> <span class="nav-title">%title<span class="nav-title-icon-wrapper">' . twentyseventeen_get_svg( array( 'icon' => 'arrow-right' ) ) . '</span></span>',
-				) );
-
-			endwhile; // End of the loop.
+get_header();
+?>
+<div class="banner cover news"></div>
+<div class="primary content single">
+	<div class="breadcrumb">
+		<a href="<?php echo site_url();?>">首页</a>
+		<span class="triangle-right"></span>
+		<?php 
+			$post = get_queried_object();
+			$terms = (get_the_terms($post, 'category'));
+			$term = $terms[count($terms)-1]; // If mutiple category, use the last one			
+		?>	
+		<a href="<?php echo get_category_link($term->term_id);?>"><?php echo $term->name; ?></a>
+	</div>
+	<div class="article left">
+		<?php the_post();?>			
+		<h3 class="sub"><?php the_title();?></h3>
+		<p class="post-date"><?php the_date();?></p>
+		<div class="post">
+			<?php the_content();?>
+		</div>		
+		<!-- 更新新闻 -->
+		<div class="more">
+			<div class="title"><span></span>更多新闻</div>
+			<ul>
+			<?php 
+				$the_query = new WP_Query(['category_name' => $term->slug, 'post_type' => 'post', 'posts_per_page' => 10, 'post__not_in' => [get_the_ID()]]); 
+				if ( $the_query->have_posts() ) :
+					while ( $the_query->have_posts() ) :
+						$the_query->the_post();
 			?>
-
-		</main><!-- #main -->
-	</div><!-- #primary -->
-	<?php get_sidebar(); ?>
-</div><!-- .wrap -->
-
-<?php get_footer();
+			<li><a href="<?php the_permalink()?>"><?php the_title();?></a><span class="date"><?php the_date();?></span></li>
+			<?php 					
+					endwhile;					
+				endif;
+			?>
+			</ul>
+		</div>		
+	</div>	
+	<div class="article side">
+		<div class="ad">
+			<img src="<?php echo get_template_directory_uri()?>/images/ads/side-ad-1.jpg" />
+		</div>
+	</div>
+	<div class="clearfix"></div>
+</div>
+<?php get_footer(); ?>    
