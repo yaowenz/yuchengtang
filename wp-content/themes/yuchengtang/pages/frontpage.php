@@ -30,7 +30,7 @@
 	<div class="antiques">
 		<div class="intro">
 			<div class="title" style="text-align:center;margin-top:150px">
-				<img src="<?php echo get_template_directory_uri()?>/assets/images/title-antiques.png" />
+				<img src="<?php echo get_template_directory_uri()?>/assets/images/title-antiques.png" width="60%" />
 			</div>
 			<div class="more" style="text-align:center;margin-top:80px">
 				<a class="btn" style="background:#8E5025;font-size:16px">更多</a>
@@ -40,40 +40,41 @@
 			<ul class="accordion">
 				<li class="item1">
 					<div class="name">
-						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1-name.png" />
+						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1-name.png" width="65" />
 					</div>
 					<div class="mask"></div>
 					<div class="pic">
-						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" />
+						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" width="100%"/>
 					</div>
 				</li>
 				<li class="item2">
 					<div class="name">
-						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1-name.png" />
+						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-2-name.png" width="65" />
 					</div>
 					<div class="mask"></div>
 					<div class="pic">
-						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" />
+						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-2.jpg" width="100%" />
 					</div>
-				</li>
+				</li>				
 				<li class="item3">
 					<div class="name">
-						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1-name.png" />
+						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-3-name.png" width="65" />
 					</div>
 					<div class="mask"></div>
 					<div class="pic">
-						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" />
+						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-3.jpg" width="100%" />
 					</div>
 				</li>
 				<li class="item4">
 					<div class="name">
-						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1-name.png" />
+						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1-name.png" width="65" />
 					</div>
 					<div class="mask"></div>
 					<div class="pic">
-						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" />
+						<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" width="100%" />
 					</div>
 				</li>
+				
 			</ul>
 		</div>
 		<div class="clear"></div>
