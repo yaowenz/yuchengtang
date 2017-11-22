@@ -8,12 +8,23 @@
   width: 1000px;
   margin: auto; }
 
+body.category, body.bg-general {
+  background-image: url("assets/images/bg-general.jpg");
+  background-attachment: fixed;
+  background-position: center -150px;
+  background-size: cover;
+  background-repeat: no-repeat; }
+
+body.category #nav-divider {
+  margin-bottom: 0px !important; }
+
 .clear {
   float: none !important;
   clear: both !important; }
 
 #nav {
-  width: 100%; }
+  width: 100%;
+  height: 200px; }
 
 #nav .logo img {
   width: 160px; }
@@ -37,7 +48,7 @@
   width: 120px;
   height: 60px; }
 
-#nav .menu li[class~=text]:hover {
+#nav .menu li[class~=text]:hover, #nav .menu li[class~=text].active {
   background-image: url("assets/images/menu-active.png");
   background-repeat: no-repeat;
   background-size: 500px 60px; }
@@ -210,8 +221,50 @@
 .frontpage .content .examples .item4.slider-closed .mask {
   background-color: rgba(214, 161, 43, 0.7); }
 
+.about .content {
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 30px; }
+
+.about .content .intro p {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 18px;
+  line-height: 1.6; }
+
+.about .features {
+  width: 800px;
+  margin: 50px auto; }
+
+.about .content .contact {
+  padding-bottom: 100px; }
+
+.about .content .contact div.map, .about .content .contact div.info {
+  height: 350px; }
+
+.about .content .contact .map {
+  float: left;
+  width: 350px; }
+
+.about .content .contact .info {
+  float: right;
+  width: 640px;
+  background-image: url("assets/images/about-contactus-bg.jpg");
+  background-size: cover;
+  padding: 30px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.about .content .contact .info ul {
+  padding-left: 0px;
+  color: white;
+  margin-top: 30px; }
+
+.about .content .contact .info ul li {
+  line-height: 1.8; }
+
 #footer {
-  height: 150px;
+  font-size: 14px;
+  height: 120px;
   margin-top: 50px;
   width: 100%;
   clear: both;
@@ -223,7 +276,7 @@
   background-position: top left; }
 
 #footer .wrapper {
-  padding-top: 90px;
+  padding-top: 75px;
   text-align: center;
   color: white; }
 

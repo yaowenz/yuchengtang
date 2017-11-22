@@ -155,6 +155,9 @@ function yct_theme_body_classes( $classes ) {
 	if (is_singular()) {
 		global $post;
 		$classes[] = $post->post_name;
+		if (!in_array($post->post_name, ['frontpage'])) {
+			$classes[] = 'bg-general';
+		}
 	}
 
 	return $classes;

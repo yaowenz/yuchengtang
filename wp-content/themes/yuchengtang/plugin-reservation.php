@@ -23,6 +23,7 @@ function yct_reservation_post_type() {
         'description'   => '预约信息',
         'public'        => true,
         'menu_position' => 5,
+    	'menu_icon' 	=> 'dashicons-calendar-alt',
         'supports'      => ['title', 'editor'],
         'has_archive'   => true,
         'capability_type' => 'post',

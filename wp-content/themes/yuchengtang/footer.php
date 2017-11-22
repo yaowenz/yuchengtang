@@ -1,6 +1,6 @@
 <div id="footer">
 	<div class="wrapper">
-		Copyright 2017 御承堂 http://www.yuchengtang.com.cn 沪ICP备
+		Copyright 2017 上海御承文化发展有限公司  | 沪ICP备15055452号-1
 	</div>
 </div>
 <?php wp_footer(); ?>
