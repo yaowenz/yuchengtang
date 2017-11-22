@@ -50,7 +50,7 @@ body.category {
 	.menu li.search a {margin-top:20px;margin-left:30px;display:inline-block;background-image:url('assets/images/icon-search.png');background-repeat:no-repeat;background-size:cover;height:20px;width:20px}
 }
 
-#nav-divider {height:16px;background-repeat:repeat-x;background-size:auto 100%;background-image:url('assets/images/header-divider.png');margin-bottom:20px}
+#nav-divider {height:16px;background-repeat:repeat-x;background-size:auto 100%;background-image:url('assets/images/header-divider.png')}
 
 .frontpage {
 	#nav {
@@ -63,7 +63,9 @@ body.category {
 	
 	#slides {position:absolute;top:180px;width:100%;}
 	#slides .wrapper {text-align:center}
+	.bg {background-image:url('assets/images/frontpage-bg.jpg')}		
 	.content {	
+		& {padding-top:30px;padding-bottom:80px}
 		h2 {margin:0px;padding:0px}	
 		.more a:hover {opacity:0.9}
 		div {background-repeat:no-repeat;background-size:cover;background-background-position:center}
@@ -117,7 +119,7 @@ body.category {
 
 .about {
 	.content {
-		background-color:rgba(255,255,255,0.5);padding:30px
+		margin-top:20px;margin-bottom:50px;background-color:rgba(255,255,255,0.5);padding:30px
 	}
 	.content .intro p {
 		text-align:center; margin-bottom:30px;font-size:18px;line-height:1.6		
@@ -136,7 +138,7 @@ body.category {
 #footer {
 	& {
 		font-size:14px;
-		height:120px;margin-top:50px;
+		height:120px;
 		width:100%;clear:both;float:none;
 		background-color:#2D2D2D;background-image:url('assets/images/footer-divider.jpg');
 		background-size:auto 50px;background-repeat:repeat-x;background-position:top left;

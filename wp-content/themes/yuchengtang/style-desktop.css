@@ -81,8 +81,7 @@ body.category #nav-divider {
   height: 16px;
   background-repeat: repeat-x;
   background-size: auto 100%;
-  background-image: url("assets/images/header-divider.png");
-  margin-bottom: 20px; }
+  background-image: url("assets/images/header-divider.png"); }
 
 .frontpage #nav {
   background-size: cover;
@@ -105,6 +104,13 @@ body.category #nav-divider {
 
 .frontpage #slides .wrapper {
   text-align: center; }
+
+.frontpage .bg {
+  background-image: url("assets/images/frontpage-bg.jpg"); }
+
+.frontpage .content {
+  padding-top: 30px;
+  padding-bottom: 80px; }
 
 .frontpage .content h2 {
   margin: 0px;
@@ -222,6 +228,8 @@ body.category #nav-divider {
   background-color: rgba(214, 161, 43, 0.7); }
 
 .about .content {
+  margin-top: 20px;
+  margin-bottom: 50px;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 30px; }
 
@@ -265,7 +273,6 @@ body.category #nav-divider {
 #footer {
   font-size: 14px;
   height: 120px;
-  margin-top: 50px;
   width: 100%;
   clear: both;
   float: none;
