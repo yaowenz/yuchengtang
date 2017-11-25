@@ -1,48 +1,27 @@
 <?php
 get_header();
 ?>
-<div class="banner cover news"></div>
-<div class="primary content single">
-	<div class="breadcrumb">
-		<a href="<?php echo site_url();?>">首页</a>
-		<span class="triangle-right"></span>
-		<?php 
-			$post = get_queried_object();
-			$terms = (get_the_terms($post, 'category'));
-			$term = $terms[count($terms)-1]; // If mutiple category, use the last one			
-		?>	
-		<a href="<?php echo get_category_link($term->term_id);?>"><?php echo $term->name; ?></a>
+<div class="primary content single wrapper">
+	<?php
+		$post = get_queried_object();
+		the_post();
+	?>
+	<h3><?php the_title();?></h3>
+	<p class="post-date"><?php echo the_date();?></p>
+	<div style="width:30px;margin:auto;padding-top:50px;margin-bottom:30px">
+		<img src="<?php echo get_template_directory_uri()?>/assets/images/dot-divider.png" width="100%">
 	</div>
-	<div class="article left">
-		<?php the_post();?>			
-		<h3 class="sub"><?php the_title();?></h3>
-		<p class="post-date"><?php the_date();?></p>
-		<div class="post">
-			<?php the_content();?>
-		</div>		
-		<!-- 更新新闻 -->
-		<div class="more">
-			<div class="title"><span></span>更多新闻</div>
-			<ul>
-			<?php 
-				$the_query = new WP_Query(['category_name' => $term->slug, 'post_type' => 'post', 'posts_per_page' => 10, 'post__not_in' => [get_the_ID()]]); 
-				if ( $the_query->have_posts() ) :
-					while ( $the_query->have_posts() ) :
-						$the_query->the_post();
-			?>
-			<li><a href="<?php the_permalink()?>"><?php the_title();?></a><span class="date"><?php the_date();?></span></li>
-			<?php 					
-					endwhile;					
-				endif;
-			?>
-			</ul>
-		</div>		
-	</div>	
-	<div class="article side">
-		<div class="ad">
-			<img src="<?php echo get_template_directory_uri()?>/images/ads/side-ad-1.jpg" />
-		</div>
+	<div class="intro">
+		<p>御承堂美术馆坐落于国际化大都市上海，沿黄浦江而立，与陆家嘴金融中心一线之隔，毗邻中华艺术宫。</p>
+		<p>美术馆藏囊括各年代顶级官窑瓷器，更有华夏古陶瓷科学技术研究院作为研究支持，致力于为藏家提供专业及全方位的顾问服务，涵盖艺术品展示、艺术品鉴赏力培训、中长期收藏、投资、估价、私洽、出售、与艺术相关的房地产规划、美术馆计划、大型艺术活动组织策划、基金会计划等。除藏家外，御承堂也为艺术家提供定制服务。</p>
 	</div>
-	<div class="clearfix"></div>
+	<div class="post">
+		<?php the_content();?>
+	</div>
 </div>
-<?php get_footer(); ?>    
+<script type="text/javascript">
+jQuery(function($) {
+	$('#nav .news').addClass('active');
+})
+</script>
+<?php get_footer(); ?>

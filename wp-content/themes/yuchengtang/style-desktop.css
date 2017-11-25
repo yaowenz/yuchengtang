@@ -270,6 +270,91 @@ body.category #nav-divider {
 .about .content .contact .info ul li {
   line-height: 1.8; }
 
+.single.single-post .content {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 30px; }
+
+.single.single-post .content p {
+  line-height: 1.8;
+  text-indent: 32px; }
+
+.single.single-post h3 {
+  text-align: center;
+  font-size: 24px; }
+
+.single.single-post .post-date {
+  text-align: center;
+  font-size: 14px; }
+
+.category .primary.content {
+  padding-bottom: 100px; }
+
+.category .entry-list {
+  padding-top: 20px;
+  padding-bottom: 50px; }
+
+.category .entry-list .entry-block {
+  float: left;
+  width: 490px;
+  padding: 15px 0px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.category .entry-list .thumb {
+  width: 200px;
+  height: 133px;
+  background-size: cover;
+  background-position: center;
+  float: left; }
+
+.category .entry-list .thumb a {
+  display: inline-block;
+  width: 100%;
+  height: 100%; }
+
+.category .entry-list .entry-block.odd {
+  margin-right: 15px; }
+
+.category .entry-list .entry-block.odd .brief {
+  border-right: 1px solid #ccc; }
+
+.category .entry-list .entry-date {
+  color: #999;
+  font-size: 14px;
+  margin-top: 5px; }
+
+.category .entry-list a:hover {
+  color: #886742; }
+
+.category .entry-list .brief {
+  min-height: 133px;
+  font-size: 18px;
+  float: left;
+  padding: 0px 15px 0px 30px;
+  width: 285px;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  line-height: 1.6;
+  background-image: url("assets/images/icon-list-square.png");
+  background-repeat: no-repeat;
+  background-position: 10px 8px;
+  background-size: 12px 12px; }
+
+.category .pagination .nav-links {
+  text-align: center; }
+
+.category .pagination .page-numbers.current {
+  color: #D2302C; }
+
+.category .pagination a.page-numbers, .category .pagination .page-numbers.current {
+  padding: 10px 15px;
+  border: 1px solid #ccc; }
+
+.category .pagination a.page-numbers:hover {
+  color: #886742; }
+
 #footer {
   font-size: 14px;
   height: 120px;

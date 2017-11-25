@@ -164,6 +164,22 @@ function yct_theme_body_classes( $classes ) {
 }
 add_filter( 'body_class', 'yct_theme_body_classes' );
 
+/**
+ * TinyMCE
+ */
+function add_mce_buttons_1($buttons) {
+//	$buttons = array('newdocument','undo','redo','|','bold','italic','underline','strikethrough','|','justifyleft','justifycenter','justifyright','justifyfull','|','styleselect','formatselect','fontselect','fontsizeselect','wp_more','wp_adv');
+	$buttons = array('undo','redo','|','bold','italic','underline','strikethrough','|','justifyleft','justifycenter','justifyright','justifyfull','|','styleselect','formatselect','fontselect','fontsizeselect','wp_more','wp_adv');
+	return $buttons;
+}
+
+function add_mce_buttons_2($buttons) {
+	$buttons = array('cut','copy','paste','pastetext','pasteword','|','search','replace','|','bullist','numlist','|','outdent','indent','blockquote','|','|','link','unlink','anchor','image','cleanup','code','|','forecolor','backcolor','hr','removeformat','|','sub','sup','|','spellchecker','charmap','fullscreen','wp_help');
+	return $buttons;
+}
+
+add_filter("mce_buttons", "add_mce_buttons_1");
+add_filter("mce_buttons_2", "add_mce_buttons_2");
 
 /**
  * Autoload
