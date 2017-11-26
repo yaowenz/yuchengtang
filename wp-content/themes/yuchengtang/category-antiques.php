@@ -1,3 +1,9 @@
+<?php
+if (!is_mobile()) {
+	wp_enqueue_script( 'pagepiling',  get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.js', ['jquery']);
+	wp_enqueue_style( 'pagepiling-style', get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.css' );
+}
+?>
 <?php get_header(); ?>
 <style>
 #pagepiling {

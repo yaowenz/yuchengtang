@@ -108,8 +108,6 @@ function yct_theme_scripts() {
 	
 	if (!is_mobile()) {
 		wp_enqueue_script( 'sly',  get_template_directory_uri() . '/assets/js/sly.min.js', ['jquery']);
-		wp_enqueue_script( 'pagepiling',  get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.js', ['jquery']);
-		wp_enqueue_style( 'pagepiling-style', get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.css' );
 	}
 	//
 }
