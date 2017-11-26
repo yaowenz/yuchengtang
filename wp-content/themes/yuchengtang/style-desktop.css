@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   list-style-type: none; }
 
@@ -59,13 +60,14 @@ body.category #nav-divider {
   width: 120px; }
 
 #nav .menu li.antiques {
-  background-position: -120px 0px; }
+  background-position: -122px 0px;
+  width: 130px; }
 
 #nav .menu li.tickets {
-  background-position: -250px 0px; }
+  background-position: -260px 0px; }
 
 #nav .menu li.about {
-  background-position: -385px 0px; }
+  background-position: -395px 0px; }
 
 #nav .menu li.search a {
   margin-top: 20px;
@@ -354,6 +356,54 @@ body.category #nav-divider {
 
 .category .pagination a.page-numbers:hover {
   color: #886742; }
+
+/**
+  * 藏品单页
+  */
+.antique, .category-antiques {
+  min-width: 1400px !important; }
+
+.antique #nav, .category-antiques #nav {
+  position: fixed;
+  left: 20px;
+  top: 40px;
+  width: 180px;
+  height: 400px; }
+
+.antique #nav .wrapper, .category-antiques #nav .wrapper {
+  position: relative;
+  padding-top: 0px; }
+
+.antique #nav .menu, .category-antiques #nav .menu {
+  position: absolute;
+  left: 0px;
+  top: 150px;
+  padding-left: 0px;
+  margin-left: 0px;
+  width: 130px; }
+
+.antique #nav .menu li, .category-antiques #nav .menu li {
+  float: none;
+  clear: both;
+  opacity: 0; }
+
+.antique #nav .menu a:hover, .category-antiques #nav .menu a:hover {
+  text-decoration: none; }
+
+.antique #nav .menu .search, .category-antiques #nav .menu .search {
+  display: none; }
+
+.category-antiques {
+  min-height: 500px; }
+
+.category-antiques #footer {
+  display: none; }
+
+/**
+ * BaiduMap
+ */
+.anchorBL {
+  display: none; }
 
 #footer {
   font-size: 14px;

@@ -23,5 +23,40 @@
 		</ul>
 	</div>
 </div>
+<script>
+jQuery(function($) {
+	// Logo Animation for vertical layout
+	var navLogoAnime;
+	var navMenuAnime;
+	
+	$('.category-antiques #nav').hover(
+		function() {
+			if (navLogoAnime == undefined) {
+				navLogoAnime = anime({
+					  targets: '#nav .logo img',
+					  rotate: 360,
+					  duration: 1600
+				});
+				navMenuAnime = anime.timeline();
+				for (var i=1; i <= 4; i++) {
+					navMenuAnime.add({
+						targets: '#nav .menu li:nth-child(' + i  + ')',
+					    opacity: 1,
+					    easing: 'easeInQuad',
+					    offset: (i-1) * 250,
+					    duration: 800
+					  });
+				}
+			} else {
+				navLogoAnime.restart();
+				navMenuAnime.restart();
+			}
+		},
+		function() {
+			navMenuAnime.reverse();
+			//navLogoAnime.pause();
+	});
+});
+</script>
 <div id="nav-divider"></div>
 

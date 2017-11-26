@@ -104,9 +104,14 @@ function yct_theme_scripts() {
 	wp_enqueue_script( 'jquery', get_template_directory_uri() . '/assets/js/jquery-1.12.3.min.js', array(), '1.12.3', false );
 	wp_enqueue_script( 'jquery.zaccordion', get_template_directory_uri() . '/assets/js/jquery.zaccordion.min.js', array('jquery'), null, false);
 	wp_enqueue_script( 'anime',  get_template_directory_uri() . '/assets/js/anime.min.js');
-	//
-	
 	wp_enqueue_style( 'yct-theme-style', get_stylesheet_uri() );
+	
+	if (!is_mobile()) {
+		wp_enqueue_script( 'sly',  get_template_directory_uri() . '/assets/js/sly.min.js', ['jquery']);
+		wp_enqueue_script( 'pagepiling',  get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.js', ['jquery']);
+		wp_enqueue_style( 'pagepiling-style', get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.css' );
+	}
+	//
 }
 add_action( 'wp_enqueue_scripts', 'yct_theme_scripts' );
 
@@ -190,5 +195,3 @@ require_once(ABSPATH . '/vendor/autoload.php');
  * Custom Plguins
  */
 require_once('plugin-reservation.php');
-
-

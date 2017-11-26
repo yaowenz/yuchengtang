@@ -9,12 +9,21 @@
 			<h2>新闻资讯</h2>
 			<h2 class="eng">NEWS</h2>
 			<ul>
-				<li><a href="#">御承堂博物馆特别展览“御窑遗珍-G20及金砖五国会议官窑瓷器展”开幕</a><span class="date">2017.10.28</span></li>
-				<li><a href="#">“小小艺术家”系列童书及《蔡暄民谈收藏》举办签售会</a><span class="date">2016.10.28</span></li>
-				<li><a href="#">私人博物馆可持续发展论坛——暨上海御承堂博物馆开馆典礼在沪圆满举行</a><span class="date">2016.10.28</span></li>
+				<?php
+					$the_query = new WP_Query(['category_name' => 'news', 'post_type' => 'post', 'posts_per_page' => 3] );
+					if ( $the_query->have_posts() ) :
+						$count = $the_query->post_count;
+						while ( $the_query->have_posts() ) :
+							$the_query->the_post();
+				?>
+				<li><span class="title"><a href="<?php the_permalink()?>" title="<?php the_title();?>"><?php echo wp_trim_words(get_the_title(), 40, '...');?></a></span><span class="date"><?php the_date();?></span></li>
+				<?php
+						endwhile;
+					endif;
+				?>
 			</ul>
 			<div class="more">
-				<a class="btn">更多</a>
+				<a class="btn" href="<?php echo site_url('archives/category/news');?>">更多</a>
 			</div>
 		</div>
 		<div class="tickets">
