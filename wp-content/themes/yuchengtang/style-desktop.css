@@ -498,6 +498,8 @@ body.category #nav-divider {
       color: #ddd;
       text-align: center;
       cursor: pointer; }
+    .category-antiques .sly.wrap .frame ul li:hover .name {
+      color: #ae7b42; }
     .category-antiques .sly.wrap .scrollbar {
       margin: 0 0 1em 0;
       height: 2px;

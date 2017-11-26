@@ -2,4 +2,5 @@ wp-config.php
 .buildpath
 .project
 .settings/
+*.map
 wp-content/uploads/
