@@ -94,10 +94,11 @@ body.category #nav-divider {
 
 .frontpage .btn {
   display: inline-block;
-  padding: 8px 35px;
+  padding: 8px 50px;
   font-size: 16px;
   background: #AE773E;
-  color: white; }
+  color: white;
+  border-radius: -5px; }
 
 .frontpage #slides {
   position: absolute;
@@ -361,26 +362,31 @@ body.category #nav-divider {
   * 藏品单页
   */
 .antique, .category-antiques {
-  min-width: 1400px !important; }
+  min-width: 1200px !important; }
 
 .antique #nav, .category-antiques #nav {
   position: fixed;
   left: 20px;
   top: 40px;
-  width: 180px;
-  height: 400px; }
+  width: 150px;
+  height: 400px;
+  z-index: 10000; }
 
 .antique #nav .wrapper, .category-antiques #nav .wrapper {
   position: relative;
-  padding-top: 0px; }
+  padding-top: 0px;
+  width: 130px; }
+
+.antique #nav .logo img, .category-antiques #nav .logo img {
+  width: 120px; }
 
 .antique #nav .menu, .category-antiques #nav .menu {
   position: absolute;
   left: 0px;
-  top: 150px;
+  top: 110px;
   padding-left: 0px;
   margin-left: 0px;
-  width: 130px; }
+  width: 100px; }
 
 .antique #nav .menu li, .category-antiques #nav .menu li {
   float: none;
@@ -398,6 +404,35 @@ body.category #nav-divider {
 
 .category-antiques #footer {
   display: none; }
+
+.category-antiques .categories table {
+  width: 100%; }
+
+.category-antiques .categories table td {
+  width: 25%;
+  height: 250px;
+  position: relative;
+  text-align: center; }
+
+.category-antiques .categories table td img {
+  width: 180px; }
+
+.category-antiques .categories table td:hover .mask {
+  display: none; }
+
+.category-antiques .categories table td:hover img {
+  -webkit-transform: scale(1.2);
+  transform: scale(1.2);
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out; }
+
+.category-antiques .categories table td .mask {
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 150px;
+  left: 35px; }
 
 /**
  * BaiduMap

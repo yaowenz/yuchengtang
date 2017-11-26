@@ -58,7 +58,7 @@ body.category {
 	}
 	
 	.btn {
-		display:inline-block;padding:8px 35px;font-size:16px;background:#AE773E;color:white
+		display:inline-block;padding:8px 50px;font-size:16px;background:#AE773E;color:white;border-radius:-5px
 	}
 	
 	#slides {position:absolute;top:180px;width:100%;}
@@ -171,21 +171,31 @@ body.category {
   * 藏品单页
   */
 .antique, .category-antiques {
-	& {min-width:1400px!important}
+	& {min-width:1200px!important}
 	#nav {
-		& {position:fixed;left:20px;top:40px;width:180px;height:400px}
-		& .wrapper {position:relative;padding-top:0px}
-		.menu {position:absolute;left:0px;top:150px;padding-left:0px;margin-left:0px;width:130px}
+		& {position:fixed;left:20px;top:40px;width:150px;height:400px;z-index:10000}
+		& .wrapper {position:relative;padding-top:0px;width:130px}
+		.logo img {width:120px}		
+		.menu {position:absolute;left:0px;top:110px;padding-left:0px;margin-left:0px;width:100px}
 		.menu li {float:none;clear:both;opacity:0}
 		.menu a:hover {text-decoration:none}	
 		.menu .search {display:none}
-	}
-	
+	}	
 }
 
 .category-antiques {
 	& {min-height:500px}
 	#footer {display:none}
+	.categories {
+		table {width:100%}
+		table td {width:25%;height:250px;position:relative;text-align:center}
+		table td img {width:180px}
+		table td:hover .mask {display:none}
+		table td:hover img {transform: scale(1.2);transition:all 0.3s ease-out}
+		table td .mask {
+			position:absolute;width:180px;height:180px;background:rgba(0,0,0,0.2);border-radius:150px;left:35px
+		}
+	}
 }
 
 /**

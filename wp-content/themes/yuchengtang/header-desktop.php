@@ -2,7 +2,7 @@
 <div id="nav">
 	<div class="header wrapper">
 		<div class="logo">
-			<span><a href="<?php echo site_url()?>"><img src="<?php echo get_template_directory_uri()?>/assets/images/logo-yct.png" valign="middle" /></a></span>
+			<span><a href="<?php echo site_url()?>" title="首页"><img src="<?php echo get_template_directory_uri()?>/assets/images/logo-yct.png" valign="middle" /></a></span>
 		</div>
 		<ul class="menu">
 			<li class="news text">
@@ -26,36 +26,28 @@
 <script>
 jQuery(function($) {
 	// Logo Animation for vertical layout
-	var navLogoAnime;
 	var navMenuAnime;
-	
 	$('.category-antiques #nav').hover(
 		function() {
-			if (navLogoAnime == undefined) {
-				navLogoAnime = anime({
-					  targets: '#nav .logo img',
-					  rotate: 360,
-					  duration: 1600
-				});
+			if (navMenuAnime == undefined) {
 				navMenuAnime = anime.timeline();
 				for (var i=1; i <= 4; i++) {
 					navMenuAnime.add({
 						targets: '#nav .menu li:nth-child(' + i  + ')',
 					    opacity: 1,
 					    easing: 'easeInQuad',
-					    offset: (i-1) * 250,
-					    duration: 800
+					    offset: (i-1) * 150,
+					    duration: 500
 					  });
 				}
 			} else {
-				navLogoAnime.restart();
 				navMenuAnime.restart();
 			}
 		},
 		function() {
 			navMenuAnime.reverse();
-			//navLogoAnime.pause();
-	});
+		}
+	);
 });
 </script>
 <div id="nav-divider"></div>
