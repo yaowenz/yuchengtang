@@ -77,11 +77,11 @@
 					</li>
 					<li class="item4">
 						<div class="name">
-							<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1-name.png" width="65" />
+							<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-4-name.png" width="65" />
 						</div>
 						<div class="mask"></div>
 						<div class="pic">
-							<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" width="100%" />
+							<img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-4.jpg" width="100%" />
 						</div>
 					</li>
 					
