@@ -3,6 +3,25 @@ if (!is_mobile()) {
 	wp_enqueue_script( 'pagepiling',  get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.js', ['jquery']);
 	wp_enqueue_style( 'pagepiling-style', get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.css' );
 }
+
+/** 获取各个分类的藏品 **/
+global $wpdb;
+$cateQing = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '清%' AND state = 1");
+$cateMing = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '明%' AND state = 1");
+$cateYuan = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '元%' AND state = 1");
+$cateSong = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '宋%' AND state = 1");
+$cateG20 = $wpdb->get_results("SELECT * FROM yc_item WHERE id IN (146, 147, 148, 149);");
+$cateB5 = $wpdb->get_results("SELECT * FROM yc_item WHERE id IN (150,151,152,153,154,155,156,157,158,159,160)");
+
+$categories = [
+	'cateQing' => ['清代', 'Qing Dynasty'],
+	'cateMing' => ['明代', 'Ming Dynasty'],
+	'cateYuan' => ['元代', 'Yuan Dynasty'],
+	'cateSong' => ['宋代', 'Song Dynasty'],
+	'cateG20' => ['G20会议官窑瓷器', ''],
+	'cateB5' => ['金砖五国会议官窑瓷器', ''],
+];
+
 ?>
 <?php get_header(); ?>
 <div id="pagepiling" style="height:1000px">
@@ -27,9 +46,10 @@ if (!is_mobile()) {
 			</tr>
 		</table>
 	</div>
+	<?php foreach ($categories as $k => $v):?>
 	<div class="section">
 		<div class="wrap sly">
-			<h2>清代 <small>Qing Dynasty</small></h2>
+			<h2><?php echo $v[0]?>&nbsp;<small><?php echo $v[1]?></small></h2>
 			<div class="scrollbar">
 				<div class="handle">
 					<div class="mousearea"></div>
@@ -37,147 +57,72 @@ if (!is_mobile()) {
 			</div>
 			<div class="frame" id="frame">
 				<ul class="clearfix">
+					<?php foreach ($$k as $item):?>
 					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" width="100%"/></div>
-						<div class="name">清乾隆珐琅彩九龙盘 </div>
-						<div class="name-en">WELL ENAMELED PLATE WITH DESIGN OF NINE DRAGONS</div>
+						<?php
+						$coverImageUrl = $item->img_name;
+						if (!preg_match("/^\/m3d\//", $coverImageUrl)) {
+							$coverImageUrl = '/m3d/pic/' . $item->id . '/s/' . $item->img_name;
+						}
+						$coverImageUrl = APP_360_MEDIA_URL . $coverImageUrl;
+						?>
+						<div class="cover" style="background-image:url('<?php echo $coverImageUrl?>')">
+							<a href="<?php echo site_url('antique?id=' . $item->id)?>"></a>
+						</div>
+						<div class="name"><a href="<?php echo site_url('antique?id=' . $item->id)?>"><?php echo $item->name?></a></div>
+						<div class="name-en"><a href="<?php echo site_url('antique?id=' . $item->id)?>"><?php echo $item->name_en;?></a></div>
 					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-2.jpg" width="100%"/></div>
-						<div class="name">明宣德青花缠枝纹梅瓶</div>
-						<div class="name-en">BLUE AND WHITE MEIPING VASE WITH INTERLOCKING FLOWERS</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-3.jpg" width="100%"/></div>
-						<div class="name">元龙泉窑荷叶盖罐</div>
-						<div class="name-en">A LONGQUAN CELADON JAR WITH LOTUS LEAF SHAPED COVER</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-4.jpg" width="100%"/></div>
-						<div class="name">宋汝窑鼓钉洗</div>
-						<div class="name-en">Brush-Washer with Drum screws decoration, Ru Kiln</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" width="100%"/></div>
-						<div class="name">清乾隆珐琅彩九龙盘 </div>
-						<div class="name-en">WELL ENAMELED PLATE WITH DESIGN OF NINE DRAGONS</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-2.jpg" width="100%"/></div>
-						<div class="name">明宣德青花缠枝纹梅瓶</div>
-						<div class="name-en">BLUE AND WHITE MEIPING VASE WITH INTERLOCKING FLOWERS</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-3.jpg" width="100%"/></div>
-						<div class="name">元龙泉窑荷叶盖罐</div>
-						<div class="name-en">A LONGQUAN CELADON JAR WITH LOTUS LEAF SHAPED COVER</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-4.jpg" width="100%"/></div>
-						<div class="name">宋汝窑鼓钉洗</div>
-						<div class="name-en">Brush-Washer with Drum screws decoration, Ru Kiln</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-1.jpg" width="100%"/></div>
-						<div class="name">清乾隆珐琅彩九龙盘 </div>
-						<div class="name-en">WELL ENAMELED PLATE WITH DESIGN OF NINE DRAGONS</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-2.jpg" width="100%"/></div>
-						<div class="name">明宣德青花缠枝纹梅瓶</div>
-						<div class="name-en">BLUE AND WHITE MEIPING VASE WITH INTERLOCKING FLOWERS</div>
-					</li>
-					<li>
-						<div class="cover"><img src="<?php echo get_template_directory_uri()?>/assets/images/examples/example-3.jpg" width="100%"/></div>
-						<div class="name">元龙泉窑荷叶盖罐</div>
-						<div class="name-en">A LONGQUAN CELADON JAR WITH LOTUS LEAF SHAPED COVER</div>
-					</li>
+					<?php endforeach;?>
 				</ul>
 			</div>
 			<ul class="pages"></ul>
-			<!--
-			<div class="controls center">
-				<button class="btn prevPage"><i class="icon-chevron-left"></i><i class="icon-chevron-left"></i> page</button>
-				<button class="btn prev"><i class="icon-chevron-left"></i> item</button>
-				<button class="btn backward"><i class="icon-chevron-left"></i> move</button>
-				<div class="btn-group">
-					<button class="btn toStart" data-item="10"><strong>10</strong> toStart</button>
-					<button class="btn toCenter" data-item="10"><strong>10</strong> toCenter</button>
-					<button class="btn toEnd" data-item="10"><strong>10</strong> toEnd</button>
-				</div>
-				<button class="btn forward">move <i class="icon-chevron-right"></i></button>
-				<button class="btn next">item <i class="icon-chevron-right"></i></button>
-				<button class="btn nextPage">page <i class="icon-chevron-right"></i><i class="icon-chevron-right"></i></button>
-			</div>
-			 -->
 		</div>
 	</div>
-	<div class="section">
-		<div class="wrap sly">
-			<h2>明代 <small>Ming Dynasty</small></h2>
-		</div>
-	</div>
-	<div class="section">
-		<div class="wrap sly">
-			<h2>元代 <small>Yuan Dynasty</small></h2>
-		</div>
-	</div>
-	<div class="section">
-		<div class="wrap sly">
-			<h2>宋代 <small>Soong Dynasty</small></h2>
-		</div>
-	</div>
-	<div class="section">
-		<div class="wrap sly">
-			<h2>G20会议官窑瓷器</h2>
-		</div>
-	</div>
-	<div class="section">
-		<div class="wrap sly">
-			<h2>金砖五国会议官窑瓷器</h2>
-		</div>
-	</div>
+	<?php endforeach;?>
 </div>
 <script>
 jQuery(function($) {
 
 	$('#nav .antiques').addClass('active');
 	
-	var $frame = $('#frame');
-	var $slidee = $frame.children('ul').eq(0);
-	var $wrap   = $frame.parent();
+	var $frames = $('.frame');
+	$frames.each(function (i) {
+		var $frame = $($frames[i]);
+		var $slidee = $frame.children('ul').eq(0);
+		var $wrap   = $frame.parent();
 
-	// Call Sly on frame
-	$frame.sly({
-		horizontal: 1,
-		itemNav: 'basic',
-		smart: 1,
-		//activateOn: 'click',
-		mouseDragging: 1,
-		touchDragging: 1,
-		releaseSwing: 1,
-		startAt: 0,
-		scrollBar: $wrap.find('.scrollbar'),
-		scrollBy: 0,
-		pagesBar: $wrap.find('.pages'),
-		activatePageOn: 'click',
-		speed: 300,
-		elasticBounds: 1,
-		//easing: 'easeOutExpo',
-		dragHandle: 1,
-		dynamicHandle: 1,
-		clickBar: 1,
+		// Call Sly on frame
+		$frame.sly({
+			horizontal: 1,
+			itemNav: 'basic',
+			smart: 1,
+			//activateOn: 'click',
+			mouseDragging: 1,
+			touchDragging: 1,
+			releaseSwing: 1,
+			startAt: 0,
+			scrollBar: $wrap.find('.scrollbar'),
+			scrollBy: 0,
+			pagesBar: $wrap.find('.pages'),
+			activatePageOn: 'click',
+			speed: 300,
+			elasticBounds: 1,
+			//easing: 'easeOutExpo',
+			dragHandle: 1,
+			dynamicHandle: 1,
+			clickBar: 1,
 
-		// Buttons
-		forward: $wrap.find('.forward'),
-		backward: $wrap.find('.backward'),
-		prev: $wrap.find('.prev'),
-		next: $wrap.find('.next'),
-		prevPage: $wrap.find('.prevPage'),
-		nextPage: $wrap.find('.nextPage')
+			// Buttons
+			forward: $wrap.find('.forward'),
+			backward: $wrap.find('.backward'),
+			prev: $wrap.find('.prev'),
+			next: $wrap.find('.next'),
+			prevPage: $wrap.find('.prevPage'),
+			nextPage: $wrap.find('.nextPage')
+		});
 	});
 	
-	
+
 	$('#pagepiling').pagepiling({
 	    menu: null,
         direction: 'vertical',
@@ -213,7 +158,6 @@ jQuery(function($) {
 			$('#pagepiling .section.active').css('visibility', 'visible');
 		},
 	});
-	
 });
 </script>
 <?php

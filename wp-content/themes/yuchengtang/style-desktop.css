@@ -403,8 +403,7 @@ body.category #nav-divider {
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 100%;
-  z-index: 10000; }
+  width: 100%; }
 
 .category-antiques {
   /** pagePiling **/
@@ -487,6 +486,15 @@ body.category #nav-divider {
       font-size: 12px;
       margin-top: 5px;
       color: #999; }
+    .category-antiques .sly.wrap .cover {
+      height: 300px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat; }
+    .category-antiques .sly.wrap .cover a {
+      display: inline-block;
+      width: 100%;
+      height: 100%; }
     .category-antiques .sly.wrap .frame {
       height: 400px;
       overflow: hidden; }
@@ -505,7 +513,7 @@ body.category #nav-divider {
       color: #ddd;
       text-align: center;
       cursor: pointer; }
-    .category-antiques .sly.wrap .frame ul li:hover .name {
+    .category-antiques .sly.wrap .frame ul li:hover .name a {
       color: #ae7b42; }
     .category-antiques .sly.wrap .scrollbar {
       margin: 0 0 1em 0;
