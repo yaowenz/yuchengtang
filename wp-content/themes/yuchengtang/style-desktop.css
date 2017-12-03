@@ -210,7 +210,8 @@ body.category #nav-divider {
   height: 100%;
   top: 0px;
   left: 0px;
-  z-index: 1; }
+  z-index: 1;
+  display: none; }
 
 .frontpage .content .examples .accordion .name {
   position: absolute;
@@ -218,17 +219,25 @@ body.category #nav-divider {
   left: 15px;
   z-index: 10; }
 
+.frontpage .content .examples .accordion .mask a {
+  display: inline-block;
+  height: 100%; }
+
 .frontpage .content .examples .item1.slider-closed .mask {
-  background-color: rgba(0, 158, 107, 0.7); }
+  background-color: rgba(0, 158, 107, 0.7);
+  display: block; }
 
 .frontpage .content .examples .item2.slider-closed .mask {
-  background-color: rgba(222, 0, 0, 0.7); }
+  background-color: rgba(222, 0, 0, 0.7);
+  display: block; }
 
 .frontpage .content .examples .item3.slider-closed .mask {
-  background-color: rgba(0, 27, 81, 0.7); }
+  background-color: rgba(0, 27, 81, 0.7);
+  display: block; }
 
 .frontpage .content .examples .item4.slider-closed .mask {
-  background-color: rgba(214, 161, 43, 0.7); }
+  background-color: rgba(214, 161, 43, 0.7);
+  display: block; }
 
 .about .content {
   margin-top: 20px;
