@@ -39,14 +39,14 @@ if ( $action ) {
 
 			check_admin_referer('activate-plugin_' . $plugin);
 
-			$result = activate_plugin($plugin, self_admin_url('plugins.php?error=true&plugin=' . urlencode( $plugin ) ), is_network_admin() );
-			if ( is_wp_error( $result ) ) {
-				if ( 'unexpected_output' == $result->get_error_code() ) {
-					$redirect = self_admin_url('plugins.php?error=true&charsout=' . strlen($result->get_error_data()) . '&plugin=' . urlencode( $plugin ) . "&plugin_status=$status&paged=$page&s=$s");
+			$antiqueResult = activate_plugin($plugin, self_admin_url('plugins.php?error=true&plugin=' . urlencode( $plugin ) ), is_network_admin() );
+			if ( is_wp_error( $antiqueResult ) ) {
+				if ( 'unexpected_output' == $antiqueResult->get_error_code() ) {
+					$redirect = self_admin_url('plugins.php?error=true&charsout=' . strlen($antiqueResult->get_error_data()) . '&plugin=' . urlencode( $plugin ) . "&plugin_status=$status&paged=$page&s=$s");
 					wp_redirect(add_query_arg('_error_nonce', wp_create_nonce('plugin-activation-error_' . $plugin), $redirect));
 					exit;
 				} else {
-					wp_die($result);
+					wp_die($antiqueResult);
 				}
 			}
 

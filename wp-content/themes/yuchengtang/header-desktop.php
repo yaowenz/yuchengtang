@@ -27,7 +27,7 @@
 jQuery(function($) {
 	// Logo Animation for vertical layout
 	var navMenuAnime;
-	$('.category-antiques #nav').hover(
+	$('.category-antiques #nav, .page.antique #nav').hover(
 		function() {
 			if (navMenuAnime == undefined) {
 				navMenuAnime = anime.timeline();

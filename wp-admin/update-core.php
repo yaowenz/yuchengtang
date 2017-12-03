@@ -743,7 +743,7 @@ if ( 'upgrade-core' == $action ) {
 	$context = WP_LANG_DIR;
 
 	$upgrader = new Language_Pack_Upgrader( new Language_Pack_Upgrader_Skin( compact( 'url', 'nonce', 'title', 'context' ) ) );
-	$result = $upgrader->bulk_upgrade();
+	$antiqueResult = $upgrader->bulk_upgrade();
 
 	wp_localize_script( 'updates', '_wpUpdatesItemCounts', array(
 		'totals'  => wp_get_update_data(),

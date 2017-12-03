@@ -140,6 +140,9 @@ if (!is_mobile()) {
 </div>
 <script>
 jQuery(function($) {
+
+	$('#nav .antiques').addClass('active');
+	
 	var $frame = $('#frame');
 	var $slidee = $frame.children('ul').eq(0);
 	var $wrap   = $frame.parent();
@@ -198,7 +201,6 @@ jQuery(function($) {
         keyboardScrolling: true,
         sectionSelector: '.section',
         animateAnchor: false,
-
 		//events
 		onLeave: function(index, nextIndex, direction) {
 			$('#pagepiling .section').css('visibility', 'hidden');

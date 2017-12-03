@@ -159,9 +159,9 @@ if ( isset($_GET['action']) ) {
 		$type = 'upload'; //Install plugin type, From Web or an Upload.
 
 		$upgrader = new Plugin_Upgrader( new Plugin_Installer_Skin( compact('type', 'title', 'nonce', 'url') ) );
-		$result = $upgrader->install( $file_upload->package );
+		$antiqueResult = $upgrader->install( $file_upload->package );
 
-		if ( $result || is_wp_error($result) )
+		if ( $antiqueResult || is_wp_error($antiqueResult) )
 			$file_upload->cleanup();
 
 		include(ABSPATH . 'wp-admin/admin-footer.php');
@@ -267,9 +267,9 @@ if ( isset($_GET['action']) ) {
 		$type = 'upload'; //Install plugin type, From Web or an Upload.
 
 		$upgrader = new Theme_Upgrader( new Theme_Installer_Skin( compact('type', 'title', 'nonce', 'url') ) );
-		$result = $upgrader->install( $file_upload->package );
+		$antiqueResult = $upgrader->install( $file_upload->package );
 
-		if ( $result || is_wp_error($result) )
+		if ( $antiqueResult || is_wp_error($antiqueResult) )
 			$file_upload->cleanup();
 
 		include(ABSPATH . 'wp-admin/admin-footer.php');

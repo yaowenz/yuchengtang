@@ -89,10 +89,10 @@ get_header( 'wp-activate' );
 	<?php } else {
 
 		$key = !empty($_GET['key']) ? $_GET['key'] : $_POST['key'];
-		$result = wpmu_activate_signup( $key );
-		if ( is_wp_error($result) ) {
-			if ( 'already_active' == $result->get_error_code() || 'blog_taken' == $result->get_error_code() ) {
-				$signup = $result->get_error_data();
+		$antiqueResult = wpmu_activate_signup( $key );
+		if ( is_wp_error($antiqueResult) ) {
+			if ( 'already_active' == $antiqueResult->get_error_code() || 'blog_taken' == $antiqueResult->get_error_code() ) {
+				$signup = $antiqueResult->get_error_data();
 				?>
 				<h2><?php _e('Your account is now active!'); ?></h2>
 				<?php
@@ -121,22 +121,22 @@ get_header( 'wp-activate' );
 			} else {
 				?>
 				<h2><?php _e( 'An error occurred during the activation' ); ?></h2>
-				<p><?php echo $result->get_error_message(); ?></p>
+				<p><?php echo $antiqueResult->get_error_message(); ?></p>
 				<?php
 			}
 		} else {
-			$url = isset( $result['blog_id'] ) ? get_home_url( (int) $result['blog_id'] ) : '';
-			$user = get_userdata( (int) $result['user_id'] );
+			$url = isset( $antiqueResult['blog_id'] ) ? get_home_url( (int) $antiqueResult['blog_id'] ) : '';
+			$user = get_userdata( (int) $antiqueResult['user_id'] );
 			?>
 			<h2><?php _e('Your account is now active!'); ?></h2>
 
 			<div id="signup-welcome">
 				<p><span class="h3"><?php _e('Username:'); ?></span> <?php echo $user->user_login ?></p>
-				<p><span class="h3"><?php _e('Password:'); ?></span> <?php echo $result['password']; ?></p>
+				<p><span class="h3"><?php _e('Password:'); ?></span> <?php echo $antiqueResult['password']; ?></p>
 			</div>
 
 			<?php if ( $url && $url != network_home_url( '', 'http' ) ) :
-				switch_to_blog( (int) $result['blog_id'] );
+				switch_to_blog( (int) $antiqueResult['blog_id'] );
 				$login_url = wp_login_url();
 				restore_current_blog();
 				?>
