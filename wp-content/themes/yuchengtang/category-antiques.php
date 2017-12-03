@@ -6,12 +6,12 @@ if (!is_mobile()) {
 
 /** 获取各个分类的藏品 **/
 global $wpdb;
-$cateQing = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '清%' AND state = 1");
-$cateMing = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '明%' AND state = 1");
-$cateYuan = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '元%' AND state = 1");
-$cateSong = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '宋%' AND state = 1");
-$cateG20 = $wpdb->get_results("SELECT * FROM yc_item WHERE id IN (146, 147, 148, 149);");
-$cateB5 = $wpdb->get_results("SELECT * FROM yc_item WHERE id IN (150,151,152,153,154,155,156,157,158,159,160)");
+$cateQing = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '清%' AND state = 1 ORDER BY id DESC");
+$cateMing = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '明%' AND state = 1 ORDER BY id DESC");
+$cateYuan = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '元%' AND state = 1 ORDER BY id DESC");
+$cateSong = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '宋%' AND state = 1 ORDER BY id DESC");
+$cateG20 = $wpdb->get_results("SELECT * FROM yc_item WHERE id IN (146, 147, 148, 149) ORDER BY id DESC;");
+$cateB5 = $wpdb->get_results("SELECT * FROM yc_item WHERE id IN (150,151,152,153,154,155,156,157,158,159,160) ORDER BY id DESC");
 
 $categories = [
 	'cateQing' => ['清代', 'Qing Dynasty'],
