@@ -57,7 +57,7 @@ if ( is_network_admin() ) {
 }
 
 $network_help = '<p>' . __('This screen allows you to configure a network as having subdomains (<code>site1.example.com</code>) or subdirectories (<code>example.com/site1</code>). Subdomains require wildcard subdomains to be enabled in Apache and DNS records, if your host allows it.') . '</p>' .
-	'<p>' . __('Choose subdomains or subdirectories; this can only be switched afterwards by reconfiguring your install. Fill out the network details, and click install. If this does not work, you may have to add a wildcard DNS record (for subdomains) or change to another setting in Permalinks (for subdirectories).') . '</p>' .
+	'<p>' . __('Choose subdomains or subdirectories; this can only be switched afterwards by reconfiguring your installation. Fill out the network details, and click Install. If this does not work, you may have to add a wildcard DNS record (for subdomains) or change to another setting in Permalinks (for subdirectories).') . '</p>' .
 	'<p>' . __('The next screen for Network Setup will give you individually-generated lines of code to add to your wp-config.php and .htaccess files. Make sure the settings of your FTP client make files starting with a dot visible, so that you can find .htaccess; you may have to create this file if it really is not there. Make backup copies of those two files.') . '</p>' .
 	'<p>' . __('Add the designated lines of code to wp-config.php (just before <code>/*...stop editing...*/</code>) and <code>.htaccess</code> (replacing the existing WordPress rules).') . '</p>' .
 	'<p>' . __('Once you add this code and refresh your browser, multisite should be enabled. This screen, now in the Network Admin navigation menu, will keep an archive of the added code. You can toggle between Network Admin and Site Admin by clicking on the Network Admin or an individual site name under the My Sites dropdown in the Toolbar.') . '</p>' .
@@ -95,12 +95,12 @@ if ( $_POST ) {
 	$base              = parse_url( trailingslashit( get_option( 'home' ) ), PHP_URL_PATH );
 	$subdomain_install = allow_subdomain_install() ? !empty( $_POST['subdomain_install'] ) : false;
 	if ( ! network_domain_check() ) {
-		$antiqueResult = populate_network( 1, get_clean_basedomain(), sanitize_email( $_POST['email'] ), wp_unslash( $_POST['sitename'] ), $base, $subdomain_install );
-		if ( is_wp_error( $antiqueResult ) ) {
-			if ( 1 == count( $antiqueResult->get_error_codes() ) && 'no_wildcard_dns' == $antiqueResult->get_error_code() )
-				network_step2( $antiqueResult );
+		$result = populate_network( 1, get_clean_basedomain(), sanitize_email( $_POST['email'] ), wp_unslash( $_POST['sitename'] ), $base, $subdomain_install );
+		if ( is_wp_error( $result ) ) {
+			if ( 1 == count( $result->get_error_codes() ) && 'no_wildcard_dns' == $result->get_error_code() )
+				network_step2( $result );
 			else
-				network_step1( $antiqueResult );
+				network_step1( $result );
 		} else {
 			network_step2();
 		}

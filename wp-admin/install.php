@@ -49,7 +49,7 @@ nocache_headers();
 $step = isset( $_GET['step'] ) ? (int) $_GET['step'] : 0;
 
 /**
- * Display install header.
+ * Display installation header.
  *
  * @since 2.5.0
  *
@@ -86,6 +86,8 @@ function display_header( $body_classes = '' ) {
  * Display installer setup form.
  *
  * @since 2.8.0
+ *
+ * @global wpdb $wpdb WordPress database abstraction object.
  *
  * @param string|null $error
  */
@@ -368,7 +370,7 @@ switch($step) {
 
 		if ( $error === false ) {
 			$wpdb->show_errors();
-			$antiqueResult = wp_install( $weblog_title, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
+			$result = wp_install( $weblog_title, $user_name, $admin_email, $public, '', wp_slash( $admin_password ), $loaded_language );
 ?>
 
 <h1><?php _e( 'Success!' ); ?></h1>
@@ -383,10 +385,10 @@ switch($step) {
 	<tr>
 		<th><?php _e( 'Password' ); ?></th>
 		<td><?php
-		if ( ! empty( $antiqueResult['password'] ) && empty( $admin_password_check ) ): ?>
-			<code><?php echo esc_html( $antiqueResult['password'] ) ?></code><br />
+		if ( ! empty( $result['password'] ) && empty( $admin_password_check ) ): ?>
+			<code><?php echo esc_html( $result['password'] ) ?></code><br />
 		<?php endif ?>
-			<p><?php echo $antiqueResult['password_message'] ?></p>
+			<p><?php echo $result['password_message'] ?></p>
 		</td>
 	</tr>
 </table>

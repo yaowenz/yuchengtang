@@ -36,7 +36,7 @@ do_action( 'activate_header' );
  *
  * Fires on {@see 'wp_head'}.
  *
- * @since MU
+ * @since MU (3.0.0)
  */
 function do_activate_header() {
 	/**
@@ -53,7 +53,7 @@ add_action( 'wp_head', 'do_activate_header' );
 /**
  * Loads styles specific to this page.
  *
- * @since MU
+ * @since MU (3.0.0)
  */
 function wpmu_activate_stylesheet() {
 	?>
@@ -89,10 +89,10 @@ get_header( 'wp-activate' );
 	<?php } else {
 
 		$key = !empty($_GET['key']) ? $_GET['key'] : $_POST['key'];
-		$antiqueResult = wpmu_activate_signup( $key );
-		if ( is_wp_error($antiqueResult) ) {
-			if ( 'already_active' == $antiqueResult->get_error_code() || 'blog_taken' == $antiqueResult->get_error_code() ) {
-				$signup = $antiqueResult->get_error_data();
+		$result = wpmu_activate_signup( $key );
+		if ( is_wp_error($result) ) {
+			if ( 'already_active' == $result->get_error_code() || 'blog_taken' == $result->get_error_code() ) {
+				$signup = $result->get_error_data();
 				?>
 				<h2><?php _e('Your account is now active!'); ?></h2>
 				<?php
@@ -108,10 +108,9 @@ get_header( 'wp-activate' );
 					);
 				} else {
 					printf(
-						/* translators: 1: site URL, 2: site domain, 3: username, 4: user email, 5: lost password URL */
-						__( 'Your site at <a href="%1$s">%2$s</a> is active. You may now log in to your site using your chosen username of &#8220;%3$s&#8221;. Please check your email inbox at %4$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href="%5$s">reset your password</a>.' ),
-						'http://' . $signup->domain,
-						$signup->domain,
+						/* translators: 1: site URL, 2: username, 3: user email, 4: lost password URL */
+						__( 'Your site at %1$s is active. You may now log in to your site using your chosen username of &#8220;%2$s&#8221;. Please check your email inbox at %3$s for your password and login instructions. If you do not receive an email, please check your junk or spam folder. If you still do not receive an email within an hour, you can <a href="%4$s">reset your password</a>.' ),
+						sprintf( '<a href="http://%s">%s</a>', $signup->domain ),
 						$signup->user_login,
 						$signup->user_email,
 						wp_lostpassword_url()
@@ -121,22 +120,22 @@ get_header( 'wp-activate' );
 			} else {
 				?>
 				<h2><?php _e( 'An error occurred during the activation' ); ?></h2>
-				<p><?php echo $antiqueResult->get_error_message(); ?></p>
+				<p><?php echo $result->get_error_message(); ?></p>
 				<?php
 			}
 		} else {
-			$url = isset( $antiqueResult['blog_id'] ) ? get_home_url( (int) $antiqueResult['blog_id'] ) : '';
-			$user = get_userdata( (int) $antiqueResult['user_id'] );
+			$url = isset( $result['blog_id'] ) ? get_home_url( (int) $result['blog_id'] ) : '';
+			$user = get_userdata( (int) $result['user_id'] );
 			?>
 			<h2><?php _e('Your account is now active!'); ?></h2>
 
 			<div id="signup-welcome">
 				<p><span class="h3"><?php _e('Username:'); ?></span> <?php echo $user->user_login ?></p>
-				<p><span class="h3"><?php _e('Password:'); ?></span> <?php echo $antiqueResult['password']; ?></p>
+				<p><span class="h3"><?php _e('Password:'); ?></span> <?php echo $result['password']; ?></p>
 			</div>
 
 			<?php if ( $url && $url != network_home_url( '', 'http' ) ) :
-				switch_to_blog( (int) $antiqueResult['blog_id'] );
+				switch_to_blog( (int) $result['blog_id'] );
 				$login_url = wp_login_url();
 				restore_current_blog();
 				?>
