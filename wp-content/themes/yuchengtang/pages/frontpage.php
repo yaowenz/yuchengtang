@@ -34,7 +34,7 @@
 			<p style="margin-top:5px;font-size:14px">（周日、周一闭馆 ）</p>
 			<p style="color:#3d5079;font-size:18px;margin-top:20px;border-top:1px dotted #999;padding-top:10px">上海市浦三路21弄55-56号银亿滨江中心17楼</p>
 			<div class="more">
-				<a class="btn" style="background:#3d5079" href="<?php echo site_url('tickets');?>">预约</a>
+				<a class="btn" style="background:#3d5079" href="<?php echo site_url('reservation');?>">预约</a>
 			</div>
 		</div>
 		<div class="antiques">

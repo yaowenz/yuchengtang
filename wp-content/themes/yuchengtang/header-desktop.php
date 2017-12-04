@@ -12,7 +12,7 @@
 				<a href="<?php echo site_url('archives/category/antiques')?>" title="藏品">&nbsp;</a>
 			</li>
 			<li class="tickets text">
-				<a href="<?php echo site_url('tickets')?>" title="观展">&nbsp;</a>
+				<a href="<?php echo site_url('reservation')?>" title="观展">&nbsp;</a>
 			</li>
 			<li class="about text">
 				<a href="<?php echo site_url('about')?>" title="关于">&nbsp;</a>

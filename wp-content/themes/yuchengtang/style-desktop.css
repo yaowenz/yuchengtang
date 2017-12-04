@@ -756,6 +756,33 @@ body.category #nav-divider {
   .page.antique .thumbs .pages li.active {
     background: #333; }
 
+/** 预约看展 **/
+.page.reservation #footer {
+  margin-top: 100px; }
+
+.page.reservation .info {
+  float: left;
+  width: 500px;
+  padding: 15px; }
+
+.page.reservation .notice {
+  float: right;
+  height: 700px;
+  width: 400px;
+  background-image: url("assets/images/tickets-notice-bg.jpg");
+  padding: 15px;
+  line-height: 1.6; }
+
+.page.reservation .notice h2 {
+  font-size: 18px;
+  padding-top: 15px;
+  margin-bottom: 5px;
+  border-top: 1px solid #7f7f7f;
+  color: #AA773E; }
+
+.page.reservation .notice strong {
+  color: #AA773E; }
+
 /**
  * BaiduMap
  */

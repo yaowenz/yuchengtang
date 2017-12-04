@@ -1,4 +1,9 @@
 <?php
+if (!is_mobile()) {
+	include('pages/reservation-desktop.php');
+	die();
+}
+
 session_start();
 $_SESSION['verify_code'] = mt_rand(1000, 9999);
 ?>

@@ -20,12 +20,12 @@
 			<div style="margin:10px 0px;border-bottom:1px solid #B27B42"></div>
 			<ul>
 				<li><strong>地址：</strong>上海市浦三路21弄55-56号银亿滨江中心17楼</li>
-				<li><strong>电话：</strong></li>
+				<li><strong>电话：021-61553566</strong></li>
 				<li><strong>开馆时间：</strong>周二~周六 10:00 ~ 16:30</li>
 			</ul>
 			<ul>
-				<li><strong>Address：</strong></li>
-				<li><strong>Phone：</strong></li>
+				<li><strong>Address：</strong>17th Floor, Yinyi Bingjiang Center, No 55-56, Lane 21, Pusan Road, Shanghai</li>
+				<li><strong>Phone：</strong>021-61553566</li>
 				<li><strong>Opening Hours：</strong>Tue. ~ Sat. 10:00 ~ 16:30</li>
 			</ul>
 		</div>
