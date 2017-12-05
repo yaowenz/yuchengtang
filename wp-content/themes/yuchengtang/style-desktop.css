@@ -790,7 +790,7 @@ body.category #nav-divider {
 
 .page.reservation .notice {
   float: right;
-  height: 700px;
+  height: 750px;
   width: 400px;
   background-image: url("assets/images/tickets-notice-bg.jpg");
   padding: 15px;
