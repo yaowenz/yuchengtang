@@ -182,8 +182,7 @@ body.category {
 		.menu a:hover {text-decoration:none}	
 		.menu .search {display:none}		
 	}
-	#nav-divider {position:fixed;top:0px;left:0px;width:100%}
-	
+	#nav-divider {position:fixed;top:0px;left:0px;width:100%;z-index:10000}	
 }
 
 .category-antiques {
@@ -434,6 +433,20 @@ body.category {
 	#footer {margin-top:100px}
 	.info {
 		& {float:left;width:500px;padding:15px}
+		.required {color:#d20412}
+		.form {margin-top:30px}
+		
+		/** Override Materialize **/
+		.input-field>label {font-size:16px;color:#666}
+		.disabled {font-size:18px;color:#333;opacity:1}
+		form .row { 
+			&.static {margin-top:40px;margin-bottom:30px}
+			.title {font-size:16px;margin-bottom:15px;color:#666;}
+			
+			label.checkbox {margin-right:15px}
+
+		}
+		
 	}
 	.notice {
 		& {float:right;height: 700px;width: 400px;background-image:url('assets/images/tickets-notice-bg.jpg');padding:15px;line-height:1.6}

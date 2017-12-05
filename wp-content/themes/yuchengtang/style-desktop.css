@@ -412,7 +412,8 @@ body.category #nav-divider {
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 100%; }
+  width: 100%;
+  z-index: 10000; }
 
 .category-antiques {
   /** pagePiling **/
@@ -761,9 +762,31 @@ body.category #nav-divider {
   margin-top: 100px; }
 
 .page.reservation .info {
-  float: left;
-  width: 500px;
-  padding: 15px; }
+  /** Override Materialize **/ }
+  .page.reservation .info {
+    float: left;
+    width: 500px;
+    padding: 15px; }
+  .page.reservation .info .required {
+    color: #d20412; }
+  .page.reservation .info .form {
+    margin-top: 30px; }
+  .page.reservation .info .input-field > label {
+    font-size: 16px;
+    color: #666; }
+  .page.reservation .info .disabled {
+    font-size: 18px;
+    color: #333;
+    opacity: 1; }
+  .page.reservation .info form .row.static {
+    margin-top: 40px;
+    margin-bottom: 30px; }
+  .page.reservation .info form .row .title {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #666; }
+  .page.reservation .info form .row label.checkbox {
+    margin-right: 15px; }
 
 .page.reservation .notice {
   float: right;

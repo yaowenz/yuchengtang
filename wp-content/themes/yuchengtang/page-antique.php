@@ -152,7 +152,7 @@ get_header();
 <!-- 360 View -->
 <div class="remodal" data-remodal-id="modal-360" data-remodal-options="closeOnOutsideClick: false" style="width:400px;height:600px;padding:0px">
 	<button data-remodal-action="close" class="remodal-close"></button>
-	<iframe src="<?php echo str_replace("#id#", $antiqueId, APP_360_SHOWCASE_URL)?>" frameborder="0" width="400" height="600"></iframe>
+	<iframe src="<?php echo str_replace("#id#", $antiqueId, APP_360_SHOWCASE_URL)?>" frameborder="0" width="405" height="600"></iframe>
 </div>
 <?php endif;?>
 <?php if ($hasAudio):?>
