@@ -23,6 +23,9 @@ body.category #nav-divider {
   float: none !important;
   clear: both !important; }
 
+.mobile {
+  display: none; }
+
 #nav {
   width: 100%;
   height: 200px; }
@@ -125,7 +128,7 @@ body.category #nav-divider {
 .frontpage .content div {
   background-repeat: no-repeat;
   background-size: cover;
-  background-background-position: center; }
+  background-position: center; }
 
 .frontpage .content .news {
   background-image: url("assets/images/bg-news.jpg");
@@ -197,6 +200,12 @@ body.category #nav-divider {
   height: 500px;
   background-image: url("assets/images/bg-antiques.jpg"); }
 
+.frontpage .content .antiques .intro .title {
+  margin-top: 150px; }
+
+.frontpage .content .antiques .intro .more {
+  margin-top: 80px; }
+
 .frontpage .content .examples {
   float: right;
   width: 650px; }
@@ -218,10 +227,6 @@ body.category #nav-divider {
   top: 15px;
   left: 15px;
   z-index: 10; }
-
-.frontpage .content .examples .accordion .mask a {
-  display: inline-block;
-  height: 100%; }
 
 .frontpage .content .examples .item1.slider-closed .mask {
   background-color: rgba(0, 158, 107, 0.7);
@@ -805,12 +810,6 @@ body.category #nav-divider {
 
 .page.reservation .notice strong {
   color: #AA773E; }
-
-/**
- * BaiduMap
- */
-.anchorBL {
-  display: none; }
 
 #footer {
   font-size: 14px;

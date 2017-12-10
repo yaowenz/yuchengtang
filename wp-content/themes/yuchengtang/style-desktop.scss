@@ -23,6 +23,8 @@ body.category {
 
 .clear {float:none!important;clear:both!important}
 
+.mobile {display:none}
+
 #nav {
 	& {width: 100%; height:200px}
 	.logo img {width: 160px}
@@ -68,7 +70,7 @@ body.category {
 		& {padding-top:30px;padding-bottom:80px}
 		h2 {margin:0px;padding:0px}	
 		.more a:hover {opacity:0.9}
-		div {background-repeat:no-repeat;background-size:cover;background-background-position:center}
+		div {background-repeat:no-repeat;background-size:cover;background-position:center}
 		.news {background-image:url('assets/images/bg-news.jpg');float:left;width:550px;}
 		.news ul {			
 			list-style-image:url("assets/images/list-square.png")!important;
@@ -93,14 +95,15 @@ body.category {
 		.antiques {clear:both;float:none;padding-top:20px}	
 		.antiques {
 			.intro {width:350px;float:left;height:500px;background-image:url('assets/images/bg-antiques.jpg');}
+			.intro .title {margin-top:150px}
+			.intro .more {margin-top:80px}
 		}
 		.examples {
 			& {float:right;width:650px}
 			.accordion {margin:0px}
 			.accordion {
 				.mask {position:absolute;width:100%;height:100%;top:0px;left:0px;z-index:1;display:none}
-				.name {position:absolute;top:15px;left:15px;z-index:10}
-				.mask a {display:inline-block;height:100%}
+				.name {position:absolute;top:15px;left:15px;z-index:10}				
 			}
 			.item1.slider-closed {
 				.mask {background-color:rgba(0,158,107,0.7);display:block}
@@ -454,11 +457,6 @@ body.category {
 		strong {color:#AA773E}
 	}
 }
-
-/**
- * BaiduMap
- */
-.anchorBL {display:none}
 
 #footer {
 	& {

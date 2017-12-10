@@ -1,6 +1,7 @@
 <div id="slides" style="opacity:0">
 	<div class="wrapper">
-		<img src="<?php echo get_template_directory_uri()?>/assets/images/banner-1.png" width="850"/>
+		<img src="<?php echo get_template_directory_uri()?>/assets/images/banner-1.png" class="desktop" width="850"/>
+		<img src="<?php echo get_template_directory_uri()?>/assets/images/banner-1-mobile.png" class="mobile"/>
 	</div>
 </div>
 <div class="bg">
@@ -39,10 +40,10 @@
 		</div>
 		<div class="antiques">
 			<div class="intro">
-				<div class="title" style="text-align:center;margin-top:150px">
+				<div class="title" style="text-align:center">
 					<img src="<?php echo get_template_directory_uri()?>/assets/images/title-antiques.png" width="60%" />
 				</div>
-				<div class="more" style="text-align:center;margin-top:80px">
+				<div class="more" style="text-align:center">
 					<a class="btn" style="background:#8E5025;font-size:16px" href="<?php echo site_url('archives/category/antiques');?>">更多</a>
 				</div>
 			</div>
@@ -93,6 +94,7 @@
 </div>
 <script type="text/javascript">
 jQuery(function($) {
+	<?php if(!is_mobile()) :?>
 	$(".antiques .examples .accordion").zAccordion({
 		startingSlide: 0,
 		auto: false,
@@ -104,6 +106,7 @@ jQuery(function($) {
 		trigger: "mouseover",
 		speed: 300
 	});
+	<?php endif;?>
 
 	// Animation
 	var bannerAnimation = anime.timeline({
@@ -111,11 +114,11 @@ jQuery(function($) {
         autoplay: true
     });
 	bannerAnimation.add({
-      targets: '#slides',
-      opacity: 1,
-      scale: 1.05,
-      easing: 'linear',
-      duration: 2500,
+    	targets: '#slides',
+    	opacity: 1,
+    	scale: 1.05,
+    	easing: 'linear',
+    	duration: 2500,
     });
 })
 </script>
