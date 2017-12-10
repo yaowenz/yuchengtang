@@ -394,7 +394,8 @@ body {
   text-align: center; }
 
 .page.antique .wrapper .cover-img .img-container img {
-  max-height: 300px; }
+  max-height: 300px;
+  max-width: 100%; }
 
 .page.antique .wrapper .actions ul {
   width: 270px;

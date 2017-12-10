@@ -158,7 +158,7 @@ body {overflow-x:hidden;width:100%;padding-top:95px;height:100%;background-image
 	 	& {width:100%;margin:auto}
 		.cover-img {display:table;height:300px;width:100%}
 		.cover-img .img-container {width:100%;display:table-cell;vertical-align:middle;text-align:center}	
-		.cover-img .img-container img {max-height:300px}
+		.cover-img .img-container img {max-height:300px;max-width:100%;}
 		.actions {
 			ul {width:270px;margin:15px auto 10px auto;height:35px;padding:0px}
 			li a {display:inline-block;width:100%;height:100%}
