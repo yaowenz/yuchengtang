@@ -15,6 +15,7 @@
 					<div class="brief">
 						<p><a href="<?php echo get_permalink(); ?>"><?php the_title();?></a></p>
 						<p class="entry-date"><?php echo get_the_date('Y/m/d');?></p>
+						<p class="entry-mark mobile"><img src="<?php echo get_template_directory_uri()?>/assets/images/icon-square-28px.png" width="16" /></p>
 					</div>
 					<div class="clear"></div>
 				</div>

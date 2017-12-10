@@ -1,5 +1,5 @@
 <div class="content wrapper">
-	<div style="width:170px;margin:auto;padding-top:30px">
+	<div class="about-title">
 		<img src="<?php echo get_template_directory_uri()?>/assets/images/about-title.png" width="100%">
 	</div>
 	<div style="width:30px;margin:auto;padding-top:50px;margin-bottom:30px">
@@ -12,9 +12,8 @@
 	<div class="features">
 		<img src="<?php echo get_template_directory_uri()?>/assets/images/about-features.png" width="100%">
 	</div>
-	<div style="margin:80px 0px 50px 0px;border-bottom:1px solid #ccc"></div>
+	<div css="desktop" style="margin:80px 0px 50px 0px;border-bottom:1px solid #ccc"></div>
 	<div class="contact">
-		<div class="map" id="about-map"></div>
 		<div class="info">
 			<img src="<?php echo get_template_directory_uri()?>/assets/images/about-contactus-title.png" width="120">
 			<div style="margin:10px 0px;border-bottom:1px solid #B27B42"></div>
@@ -29,6 +28,7 @@
 				<li><strong>Opening Hours：</strong>Tue. ~ Sat. 10:00 ~ 16:30</li>
 			</ul>
 		</div>
+		<div class="map" id="about-map"></div>
 		<div class="clear"></div>
 	</div>
 </div>
