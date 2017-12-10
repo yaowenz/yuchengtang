@@ -1,19 +1,23 @@
+/**
+ * Variables
+ */
+$nav-height:75px;
 
-body {overflow-x:hidden;width:100%;padding-top:95px;height:100%;background-image:url('assets/images/bg-general.jpg');background-attachment:fixed;background-position:center -150px;background-size:cover;background-repeat: no-repeat}
+body {overflow-x:hidden;width:100%;padding-top:$nav-height+5px;height:100%;background-image:url('assets/images/bg-general.jpg');background-attachment:fixed;background-position:center -150px;background-size:cover;background-repeat: no-repeat}
 
 .desktop {display:none}
 
 #nav {
-	& {width: 100%; height:90px;position:fixed;top:0px;left:0px;z-index:1000;border-bottom:1px solid #ccc;background:white}
-	.header {padding:10px 15px 0px 15px;height:60px}
+	& {width: 100%; height:$nav-height;position:fixed;top:0px;left:0px;z-index:1000;border-bottom:1px solid #ccc;background:white}
+	.header {padding:10px 15px 0px 15px;height:55px}
 	.logo {height:100%}
 	.logo img {height:100%}
-	.menu-link {position:fixed;right:15px;top:30px;font-size:16px;height:30px;line-height:30px;color:#be9567;width:115px}
+	.menu-link {position:fixed;right:15px;top:25px;font-size:16px;height:30px;line-height:30px;color:#be9567;width:115px}
 	.menu-link > div {line-height:30px;height:30px;float:right}
 	.menu-link .menu-icon {display:block;float:left;width:30px;height:30px;background-image:url('assets/images/icon-menu.png');background-repeat:no-repeat;background-position:center;background-size:18px 18px}
 	.menu-link.closable .menu-icon {background-image:url('assets/images/icon-close.png');background-size:12px 12px}
 	.menu {
-		& {position:fixed;left:0px;padding-top:15px;padding-right:15px;top:90px;height:calc(100% - 90px);box-sizing:border-box;background:white;margin:0px;width:100%;list-style:none;opacity:0.95}
+		& {position:fixed;left:0px;padding-top:15px;padding-right:15px;top:$nav-height;height:calc(100% - #{$nav-height});box-sizing:border-box;background:white;margin:0px;width:100%;list-style:none;opacity:0.95}
 		li {line-height:2.5;text-align:right;width:100%;font-size:18px;}
 		li .mobile {border-bottom:1px dotted #ccc;display:inline-block;}
 		.search {display:none}
@@ -23,7 +27,7 @@ body {overflow-x:hidden;width:100%;padding-top:95px;height:100%;background-image
 	}
 }
 
-#nav-divider {width:100%;z-index:1000;position:fixed;top:80px;left:0px;height:15px;background-repeat:repeat-x;background-size:auto 100%;background-image:url('assets/images/header-divider.png')}
+#nav-divider {width:100%;z-index:1000;position:fixed;top:$nav-height;left:0px;height:15px;background-repeat:repeat-x;background-size:auto 100%;background-image:url('assets/images/header-divider.png')}
 
 .page.frontpage {
 	#slides {
