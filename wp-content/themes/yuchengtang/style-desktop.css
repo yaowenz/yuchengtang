@@ -177,7 +177,8 @@ body.category #nav-divider {
   font-weight: normal; }
 
 .frontpage .content .news h2.eng, .frontpage .content .tickets h2.eng {
-  font-size: 16px; }
+  font-size: 16px;
+  margin-top: 5px; }
 
 .frontpage .content .news .more, .frontpage .content .tickets .more {
   position: absolute;

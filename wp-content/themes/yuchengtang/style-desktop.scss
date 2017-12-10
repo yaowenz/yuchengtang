@@ -87,7 +87,7 @@ body.category {
 		.news, .tickets  {
 			&  {padding:30px;box-sizing:border-box;height:380px;position:relative}
 			h2 {font-size:24px;font-weight:normal}
-			h2.eng {font-size:16px}
+			h2.eng {font-size:16px;margin-top:5px}
 			.more {position:absolute;bottom:20px}
 		}
 		.tickets .more {left:30px}
