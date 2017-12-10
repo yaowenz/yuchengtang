@@ -661,7 +661,8 @@ body.category #nav-divider {
 .page.antique .wrapper .params {
   color: #999;
   margin-top: 15px;
-  font-size: 14px; }
+  font-size: 14px;
+  line-height: 1.6; }
 
 .page.antique .wrapper .description {
   padding-bottom: 30px;

@@ -106,14 +106,11 @@ function yct_theme_scripts() {
 	wp_enqueue_script( 'anime',  get_template_directory_uri() . '/assets/js/anime.min.js');
 	wp_enqueue_script( 'audiojs',  get_template_directory_uri() . '/assets/js/audiojs/audio.min.js');
 	wp_enqueue_style( 'yct-theme-style', get_stylesheet_uri() );
-	
-	if (!is_mobile()) {
-		wp_enqueue_script( 'sly',  get_template_directory_uri() . '/assets/js/sly.min.js', ['jquery']);
-		wp_enqueue_script( 'remodal',  get_template_directory_uri() . '/assets/js/remodal/remodal.min.js', ['jquery']);
-		wp_enqueue_style( 'remodal',  get_template_directory_uri() . '/assets/js/remodal/remodal.css' );
-		wp_enqueue_style( 'remodal-theme',  get_template_directory_uri() . '/assets/js/remodal/remodal-default-theme.css' );
-	}
-	//
+
+	wp_enqueue_script( 'sly',  get_template_directory_uri() . '/assets/js/sly.min.js', ['jquery']);
+	wp_enqueue_script( 'remodal',  get_template_directory_uri() . '/assets/js/remodal/remodal.min.js', ['jquery']);
+	wp_enqueue_style( 'remodal',  get_template_directory_uri() . '/assets/js/remodal/remodal.css' );
+	wp_enqueue_style( 'remodal-theme',  get_template_directory_uri() . '/assets/js/remodal/remodal-default-theme.css' );
 }
 add_action( 'wp_enqueue_scripts', 'yct_theme_scripts' );
 

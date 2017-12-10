@@ -69,14 +69,22 @@ get_header();
 		<div class="actions">
 			<ul>
 				<?php if ($antiqueResult->m_3d):?>
+					<?php if (!is_mobile()):?>
 				<li class="showcase-360"><a title="360观看 (360 View)" data-remodal-target="modal-360"></a></li>
+					<?php else:?>
+				<li class="showcase-360"><a title="360观看 (360 View)" href="<?php echo str_replace("#id#", $antiqueId, APP_360_SHOWCASE_URL)?>"></a></li>
+					<?php endif;?>
 				<?php endif;?>
 				<?php if ($hasAudio):?>
 				<li class="audio-en"><a data-remodal-target="modal-audio-en" title="Audio Guidance (English)"></a></li>
 				<li class="audio-cn"><a data-remodal-target="modal-audio" title="语音导览"></a></li>
 				<?php endif;?>
 				<?php if ($hasVideo):?>
-				<li class="video-play"><a data-remodal-target="modal-video" title="视频介绍 Video Intro"></a></li>
+					<?php if (!is_mobile()):?>
+					<li class="video-play"><a data-remodal-target="modal-video" title="视频介绍 Video Intro"></a></li>
+					<?php else:?>
+					<li class="video-play"><a href="<?php echo APP_360_MEDIA_URL . $videoFile ?>" title="视频介绍 Video Intro"></a></li>
+					<?php endif;?>
 				<?php endif;?>
 			</ul>
 			<div class="clear"></div>
@@ -229,7 +237,11 @@ jQuery(function($) {
 	});
 
 	/** action 图标居中  **/
+	<?php if (is_mobile()):?>
+	$('.wrapper .actions ul').css('width', 57 * $('.wrapper .actions ul li').length);
+	<?php else:?>
 	$('.wrapper .actions ul').css('width', 67.5 * $('.wrapper .actions ul li').length);
+	<?php endif;?>
 
 	/** Audio & Video **/
 	var commentaryAudio;
