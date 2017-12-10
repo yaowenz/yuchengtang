@@ -205,7 +205,7 @@ body {
   padding: 0px; }
 
 .page.frontpage .content .examples ul li {
-  float: right;
+  float: left;
   width: 50%;
   position: relative;
   line-height: 0.5; }
