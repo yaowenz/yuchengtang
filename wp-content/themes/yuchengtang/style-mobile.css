@@ -1,6 +1,6 @@
 body {
   width: 100%;
-  padding-top: 90px;
+  padding-top: 95px;
   height: 100%;
   background-image: url("assets/images/bg-general.jpg");
   background-attachment: fixed;
@@ -98,7 +98,7 @@ body {
   position: fixed;
   top: 80px;
   left: 0px;
-  height: 10px;
+  height: 15px;
   background-repeat: repeat-x;
   background-size: auto 100%;
   background-image: url("assets/images/header-divider.png"); }
