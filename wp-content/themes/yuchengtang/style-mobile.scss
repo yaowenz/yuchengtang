@@ -185,13 +185,13 @@ body {overflow-x:hidden;width:100%;padding-top:95px;height:100%;background-image
 	#footer {margin-top:50px}
 	
 	.thumbs {
-		& {position:relative;margin-top:15px}
+		& {position:relative;margin-top:15px;padding:0px 20px}
 		.prev, .next {display:none}
-		li > div {width:170px;height:112px;background-repeat:no-repeat;background-size:contain;background-position:center;}
+		li > div {width:100px;height:65px;background-repeat:no-repeat;background-size:contain;background-position:center;}
 		li.active div {background-color:#eaeaea}
 		/* Frame */
 		.frame {
-			height: 150px;
+			height: 100px;
 			overflow: hidden;
 		}
 		.frame ul {
@@ -202,11 +202,11 @@ body {overflow-x:hidden;width:100%;padding-top:95px;height:100%;background-image
 			font-size: 50px;
 		}
 		.frame ul li {
-			width:186px;
+			width:116px;
 			padding:10px 8px;
 			box-sizing:border-box;
 			float: left;			
-			height: 132px;
+			height: 83px;
 			margin: 0 15px 0 0;				
 			color: #ddd;
 			text-align: center;

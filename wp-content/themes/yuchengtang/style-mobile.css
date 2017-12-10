@@ -478,19 +478,20 @@ body {
   /* Pages */ }
   .page.antique .thumbs {
     position: relative;
-    margin-top: 15px; }
+    margin-top: 15px;
+    padding: 0px 20px; }
   .page.antique .thumbs .prev, .page.antique .thumbs .next {
     display: none; }
   .page.antique .thumbs li > div {
-    width: 170px;
-    height: 112px;
+    width: 100px;
+    height: 65px;
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center; }
   .page.antique .thumbs li.active div {
     background-color: #eaeaea; }
   .page.antique .thumbs .frame {
-    height: 150px;
+    height: 100px;
     overflow: hidden; }
   .page.antique .thumbs .frame ul {
     list-style: none;
@@ -499,12 +500,12 @@ body {
     height: 100%;
     font-size: 50px; }
   .page.antique .thumbs .frame ul li {
-    width: 186px;
+    width: 116px;
     padding: 10px 8px;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
     float: left;
-    height: 132px;
+    height: 83px;
     margin: 0 15px 0 0;
     color: #ddd;
     text-align: center;
