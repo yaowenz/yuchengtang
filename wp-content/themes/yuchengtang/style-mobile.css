@@ -437,7 +437,7 @@ body {
     .category-antiques .sly.wrap h2 {
       font-size: 18px;
       text-align: center;
-      margin-top: 10px; }
+      margin: 10px 0px; }
     .category-antiques .sly.wrap h2 small {
       font-family: Times New Roman;
       font-weight: normal;
