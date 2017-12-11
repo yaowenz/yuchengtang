@@ -5,13 +5,16 @@
 body {
   overflow-x: hidden;
   width: 100%;
-  padding-top: 80px;
+  padding-top: 90px;
   height: 100%;
   background-image: url("assets/images/bg-general.jpg");
   background-attachment: fixed;
   background-position: center -150px;
   background-size: cover;
   background-repeat: no-repeat; }
+
+.hidden {
+  display: none !important; }
 
 .desktop {
   display: none; }
@@ -366,6 +369,145 @@ body {
 
 .category .pagination a.page-numbers:hover {
   color: #886742; }
+
+/** ��Ʒ���� **/
+.category-antiques {
+  /** pagePiling **/
+  /** Sly Slider **/ }
+  .category-antiques {
+    min-height: 500px; }
+  .category-antiques #footer {
+    display: none; }
+  .category-antiques .section.categories {
+    width: 100%;
+    padding-top: 30px; }
+  .category-antiques .section.categories .cate-node {
+    width: 50%;
+    float: left;
+    height: 140px;
+    position: relative;
+    text-align: center; }
+  .category-antiques .section.categories .cate-node img {
+    width: 120px; }
+  .category-antiques .section {
+    padding: 15px;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%; }
+  .category-antiques #pagepiling {
+    width: 100%;
+    margin: auto; }
+  .category-antiques #pagepiling .section {
+    width: 100%; }
+  .category-antiques .pp-tooltip {
+    color: #666;
+    font-size: 16px;
+    padding-right: 10px; }
+  .category-antiques #pp-nav {
+    display: none; }
+  .category-antiques #pp-nav li {
+    margin: 10px;
+    height: 15px;
+    width: 15px; }
+  .category-antiques #pp-nav span {
+    width: 12px;
+    height: 12px;
+    border-color: #999; }
+  .category-antiques #mobile-guide {
+    position: fixed;
+    bottom: 10px;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+    color: #ccc;
+    z-index: 10000; }
+  .category-antiques #mobile-guide a {
+    color: #aaa; }
+  .category-antiques .sly.wrap {
+    /* Frame */
+    /**
+		.frame ul li.active {
+			color: #fff;
+			background: #a03232;
+		}
+		**/
+    /* Scrollbar */
+    /* Pages */
+    /* Controls */ }
+    .category-antiques .sly.wrap h2 {
+      font-size: 18px;
+      text-align: center; }
+    .category-antiques .sly.wrap h2 small {
+      font-family: Times New Roman;
+      font-weight: normal;
+      font-size: 20px;
+      margin-left: 5px; }
+    .category-antiques .sly.wrap {
+      width: 100%;
+      position: relative; }
+    .category-antiques .sly.wrap .name, .category-antiques .sly.wrap .name-en {
+      font-size: 16px;
+      color: #333;
+      text-align: center; }
+    .category-antiques .sly.wrap .name-en {
+      font-size: 12px;
+      margin-top: 5px;
+      color: #999; }
+    .category-antiques .sly.wrap .cover {
+      height: 180px;
+      background-position: center;
+      background-size: contain;
+      background-repeat: no-repeat; }
+    .category-antiques .sly.wrap .cover a {
+      display: inline-block;
+      width: 100%;
+      height: 100%; }
+    .category-antiques .sly.wrap .frame {
+      height: 300px;
+      overflow: hidden; }
+    .category-antiques .sly.wrap .frame ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-size: 50px; }
+    .category-antiques .sly.wrap .frame ul li {
+      float: left;
+      width: 165px;
+      height: 100%;
+      margin: 0 10px 0 0;
+      padding: 0;
+      color: #ddd;
+      text-align: center;
+      cursor: pointer; }
+    .category-antiques .sly.wrap .frame ul li:hover .name a {
+      color: #ae7b42; }
+    .category-antiques .sly.wrap .scrollbar {
+      display: none; }
+    .category-antiques .sly.wrap .pages {
+      list-style: none;
+      margin: 20px 0;
+      padding: 0;
+      text-align: center; }
+    .category-antiques .sly.wrap .pages li {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      margin: 0 4px;
+      text-indent: -999px;
+      border-radius: 10px;
+      cursor: pointer;
+      overflow: hidden;
+      background: #fff;
+      -webkit-box-shadow: inset 0 0 0 1px rgba(174, 123, 66, 0.6);
+      box-shadow: inset 0 0 0 1px rgba(174, 123, 66, 0.6); }
+    .category-antiques .sly.wrap .pages li:hover {
+      background: #d2302c; }
+    .category-antiques .sly.wrap .pages li.active {
+      background: #d2302c; }
+    .category-antiques .sly.wrap .controls {
+      margin: 25px 0;
+      text-align: center; }
 
 /**
  * ��Ʒ��ҳ

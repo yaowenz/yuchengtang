@@ -3,8 +3,9 @@
  */
 $nav-height:75px;
 
-body {overflow-x:hidden;width:100%;padding-top:$nav-height+5px;height:100%;background-image:url('assets/images/bg-general.jpg');background-attachment:fixed;background-position:center -150px;background-size:cover;background-repeat: no-repeat}
+body {overflow-x:hidden;width:100%;padding-top:$nav-height+15px;height:100%;background-image:url('assets/images/bg-general.jpg');background-attachment:fixed;background-position:center -150px;background-size:cover;background-repeat: no-repeat}
 
+.hidden {display:none!important}
 .desktop {display:none}
 
 #nav {
@@ -145,6 +146,116 @@ body {overflow-x:hidden;width:100%;padding-top:$nav-height+5px;height:100%;backg
 		}
 		a.page-numbers, .page-numbers.current {padding:10px 15px;border:1px solid #ccc}
 		a.page-numbers:hover {color:#886742}
+	}
+}
+
+/** ≤ÿ∆∑∑÷¿‡ **/
+.category-antiques {
+	& {min-height:500px}
+	#footer {display:none}
+	.section.categories {
+		& {width:100%;padding-top:30px}
+		.cate-node {
+			& {width:50%;float:left;height:140px;position:relative;text-align:center}
+			img {width:120px}
+		}
+		    
+	}
+	
+	.section {padding:15px;box-sizing:border-box;width:100%}
+	
+	/** pagePiling **/
+	#pagepiling {width:100%;margin:auto}
+	#pagepiling .section {width:100%}
+	.pp-tooltip {
+		color: #666;font-size:16px;padding-right:10px
+	}
+	#pp-nav {display:none}	
+	#pp-nav li {
+		margin:10px;height:15px;width:15px
+	}
+	#pp-nav span {
+		width:12px;height:12px;border-color:#999
+	}
+	
+	#mobile-guide {position:fixed;bottom:10px;font-size:14px;width:100%;text-align:center;color:#ccc;z-index:10000}
+	#mobile-guide a {color:#aaa}
+	
+	/** Sly Slider **/		
+	.sly.wrap {
+		h2 {font-size:18px;text-align:center}
+		h2 small {font-family:Times New Roman;font-weight:normal;font-size:20px;margin-left:5px}
+		& {width:100%;position: relative;}
+		.name, .name-en {font-size:16px;color:#333;text-align:center}
+		.name-en {font-size:12px;margin-top:5px;color:#999}
+		.cover {height:180px;background-position:center;background-size:contain;background-repeat:no-repeat}		
+		.cover a {display:inline-block;width:100%;height:100%;}
+		/* Frame */
+		.frame {
+			height: 300px;
+			overflow: hidden;
+		}
+		.frame ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			font-size: 50px;
+		}
+		.frame ul li {
+			float: left;
+			width: 165px;
+			height: 100%;
+			margin: 0 10px 0 0;
+			padding: 0;			
+			color: #ddd;
+			text-align: center;
+			cursor: pointer;
+		}
+		
+		.frame ul li:hover .name a {
+			color: #ae7b42
+		}
+		/**
+		.frame ul li.active {
+			color: #fff;
+			background: #a03232;
+		}
+		**/
+		
+		/* Scrollbar */
+		.scrollbar {
+			display:none
+		}
+		
+		/* Pages */
+		.pages {
+			list-style: none;
+			margin: 20px 0;
+			padding: 0;
+			text-align: center;
+		}
+		.pages li {
+			display: inline-block;
+			width: 10px;
+			height: 10px;
+			margin: 0 4px;
+			text-indent: -999px;
+			border-radius: 10px;
+			cursor: pointer;
+			overflow: hidden;
+			background: #fff;
+			box-shadow: inset 0 0 0 1px rgba(174,123,66,.6);
+		}
+		.pages li:hover {
+			background: #d2302c;
+		}
+		.pages li.active {
+			background: #d2302c;
+		}
+		
+		/* Controls */
+		.controls { margin: 25px 0; text-align: center; }
 	}
 }
 

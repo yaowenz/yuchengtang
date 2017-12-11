@@ -433,29 +433,30 @@ body.category #nav-divider {
     min-height: 500px; }
   .category-antiques #footer {
     display: none; }
-  .category-antiques .categories table {
+  .category-antiques .section.categories {
     width: 100%; }
-  .category-antiques .categories table td {
+  .category-antiques .section.categories .cate-node {
     width: 25%;
+    float: left;
     height: 250px;
     position: relative;
     text-align: center; }
-  .category-antiques .categories table td img {
-    width: 180px; }
-  .category-antiques .categories table td:hover .mask {
+  .category-antiques .section.categories .cate-node:hover .mask {
     display: none; }
-  .category-antiques .categories table td:hover img {
+  .category-antiques .section.categories .cate-node:hover img {
     -webkit-transform: scale(1.2);
     transform: scale(1.2);
     -webkit-transition: all 0.3s ease-out;
     transition: all 0.3s ease-out; }
-  .category-antiques .categories table td .mask {
+  .category-antiques .section.categories .cate-node .mask {
     position: absolute;
     width: 180px;
     height: 180px;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 150px;
     left: 35px; }
+  .category-antiques .section.categories .cate-node img {
+    width: 180px; }
   .category-antiques #pagepiling {
     width: 1000px;
     margin: auto; }

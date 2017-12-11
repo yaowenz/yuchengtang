@@ -192,15 +192,16 @@ body.category {
 .category-antiques {
 	& {min-height:500px}
 	#footer {display:none}
-	.categories {
-		table {width:100%}
-		table td {width:25%;height:250px;position:relative;text-align:center}
-		table td img {width:180px}
-		table td:hover .mask {display:none}
-		table td:hover img {transform: scale(1.2);transition:all 0.3s ease-out}
-		table td .mask {
-			position:absolute;width:180px;height:180px;background:rgba(0,0,0,0.2);border-radius:150px;left:35px
+	.section.categories {
+		& {width:100%}
+		.cate-node {
+			& {width:25%;float:left;height:250px;position:relative;text-align:center}
+			&:hover .mask {display:none}
+			&:hover img {transform: scale(1.2);transition:all 0.3s ease-out}
+			& .mask { position:absolute;width:180px;height:180px;background:rgba(0,0,0,0.2);border-radius:150px;left:35px}
+			img {width:180px}
 		}
+		    
 	}
 	
 	/** pagePiling **/
