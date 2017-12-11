@@ -51,7 +51,7 @@ $categories = [
 	<div class="section">
 		<div class="wrap sly">
 			<h2><?php echo $v[0]?>&nbsp;<small><?php echo $v[1]?></small></h2>
-			<div class="mobile" style="width:30px;margin:auto;padding-top:5px;margin-bottom:5px">
+			<div class="mobile" style="width:30px;margin:auto;padding-top:5px;margin-bottom:10px">
 				<img src="<?php echo get_template_directory_uri()?>/assets/images/dot-divider.png" width="100%">
 			</div>
 			<div class="scrollbar">
