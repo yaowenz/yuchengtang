@@ -331,6 +331,9 @@ body {
 .category .primary.content {
   padding-bottom: 30px; }
 
+.category .section-content {
+  margin-top: 0px !important; }
+
 .category .entry-list {
   padding: 20px 15px; }
 

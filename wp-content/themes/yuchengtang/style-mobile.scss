@@ -134,6 +134,7 @@ body {overflow-x:hidden;width:100%;padding-top:$nav-height+15px;height:100%;back
 
 .category {
 	.primary.content {padding-bottom:30px}
+	.section-content {margin-top:0px!important}
 	.entry-list {
 		& {padding:20px 15px}
 		.entry-block {padding:15px 0px;box-sizing:border-box;border-bottom:1px dotted #ccc}
