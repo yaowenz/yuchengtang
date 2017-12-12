@@ -8,6 +8,10 @@ body {overflow-x:hidden;width:100%;padding-top:$nav-height+15px;height:100%;back
 .hidden {display:none!important}
 .desktop {display:none}
 
+.mobile.page-title {
+	text-align:center;padding-top:15px;width:300px;margin:auto;border-bottom:1px dotted #ccc;padding-bottom:15px
+}
+
 #nav {
 	& {width: 100%; height:$nav-height;position:fixed;top:0px;left:0px;z-index:1000;border-bottom:1px solid #ccc;background:white}
 	.header {padding:10px 15px 0px 15px;height:55px}
@@ -383,6 +387,35 @@ body {overflow-x:hidden;width:100%;padding-top:$nav-height+15px;height:100%;back
 		}
 	}
 }
+
+/** Ô¤Ô¼¿´Õ¹ **/
+.page.reservation {	
+	.info-title, .notice-title {width:100px}
+	.row {margin-bottom:5px}
+	.info {
+		& {width:100%;padding:20px 15px 15px 15px}
+		.required {color:#d20412}
+		.form {margin-top:15px}
+		
+		/** Override Materialize **/
+		.input-field>label {font-size:16px;color:#666}
+		.disabled {font-size:18px;color:#333;opacity:1}
+		form .row { 
+			&.static {margin-top:20px;margin-bottom:10px}
+			.title {font-size:16px;margin-bottom:15px;color:#666;}			
+			label.checkbox {margin-right:15px}
+
+		}
+		.verify-code img {margin-top:20px}
+		
+	}
+	.notice {
+		& {background-image:url('assets/images/tickets-notice-bg.jpg');padding:15px;line-height:1.6}
+		h2 {font-size:18px;padding-top:15px;margin-bottom:5px;border-top:1px solid #7f7f7f;color:#AA773E}
+		strong {color:#AA773E}
+	}
+}
+
 
 #footer {
 	& {

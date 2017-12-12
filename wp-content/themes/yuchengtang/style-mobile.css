@@ -19,6 +19,14 @@ body {
 .desktop {
   display: none; }
 
+.mobile.page-title {
+  text-align: center;
+  padding-top: 15px;
+  width: 300px;
+  margin: auto;
+  border-bottom: 1px dotted #ccc;
+  padding-bottom: 15px; }
+
 #nav {
   width: 100%;
   height: 75px;
@@ -699,6 +707,56 @@ body {
     background: #ccc; }
   .page.antique .thumbs .pages li.active {
     background: #333; }
+
+/** ԤԼ��չ **/
+.page.reservation .info-title, .page.reservation .notice-title {
+  width: 100px; }
+
+.page.reservation .row {
+  margin-bottom: 5px; }
+
+.page.reservation .info {
+  /** Override Materialize **/ }
+  .page.reservation .info {
+    width: 100%;
+    padding: 20px 15px 15px 15px; }
+  .page.reservation .info .required {
+    color: #d20412; }
+  .page.reservation .info .form {
+    margin-top: 15px; }
+  .page.reservation .info .input-field > label {
+    font-size: 16px;
+    color: #666; }
+  .page.reservation .info .disabled {
+    font-size: 18px;
+    color: #333;
+    opacity: 1; }
+  .page.reservation .info form .row.static {
+    margin-top: 20px;
+    margin-bottom: 10px; }
+  .page.reservation .info form .row .title {
+    font-size: 16px;
+    margin-bottom: 15px;
+    color: #666; }
+  .page.reservation .info form .row label.checkbox {
+    margin-right: 15px; }
+  .page.reservation .info .verify-code img {
+    margin-top: 20px; }
+
+.page.reservation .notice {
+  background-image: url("assets/images/tickets-notice-bg.jpg");
+  padding: 15px;
+  line-height: 1.6; }
+
+.page.reservation .notice h2 {
+  font-size: 18px;
+  padding-top: 15px;
+  margin-bottom: 5px;
+  border-top: 1px solid #7f7f7f;
+  color: #AA773E; }
+
+.page.reservation .notice strong {
+  color: #AA773E; }
 
 #footer {
   font-size: 12px;

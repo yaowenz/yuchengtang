@@ -1,8 +1,11 @@
 <?php get_header(); ?>
 <div class="primary content news">
 	<div class="wrapper">
-		<div>
+		<div class="desktop">
 			<img src="<?php echo get_template_directory_uri() ?>/assets/images/news-title.jpg" width="100%" />
+		</div>
+		<div class="mobile page-title">
+			<img src="<?php echo get_template_directory_uri() ?>/assets/images/news-title-mobile.png" width="150" />
 		</div>
 		<div class="section-content" style="margin-top:30px">
 			<div class="entry-list">

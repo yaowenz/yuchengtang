@@ -65,6 +65,7 @@ function yct_reservation_custom_columns($column){
 }
 
 function yct_reservation_edit_columns($columns){
+	$columns['id_no'] = '身份证号';
     $columns['reserve_date'] = '预约时间';
     $columns['reserve_type'] = '预约类型';
     $columns['reserve_number'] = '预约人数';
@@ -87,8 +88,14 @@ function yct_ajax_reservation_create() {
         wp_die();
     }
     
+    if (empty($_POST['id_no']) || !validateIDCard($_POST['id_no']))
+    {
+    	echo json_encode(['err' => 1, 'msg' => '身份证号无效']);
+    	wp_die();
+    }
+    
     $form_data= array_filter($_POST, function ($key) {
-        return in_array($key, ['name', 'mobile', 'reserve_date', 'reserve_time', 'reserve_type', 'reserve_number']);
+        return in_array($key, ['name', 'mobile', 'reserve_date', 'reserve_time', 'reserve_type', 'reserve_number', 'id_no']);
     }, ARRAY_FILTER_USE_KEY);
         
     $postId = wp_insert_post([
