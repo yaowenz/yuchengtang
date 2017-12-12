@@ -104,11 +104,12 @@ get_header();
 						        <span>下午</span>
 						     </label>
 						 </div>
+						 <?php $currentDate = current_time('Y-m-d');?>
 						 <div class="input-field col s12 reserve-date" style="display:none">
 							<select name="reserve_date">
 								<?php for ($i = 0; $i <= 30; $i++) :?>
-								<?php $dt = date('Y-m-d', strtotime("+{$i} days"));?>
-								<option value="<?php echo $dt;?>"><?php echo $dt;?> (剩余200张)</option>								<
+								<?php $dt = date('Y-m-d', strtotime("+{$i} days", strtotime($currentDate)));?>
+								<option value="<?php echo $dt;?>"><?php echo $dt;?> 周<?php echo mb_substr("日一二三四五六", date("w", strtotime($dt)), 1);?> (剩余200张)</option>								<
 								<?php endfor;?>
 							</select>
 						</div>
