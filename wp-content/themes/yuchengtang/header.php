@@ -41,9 +41,11 @@
 			<li class="about text">
 				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile">关于 ABOUT&nbsp;&nbsp;</span>&nbsp;</a>
 			</li>
+			<!--
 			<li class="search">
 				<a href="javascript:void;" title="search">&nbsp;</a>
 			</li>
+			 -->
 		</ul>
 	</div>
 </div>

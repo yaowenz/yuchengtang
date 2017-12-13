@@ -49,7 +49,6 @@ get_header();
 						<label for="disabled" class="active">参观人数</label>
 					</div>
 				</div>
-
 				<?php $reservation = json_decode($post->post_content, true)?>
 				<?php else: ?>
 				<form class="col s12">
@@ -104,12 +103,26 @@ get_header();
 						        <span>下午</span>
 						     </label>
 						 </div>
-						 <?php $currentDate = current_time('Y-m-d');?>
+						 <?php
+						 // 获取剩余票数
+						 $currentDate = current_time('Y-m-d');
+						 $endDate = date('Y-m-d', strtotime("+30 days", strtotime($currentDate)));
+						 global $wpdb, $table_prefix;
+						 $reserveStats = $wpdb->get_results("SELECT * FROM {$table_prefix}yct_reserve_stats
+						 	WHERE reserve_date >= '{$currentDate}' AND reserve_date <= '{$endDate}'");
+						 $reserveStats = array_column($reserveStats, null, 'reserve_date');
+						 ?>
 						 <div class="input-field col s12 reserve-date" style="display:none">
 							<select name="reserve_date">
-								<?php for ($i = 0; $i <= 30; $i++) :?>
-								<?php $dt = date('Y-m-d', strtotime("+{$i} days", strtotime($currentDate)));?>
-								<option value="<?php echo $dt;?>"><?php echo $dt;?> 周<?php echo mb_substr("日一二三四五六", date("w", strtotime($dt)), 1);?> (剩余200张)</option>								<
+								<?php
+									for ($i = 0; $i <= 30; $i++) :
+										$dt = date('Y-m-d', strtotime("+{$i} days", strtotime($currentDate)));
+										$left = YCT_RESERVE_DAILY_MAX;
+										if (isset($reserveStats[$dt])) {
+											$left -= $reserveStats[$dt]->reserve_count;
+										}
+								?>
+								<option value="<?php echo $dt;?>"><?php echo $dt;?> 周<?php echo mb_substr("日一二三四五六", date("w", strtotime($dt)), 1);?> (剩余<?php echo $left;?>张)</option>								<
 								<?php endfor;?>
 							</select>
 						</div>

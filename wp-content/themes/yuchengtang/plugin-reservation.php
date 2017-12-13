@@ -117,21 +117,18 @@ function yct_ajax_reservation_create() {
         return in_array($key, ['name', 'mobile', 'reserve_date', 'reserve_time', 'reserve_type', 'reserve_number', 'id_no']);
     }, ARRAY_FILTER_USE_KEY);
         
-//     $postId = wp_insert_post([
-//     	'post_status' => 'publish',
-//         'post_title' => $form_data['name'] . '-' . $form_data['mobile'],
-//         'post_type' => 'yct_reservation',
-//         'post_content' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
-//     ]);
+    $postId = wp_insert_post([
+    	'post_status' => 'publish',
+        'post_title' => $form_data['name'] . '-' . $form_data['mobile'],
+        'post_type' => 'yct_reservation',
+        'post_content' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
+    ]);
     
     if (empty($reserveStats)) {
-        $wpdb->insert('yct_reserve_stats', ['reserve_date' => $_POST['reserve_date'], 'reserve_count' => $_POST['reserve_count']]);
+        $wpdb->insert("{$table_prefix}yct_reserve_stats", ['reserve_date' => $_POST['reserve_date'], 'reserve_count' => $_POST['reserve_number']]);
     } else {
-        
-        $wpdb->update('yct_reserve_stats', ['reserve_count' => $reserveStats + $_POST['reserve_count']], ['reserve_date' => $reserveStats->reserve_date]);
+        $wpdb->update("{$table_prefix}yct_reserve_stats", ['reserve_count' => $reserveStats->reserve_count + $_POST['reserve_number']], ['reserve_date' => $reserveStats->reserve_date]);
     }
-    
-    die();
    
     echo json_encode(['err' => 0, 'data' => ['post_id' => $postId]]);
     wp_die();
