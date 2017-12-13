@@ -30,16 +30,16 @@
 		<div class="menu-link mobile"><span class="menu-icon"></span><div>菜单 Menu</div></div>
 		<ul class="menu noshow">
 			<li class="news text">
-				<a href="<?php echo site_url('archives/category/news')?>" title="资讯"><span class="mobile">资讯&nbsp;&nbsp;NEWS</span>&nbsp;</a>
+				<a href="<?php echo site_url('archives/category/news')?>" title="资讯"><span class="mobile">资讯&nbsp;&nbsp;NEWS</span></a>
 			</li>
 			<li class="antiques text">
-				<a href="<?php echo site_url('archives/category/antiques')?>" title="藏品"><span class="mobile">藏品&nbsp;&nbsp;ANTIQUE</span>&nbsp;</a>
+				<a href="<?php echo site_url('archives/category/antiques')?>" title="藏品"><span class="mobile">藏品&nbsp;&nbsp;ANTIQUE</span></a>
 			</li>
 			<li class="tickets text">
-				<a href="<?php echo site_url('reservation')?>" title="观展"><span class="mobile">观展&nbsp;&nbsp;TICKETS</span>&nbsp;</a>
+				<a href="<?php echo site_url('reservation')?>" title="观展"><span class="mobile">观展&nbsp;&nbsp;TICKETS</span></a>
 			</li>
 			<li class="about text">
-				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile">关于 ABOUT&nbsp;&nbsp;</span>&nbsp;</a>
+				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile">关于&nbsp;&nbsp;ABOUT</span></a>
 			</li>
 			<!--
 			<li class="search">

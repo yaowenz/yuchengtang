@@ -23,7 +23,7 @@ body {overflow-x:hidden;width:100%;padding-top:$nav-height+15px;height:100%;back
 	.menu-link.closable .menu-icon {background-image:url('assets/images/icon-close.png');background-size:12px 12px}
 	.menu {
 		& {position:fixed;left:0px;padding-top:15px;padding-right:15px;top:$nav-height;height:calc(100% - #{$nav-height});box-sizing:border-box;background:white;margin:0px;width:100%;list-style:none;opacity:0.95}
-		li {line-height:2.5;text-align:right;width:100%;font-size:18px;}
+		li {line-height:2.5;text-align:right;width:100%;font-size:18px;transform:translateX(150px)}
 		li .mobile {border-bottom:1px dotted #ccc;display:inline-block;}
 		.search {display:none}
 	}
