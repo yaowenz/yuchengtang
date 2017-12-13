@@ -1,4 +1,5 @@
 <?php
+define('YCT_RESERVE_DAILY_MAX', 200);
 /**
  * 注册预约类型Post Type
  */
@@ -33,6 +34,16 @@ function yct_reservation_post_type() {
         'map_meta_cap' => true, // Set to false, if users are not allowed to edit/delete existing posts
     );
     register_post_type( 'yct_reservation', $args );
+    
+    // 检查附加表是否创建
+    global $wpdb, $table_prefix;
+    $wpdb->query("CREATE TABLE `{$table_prefix}yct_reserve_stats` (
+    	`id` int UNSIGNED NOT NULL AUTO_INCREMENT,
+    	`reserve_date` date NOT NULL,
+    	`reserve_count` int UNSIGNED NOT NULL DEFAULT 0,
+    	PRIMARY KEY (`id`),
+        UNIQUE KEY `U_date` (`reserve_date`)
+        ) COMMENT='';");
 }
 add_action( 'init', 'yct_reservation_post_type' );
 
@@ -78,8 +89,9 @@ add_action( 'wp_ajax_nopriv_reservation_create', 'yct_ajax_reservation_create' )
 
 function yct_ajax_reservation_create() {
     @session_start();
+    
     // Store data
-    if (empty($_POST)) {
+    if (empty($_POST) || empty(intval($_POST['reserve_number'])) || strtotime($_POST['reserve_date']) < strtotime('-1 days')) {
         echo json_encode(['err' => 1, 'msg' => '数据无效']);
         wp_die();
     }
@@ -94,20 +106,33 @@ function yct_ajax_reservation_create() {
     	wp_die();
     }
     
+    global $wpdb, $table_prefix;
+    $reserveStats = $wpdb->get_row($wpdb->prepare("SELECT * FROM {$table_prefix}yct_reserve_stats WHERE reserve_date = %s", $_POST['reserve_date']));
+    if (!empty($reserveStats) && YCT_RESERVE_DAILY_MAX < ($reserveStats->reserve_count + $_POST['reserve_number'])) {
+        echo json_encode(['err' => 1, 'msg' => '预约人数已满']);
+        wp_die();
+    }
+    
     $form_data= array_filter($_POST, function ($key) {
         return in_array($key, ['name', 'mobile', 'reserve_date', 'reserve_time', 'reserve_type', 'reserve_number', 'id_no']);
     }, ARRAY_FILTER_USE_KEY);
         
-    $postId = wp_insert_post([
-    	'post_status' => 'publish',
-        'post_title' => $form_data['name'] . '-' . $form_data['mobile'],
-        'post_type' => 'yct_reservation',
-        'post_content' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
-    ]);
+//     $postId = wp_insert_post([
+//     	'post_status' => 'publish',
+//         'post_title' => $form_data['name'] . '-' . $form_data['mobile'],
+//         'post_type' => 'yct_reservation',
+//         'post_content' => json_encode($form_data, JSON_UNESCAPED_UNICODE),
+//     ]);
     
-    // @TODO 增加Meta便于统计
-    //global $wpdb;
-    //$wpdb->update( $wpdb->posts, array('comment_count' => $new), array('ID' => $post_id) );
+    if (empty($reserveStats)) {
+        $wpdb->insert('yct_reserve_stats', ['reserve_date' => $_POST['reserve_date'], 'reserve_count' => $_POST['reserve_count']]);
+    } else {
+        
+        $wpdb->update('yct_reserve_stats', ['reserve_count' => $reserveStats + $_POST['reserve_count']], ['reserve_date' => $reserveStats->reserve_date]);
+    }
+    
+    die();
+   
     echo json_encode(['err' => 0, 'data' => ['post_id' => $postId]]);
     wp_die();
 }
