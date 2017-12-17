@@ -79,11 +79,11 @@ body {overflow-x:hidden;width:100%;padding-top:$nav-height+15px;height:100%;back
 		}
 		.examples {
 			ul {list-style:none;width:100%;margin:0px;padding:0px}
-			ul li {float:left;width:50%;position:relative;line-height:0.5}
+			ul li {float:left;width:50%;position:relative;line-height:0.5;padding-top:20px;background:black}
 			.accordion {margin:0px}
 			.accordion {	
 				img {vertial-align:middle;text-align:center}			
-				.name {position:absolute;top:15px;left:15px;z-index:10}
+				.name {position:absolute;top:15px;left:0px;z-index:100;color:white;padding:0px 15px;line-height:1.2;font-size:15px;text-align:center;width:100%;box-sizing:border-box}
 				.name img {width:30%}
 				a {display:block;height:100%;width:100%}
 			}

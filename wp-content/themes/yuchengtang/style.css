@@ -20,3 +20,6 @@ Text Domain: yct
  * BaiduMap
  */
 .anchorBL {display:none}
+
+body.lang-en .text-cn {display:none}
+body.lang-cn .text-en {display:none}

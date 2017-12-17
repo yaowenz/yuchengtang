@@ -13,7 +13,7 @@
 		<img src="<?php echo get_template_directory_uri()?>/assets/images/about-features.png" width="100%">
 	</div>
 	<div css="desktop" style="margin:80px 0px 50px 0px;border-bottom:1px solid #ccc"></div>
-	<div class="contact">
+	<div class="contact" id="contactus">
 		<div class="info">
 			<img src="<?php echo get_template_directory_uri()?>/assets/images/about-contactus-title.png" width="120">
 			<div style="margin:10px 0px;border-bottom:1px solid #B27B42"></div>

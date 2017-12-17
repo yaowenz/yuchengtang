@@ -13,37 +13,36 @@ $cateG20 = $wpdb->get_results("SELECT * FROM yc_item WHERE id IN (146, 147, 148,
 $cateB5 = $wpdb->get_results("SELECT * FROM yc_item WHERE id IN (150,151,152,153,154,155,156,157,158,159,160) ORDER BY id DESC");
 
 $categories = [
-	'cateQing' => ['清代', 'Qing Dynasty'],
-	'cateMing' => ['明代', 'Ming Dynasty'],
-	'cateYuan' => ['元代', 'Yuan Dynasty'],
-	'cateSong' => ['宋代', 'Song Dynasty'],
 	'cateG20' => ['G20会议官窑瓷器', ''],
 	'cateB5' => ['金砖五国会议官窑瓷器', ''],
+	'cateSong' => ['宋代', 'Song Dynasty'],
+	'cateYuan' => ['元代', 'Yuan Dynasty'],
+	'cateMing' => ['明代', 'Ming Dynasty'],
+	'cateQing' => ['清代', 'Qing Dynasty'],
 ];
-
 ?>
 <?php get_header(); ?>
 <div id="pagepiling" style="height:1000px">
 	<div class="section categories">
 		<div class="cate-node">
-			<div class="mask"></div>
-			<a href="#dyn-qing"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-dyn-qing.png" /></a>
+			<div class="mask"></div><a href="#exb-g20"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-exb-g20.png" /></a></td>
+		</div>
+		<div class="cate-node">
+			<div class="mask"></div><a href="#exb-b5"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-exb-b5.png" /></a></td>
+		</div>
+		<div class="cate-node">
+			<div class="mask"></div><a href="#dyn-song"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-dyn-song.png" />
+		</div>
+		<div class="cate-node">
+			<div class="mask"></div><a href="#dyn-yuan"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-dyn-yuan.png" /></a>
 		</div>
 		<div class="cate-node">
 			<div class="mask"></div>
 			<a href="#dyn-ming"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-dyn-ming.png" /></a>
 		</div>
 		<div class="cate-node">
-			<div class="mask"></div><a href="#dyn-yuan"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-dyn-yuan.png" /></a>
-		</div>
-		<div class="cate-node">
-			<div class="mask"></div><a href="#dyn-song"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-dyn-song.png" />
-		</div>
-		<div class="cate-node">
-			<div class="mask"></div><a href="#exb-g20"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-exb-g20.png" /></a></td>
-		</div>
-		<div class="cate-node">
-			<div class="mask"></div><a href="#exb-b5"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-exb-b5.png" /></a></td>
+			<div class="mask"></div>
+			<a href="#dyn-qing"><img src="<?php echo get_template_directory_uri()?>/assets/images/category-dyn-qing.png" /></a>
 		</div>
 		<div class="clear"></div>
 	</div>
@@ -137,7 +136,7 @@ jQuery(function($) {
         direction: 'vertical',
         verticalCentered: <?php echo is_mobile() ? 'false' : 'true' ?>,
         sectionsColor: [],
-        anchors: ['all-cates', 'dyn-qing', 'dyn-ming', 'dyn-yuan', 'dyn-song', 'exb-g20', 'exb-b5'],
+        anchors: ['all-cates', 'exb-g20', 'exb-b5', 'dyn-song', 'dyn-yuan', 'dyn-ming', 'dyn-qing'],
         scrollingSpeed: 500,
         easing: 'swing',
         loopBottom: true,
@@ -148,7 +147,15 @@ jQuery(function($) {
             'bulletsColor': '#666',
             'position': 'right',
             <?php if (!is_mobile()):?>
-            'tooltips': ['藏品分类 All Categories', '清代 Qing Dynasty', '明代 Ming Dynasty', '元代 Yuan Dynasty', '宋代 Song Dynasty', 'G20会议官窑瓷器', '金砖五国会议官窑瓷器']
+            'tooltips': [
+            	'藏品分类 All Categories',
+                'G20会议官窑瓷器',
+                '金砖五国会议官窑瓷器',
+                '宋代 Song Dynasty',
+                '元代 Yuan Dynasty',
+                '明代 Ming Dynasty',
+                '清代 Qing Dynasty'
+           ]
             <?php endif; ?>
         },
        	normalScrollElements: null,

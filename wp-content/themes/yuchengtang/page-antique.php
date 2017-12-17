@@ -19,7 +19,7 @@ function yct_antique_filter_title_part ($title)
 
 // Scan Images
 $picFolder = '/m3d/pic/'.$antiqueId.'/s';
-$files = scandir(APP_360_MEDIA_PATH . $picFolder);
+$files = @scandir(APP_360_MEDIA_PATH . $picFolder);
 $thumbs = [];
 foreach($files as $f)
 {
@@ -43,12 +43,13 @@ if(is_file(APP_360_MEDIA_PATH . $videoFile)){
 $coverImage = ['', ''];
 $v1CoverImage = APP_360_MEDIA_PATH . "/m3d/pic/{$antiqueId}/b/" . $antiqueResult->img_name;
 if (file_exists($v1CoverImage)) {
+	echo 333;
 	$coverImage = [
 		"/m3d/pic/{$antiqueId}/s/{$antiqueResult->img_name}",
 		"/m3d/pic/{$antiqueId}/b/{$antiqueResult->img_name}"
 	];
 } else {
-	if (strpos($antiqueResult->img_name, "cover") !== false) {
+	if (preg_match("/^\/m3d\//", $antiqueResult->img_name)) {
 		$coverImage = [
 			$antiqueResult->img_name,
 			$antiqueResult->img_name

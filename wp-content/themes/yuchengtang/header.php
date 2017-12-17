@@ -38,6 +38,15 @@
 			<li class="tickets text">
 				<a href="<?php echo site_url('reservation')?>" title="观展"><span class="mobile">观展&nbsp;&nbsp;TICKETS</span></a>
 			</li>
+			<li class="culture text">
+				<a href="<?php echo site_url('reservation')?>" title="文化教育"><span class="mobile">文化教育&nbsp;&nbsp;CLUTURE</span></a>
+			</li>
+			<li class="support text">
+				<a href="<?php echo site_url('reservation')?>" title="支持"><span class="mobile">支持&nbsp;&nbsp;SUPPORT</span></a>
+			</li>
+			<li class="shop text">
+				<a href="<?php echo site_url('reservation')?>" title="商店"><span class="mobile">商店&nbsp;&nbsp;SHOP</span></a>
+			</li>
 			<li class="about text">
 				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile">关于&nbsp;&nbsp;ABOUT</span></a>
 			</li>
@@ -47,6 +56,13 @@
 			</li>
 			 -->
 		</ul>
+		<div class="desktop menu-shortcut">
+			<ul>
+				<li><a href="<?php echo site_url('joinus');?>"><span class="text-cn">加入我们</span><span class="text-en">JOIN US</span></a></li>
+				<li><a href="<?php echo site_url('about#contactus');?>"><span class="text-cn">联系我们</span><span class="text-en">CONTACT US</span></a></li>
+				<li><span class="text-cn"><a href="?lang=en">ENG</a></span><span class="text-en"><a href="?lang=cn">中文</a></span></li>
+			</ul>
+		</div>
 	</div>
 </div>
 <script>
@@ -57,13 +73,13 @@ jQuery(function($) {
 		function() {
 			if (navMenuAnime == undefined) {
 				navMenuAnime = anime.timeline();
-				for (var i=1; i <= 4; i++) {
+				for (var i=1; i <= 7; i++) {
 					navMenuAnime.add({
 						targets: '#nav .menu li:nth-child(' + i  + ')',
 					    opacity: 1,
 					    easing: 'easeInQuad',
-					    offset: (i-1) * 150,
-					    duration: 500
+					    offset: (i-1) * 100,
+					    duration: 300
 					  });
 				}
 			} else {
