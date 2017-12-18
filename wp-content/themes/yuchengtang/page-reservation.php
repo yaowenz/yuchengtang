@@ -116,7 +116,11 @@ get_header();
 							<select name="reserve_date">
 								<?php
 									for ($i = 0; $i <= 30; $i++) :
-										$dt = date('Y-m-d', strtotime("+{$i} days", strtotime($currentDate)));
+										$dtTs = strtotime("+{$i} days", strtotime($currentDate));
+										if (in_array(date('w', $dtTs), [0,1])) { // 周日、周一闭馆
+											continue;
+										}
+										$dt = date('Y-m-d', $dtTs);
 										$left = YCT_RESERVE_DAILY_MAX;
 										if (isset($reserveStats[$dt])) {
 											$left -= $reserveStats[$dt]->reserve_count;
