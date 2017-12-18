@@ -30,25 +30,43 @@
 		<div class="menu-link mobile"><span class="menu-icon"></span><div>菜单 Menu</div></div>
 		<ul class="menu noshow">
 			<li class="news text">
-				<a href="<?php echo site_url('archives/category/news')?>" title="资讯"><span class="mobile">资讯&nbsp;&nbsp;NEWS</span></a>
+				<a href="<?php echo site_url('archives/category/news')?>" title="资讯"><span class="mobile"><span class="text-cn">资讯</span><span class="text-en">NEWS</span></span></a>
 			</li>
 			<li class="antiques text">
-				<a href="<?php echo site_url('archives/category/antiques')?>" title="藏品"><span class="mobile">藏品&nbsp;&nbsp;ANTIQUE</span></a>
+				<a href="<?php echo site_url('archives/category/antiques')?>" title="藏品"><span class="mobile"><span class="text-cn">藏品</span><span class="text-en">ANTIQUE</span></span></a>
 			</li>
 			<li class="tickets text">
-				<a href="<?php echo site_url('reservation')?>" title="观展"><span class="mobile">观展&nbsp;&nbsp;TICKETS</span></a>
+				<a href="javascript:;" title="观展"><span class="mobile"><span class="text-cn">观展</span><span class="text-en">TICKETS</span></span></a>
+				<ul class="sub-menu">
+					<li><a href="<?php echo site_url('reservation')?>">预约购票</a></li>
+					<li><a href="http://720yun.com/t/504j5zkmsk2" target="_blank">360全景展厅</a></li>
+				</ul>
 			</li>
 			<li class="culture text">
-				<a href="<?php echo site_url('reservation')?>" title="文化教育"><span class="mobile">文化教育&nbsp;&nbsp;CLUTURE</span></a>
+				<a href="javascript:;" title="文化教育"><span class="mobile"><span class="text-cn">文化教育</span><span class="text-en">CLUTURE</span></span></a>
+				<ul class="sub-menu">
+					<li><a href="javascript:;">图书出版</a></li>
+					<li><a href="javascript:;">讲座课程</a></li>
+				</ul>
 			</li>
 			<li class="support text">
-				<a href="<?php echo site_url('reservation')?>" title="支持"><span class="mobile">支持&nbsp;&nbsp;SUPPORT</span></a>
+				<a href="javascript:;" title="支持"><span class="mobile"><span class="text-cn">支持</span><span class="text-en">SUPPORT</span></span></a>
+				<ul class="sub-menu">
+					<li><a href="javascript:;">品牌活动</a></li>
+					<li><a href="javascript:;">赞助</a></li>
+				</ul>
 			</li>
 			<li class="shop text">
-				<a href="<?php echo site_url('reservation')?>" title="商店"><span class="mobile">商店&nbsp;&nbsp;SHOP</span></a>
+				<a href="javascript:;" title="商店"><span class="mobile"><span class="text-cn">商店</span><span class="text-en">SHOP</span></span></a>
 			</li>
 			<li class="about text">
-				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile">关于&nbsp;&nbsp;ABOUT</span></a>
+				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile"><span class="text-cn">关于</span><span class="text-en">ABOUT</span></span></a>
+			</li>
+			<li class="language text mobile text-cn">
+				<a href="<?php echo site_url()?>?lang=en" title="ENGLISH">ENGLISH</a>
+			</li>
+			<li class="language text mobile text-en">
+				<a href="<?php echo site_url()?>?lang=cn" title="中文">中文</a>
 			</li>
 			<!--
 			<li class="search">
@@ -60,7 +78,7 @@
 			<ul>
 				<li><a href="<?php echo site_url('joinus');?>"><span class="text-cn">加入我们</span><span class="text-en">JOIN US</span></a></li>
 				<li><a href="<?php echo site_url('about#contactus');?>"><span class="text-cn">联系我们</span><span class="text-en">CONTACT US</span></a></li>
-				<li><span class="text-cn"><a href="?lang=en">ENG</a></span><span class="text-en"><a href="?lang=cn">中文</a></span></li>
+				<li><span class="text-cn"><a href="<?php echo site_url();?>?lang=en">ENG</a></span><span class="text-en"><a href="<?php echo site_url();?>?lang=cn">中文</a></span></li>
 			</ul>
 		</div>
 	</div>
@@ -91,6 +109,10 @@ jQuery(function($) {
 		}
 	);
 
+	$('.device-mobile #nav .menu > li, .category-antiques #nav .menu > li, .page.antique #nav .menu > li').click(function() {
+		$(this).parent().children('li').removeClass('active');
+		$(this).addClass('active');
+	});
 
 	var mobileNavMenuAnime;
 	$('.menu-link.mobile').click(function() {
@@ -104,13 +126,13 @@ jQuery(function($) {
 			});
 
 			mobileNavMenuAnime = anime.timeline();
-			for (var i=1; i <= 4; i++) {
+			for (var i=1; i <= 9; i++) {
 				mobileNavMenuAnime.add({
 					targets: '#nav .menu li:nth-child(' + i  + ')',
 					translateX: [150, 0],
 				    easing: 'easeInQuad',
-				    offset: (i-1) * 100,
-				    duration: 300
+				    offset: (i-1) * 50,
+				    duration: 150
 				  });
 			}
 		} else {

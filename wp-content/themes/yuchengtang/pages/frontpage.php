@@ -9,19 +9,19 @@
 <div class="bg">
 	<div class="content wrapper">
 		<div class="tickets">
-			<h2>预约观展</h2>
-			<h2 class="eng">TICKETS</h2>
+			<h2 class="text-cn">预约观展</h2>
+			<h2 class="text-en">TICKETS</h2>
 			<p style="color:#A57239;margin-top:25px;margin-bottom:5px;font-size:18px;font-weight:bold">周二 ~ 周六<p>
 			<p style="color:#A57239;font-size:40px;font-family:Impact,Arial">10:00 ~ 16:30</p>
 			<p style="margin-top:5px;font-size:14px">（周日、周一闭馆 ）</p>
 			<p style="color:#3d5079;font-size:18px;margin-top:20px;border-top:1px dotted #999;padding-top:10px">上海市浦三路21弄55-56号银亿滨江中心17楼</p>
 			<div class="more">
-				<a class="btn" style="background:#3d5079" href="<?php echo site_url('reservation');?>">预约</a>
+				<a class="btn" style="background:#3d5079" href="<?php echo site_url('reservation');?>"><span class="text-cn">预约</span><span class="text-en">Reserve</span></a>
 			</div>
 		</div>
 		<div class="news">
-			<h2>新闻资讯</h2>
-			<h2 class="eng">NEWS</h2>
+			<h2 class="text-cn">新闻资讯</h2>
+			<h2 class="text-en">NEWS</h2>
 			<ul>
 				<?php
 					$the_query = new WP_Query(['category_name' => 'news', 'post_type' => 'post', 'posts_per_page' => 3] );
@@ -37,7 +37,7 @@
 				?>
 			</ul>
 			<div class="more">
-				<a class="btn" href="<?php echo site_url('archives/category/news');?>">更多</a>
+				<a class="btn" href="<?php echo site_url('archives/category/news');?>"><span class="text-cn">更多</span><span class="text-en">More</span></a>
 			</div>
 		</div>
 		<div class="antiques">
@@ -46,7 +46,7 @@
 					<img src="<?php echo get_template_directory_uri()?>/assets/images/title-antiques.png" width="60%" />
 				</div>
 				<div class="more" style="text-align:center">
-					<a class="btn" style="background:#8E5025;font-size:16px" href="<?php echo site_url('archives/category/antiques');?>">更多</a>
+					<a class="btn" style="background:#8E5025;font-size:16px" href="<?php echo site_url('archives/category/antiques');?>"><span class="text-cn">更多</span><span class="text-en">More</span></a>
 				</div>
 			</div>
 			<div class="examples">

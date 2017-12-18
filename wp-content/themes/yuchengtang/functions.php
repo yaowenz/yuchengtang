@@ -183,6 +183,10 @@ function yct_theme_body_classes( $classes ) {
 		$langClass = 'lang-cn';
 	}
 	
+	if (is_mobile()) {
+		$classes[] = 'device-mobile';
+	}
+	
 	$classes[] = $langClass;
 	
 	return $classes;

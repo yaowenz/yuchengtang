@@ -92,7 +92,7 @@ body {
   opacity: 0.95; }
 
 #nav .menu li {
-  line-height: 2.5;
+  line-height: 2.2;
   text-align: right;
   width: 100%;
   font-size: 18px;
@@ -109,6 +109,19 @@ body {
 #nav .menu.noshow {
   display: none;
   opacity: 0; }
+
+#nav .menu li .sub-menu {
+  display: none;
+  list-style: none; }
+
+#nav .menu li .sub-menu li {
+  font-size: 16px; }
+
+#nav .menu li .sub-menu li a {
+  color: #ae7b42; }
+
+#nav .menu li.active .sub-menu {
+  display: block; }
 
 #nav-divider {
   width: 100%;

@@ -44,7 +44,9 @@ body.category #nav-divider {
 
 #nav .menu li {
   background-size: 900px 60px;
-  background-repeat: no-repeat; }
+  background-repeat: no-repeat;
+  float: left;
+  width: 105px; }
 
 #nav .menu li[class~=text] {
   background-image: url("assets/images/menu-cn.png"); }
@@ -52,15 +54,29 @@ body.category #nav-divider {
 #nav .menu li[class~=text] a {
   display: inline-block;
   width: 105px;
-  height: 60px; }
+  height: 45px; }
 
 #nav .menu li[class~=text]:hover, #nav .menu li[class~=text].active {
   background-image: url("assets/images/menu-cn-active.png"); }
 
-#nav .menu li {
-  height: 60px;
-  float: left;
-  width: 105px; }
+#nav .menu li .sub-menu {
+  display: none;
+  z-index: 10000;
+  font-size: 16px;
+  padding-left: 0px; }
+
+#nav .menu li:hover .sub-menu {
+  display: block; }
+
+#nav .sub-menu li {
+  line-height: 30px;
+  height: 30px;
+  text-align: center;
+  float: none;
+  clear: both; }
+
+#nav .sub-menu li a:hover {
+  color: #AE773E; }
 
 #nav .menu li.antiques {
   background-position: -122px 0px; }
@@ -68,14 +84,23 @@ body.category #nav-divider {
 #nav .menu li.tickets {
   background-position: -260px 0px; }
 
+#nav .menu li.tickets .sub-menu {
+  margin-left: 0px; }
+
 #nav .menu li.about {
   background-position: -395px 0px; }
 
 #nav .menu li.culture {
   background-position: -515px 0px; }
 
+#nav .menu li.culture .sub-menu {
+  margin-left: 5px; }
+
 #nav .menu li.support {
   background-position: -625px 0px; }
+
+#nav .menu li.support .sub-menu {
+  margin-left: 15px; }
 
 #nav .menu li.shop {
   background-position: -745px 0px; }
@@ -92,7 +117,7 @@ body.category #nav-divider {
 
 #nav .menu-shortcut {
   position: absolute;
-  right: 50px;
+  right: 30px;
   top: 10px;
   z-index: 1000; }
 
@@ -103,6 +128,9 @@ body.category #nav-divider {
 
 #nav .menu-shortcut ul li a {
   color: #999; }
+
+#nav .menu-shortcut ul li a:hover {
+  text-decoration: underline; }
 
 #nav .menu-shortcut ul li:not(:last-child) {
   padding-right: 15px;
@@ -450,7 +478,7 @@ body.category #nav-divider {
   display: none; }
 
 .antique #nav .menu li, .category-antiques #nav .menu li {
-  height: 50px;
+  height: auto;
   width: 115px; }
 
 .antique #nav .menu li.culture, .category-antiques #nav .menu li.culture {
@@ -461,6 +489,22 @@ body.category #nav-divider {
 
 .antique #nav .menu li.shop, .category-antiques #nav .menu li.shop {
   background-position: -748px 0px; }
+
+.antique #nav .menu li:hover .sub-menu, .category-antiques #nav .menu li:hover .sub-menu {
+  display: none; }
+
+.antique #nav .menu li.active .sub-menu, .category-antiques #nav .menu li.active .sub-menu {
+  display: block; }
+
+.antique #nav .menu li .sub-menu, .category-antiques #nav .menu li .sub-menu {
+  margin-left: 0px !important;
+  padding-left: 35px !important;
+  padding-bottom: 15px; }
+
+.antique #nav .menu li .sub-menu li, .category-antiques #nav .menu li .sub-menu li {
+  text-align: left;
+  line-height: 35px;
+  height: 35px; }
 
 .antique #nav-divider, .category-antiques #nav-divider {
   position: fixed;

@@ -32,30 +32,36 @@ body.category {
 	.menu {
 		position:absolute;top:55px;right:0px
 	}	
-	.menu li {background-size:900px 60px;background-repeat:no-repeat}
+	.menu li {background-size:900px 60px;background-repeat:no-repeat;float:left;width:105px}
 	.menu li[class~=text] {
 		& {background-image:url('assets/images/menu-cn.png');}
-		a {display:inline-block;width:105px;height:60px}
+		a {display:inline-block;width:105px;height:45px}
 	}
 	.menu li[class~=text]:hover, .menu li[class~=text].active {
 		background-image:url('assets/images/menu-cn-active.png');
-	}
-	.menu li {height:60px;float:left;width:105px}
-	
+	}	
+	.menu li .sub-menu {display:none;z-index:10000;font-size:16px;padding-left:0px}	
+	.menu li:hover .sub-menu {display:block}
+	.sub-menu li {line-height:30px;height:30px;text-align:center;float:none;clear:both}
+	.sub-menu li a:hover {color:#AE773E}
 	.menu li {
 		&.antiques {background-position:-122px 0px}
 		&.tickets {background-position:-260px 0px}
+		&.tickets .sub-menu {margin-left:0px}
 		&.about {background-position:-395px 0px}
 		&.culture {background-position:-515px 0px}
+		&.culture .sub-menu {margin-left:5px}
 		&.support {background-position:-625px 0px}
+		&.support .sub-menu {margin-left:15px}
 		&.shop {background-position:-745px 0px}
 	}
 	
 	.menu li.search a {margin-top:20px;margin-left:30px;display:inline-block;background-image:url('assets/images/icon-search.png');background-repeat:no-repeat;background-size:cover;height:20px;width:20px}
-	.menu-shortcut {position:absolute;right:50px;top:10px;z-index:1000}
+	.menu-shortcut {position:absolute;right:30px;top:10px;z-index:1000}
 	.menu-shortcut {
 		ul li {float:left;font-size:14px;color:#999}
 		ul li a {color:#999}
+		ul li a:hover {text-decoration:underline}
 		ul li:not(:last-child) {padding-right:15px;margin-right:15px;border-right:1px solid #ccc}
 	}
 }
@@ -195,11 +201,16 @@ body.category {
 		.menu .search {display:none}
 		.menu-shortcut {display:none}
 		.menu li {
-			& {height:50px;width:115px}		
+			& {height:auto;width:115px}		
 			&.culture {background-position:-508px 0px}
 			&.support {background-position:-638px 0px}
 			&.shop {background-position:-748px 0px}
+			&:hover .sub-menu {display:none}
+			&.active .sub-menu {display:block}
+			.sub-menu {margin-left:0px!important;padding-left:35px!important;padding-bottom:15px}
+			.sub-menu li {text-align:left;line-height:35px;height:35px}
 		}
+		
 	}
 	#nav-divider {position:fixed;top:0px;left:0px;width:100%;z-index:10000}	
 }
