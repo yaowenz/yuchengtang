@@ -5,7 +5,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui, user-scalable=no" />
 	<meta name="format-detection" content="telephone=no"/>
 	<meta name="keywords" content="御承堂" />
-	<meta name="description" content="御承堂美术馆藏囊括各年代顶级官窑瓷器，更有华夏古陶瓷科学技术研究院作为研究支持，致力于为藏家提供专业及全方位的顾问服务，涵盖艺术品展示、艺术品鉴赏力培训、中长期收藏、投资、估价、私洽、出售、与艺术相关的房地产规划、美术馆计划、大型艺术活动组织策划、基金会计划等。" />
+	<meta name="description" content="御承堂是著名大藏家蔡暄民和其他几位藏家继2002年杭州东明白庐艺术馆后在上海建立的另一家顶级传统艺术馆，收藏囊括各年代顶级官窑瓷器，书画，家具和杂项，长期致力于中国传统文化艺术的在全球范围内的收藏，研究，展览，教育和传播，与各国各大博物馆和艺术院校合作及华夏古陶瓷科学技术研究院作为研究支持, 辅以专业课程及艺术类出版物衍生品，以传播和传承中国传统文化为使命，打造世界级的私立美术馆。" />
 	<meta name="author" content="" />
 	<?php if ( is_singular() && pings_open( get_queried_object() ) ) : ?>
 	<?php endif; ?>

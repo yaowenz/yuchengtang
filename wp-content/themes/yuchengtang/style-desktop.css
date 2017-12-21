@@ -300,22 +300,26 @@ body.category #nav-divider {
   background-color: rgba(214, 161, 43, 0.7);
   display: block; }
 
-.about .content {
+.about .content, .joinus .content {
   margin-top: 20px;
   margin-bottom: 50px;
   background-color: rgba(255, 255, 255, 0.5);
   padding: 30px; }
 
-.about .content .intro p {
-  text-align: center;
-  margin-bottom: 30px;
+.about .content .intro p, .joinus .content .intro p {
   font-size: 18px;
-  line-height: 1.6; }
+  line-height: 1.8; }
 
-.about .about-title {
-  width: 170px;
+.about .page-title, .joinus .page-title {
   margin: auto;
   padding-top: 30px; }
+
+.about .content .intro p {
+  text-align: center;
+  margin-bottom: 30px; }
+
+.about .page-title {
+  width: 170px; }
 
 .about .features {
   width: 800px;
@@ -347,6 +351,16 @@ body.category #nav-divider {
 
 .about .content .contact .info ul li {
   line-height: 1.8; }
+
+.joinus .page-title {
+  width: 150px; }
+
+.joinus .intro {
+  padding: 15px 60px; }
+
+.joinus .content .intro p {
+  font-size: 16px;
+  margin-bottom: 5px; }
 
 .single.single-post .content {
   margin-top: 20px;

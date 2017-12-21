@@ -135,14 +135,22 @@ body.category {
 	}	
 }
 
-.about {
+.about, .joinus {
 	.content {
 		margin-top:20px;margin-bottom:50px;background-color:rgba(255,255,255,0.5);padding:30px
 	}
 	.content .intro p {
-		text-align:center; margin-bottom:30px;font-size:18px;line-height:1.6		
+		font-size:18px;line-height:1.8
 	}
-	.about-title {width:170px;margin:auto;padding-top:30px}
+	.page-title {margin:auto;padding-top:30px}
+}
+
+.about {
+	.content .intro p {
+		text-align:center; margin-bottom:30px;
+	}
+	
+	.page-title {width:170px;}
 	.features { width:800px;margin:50px auto}
 	.content .contact {
 		& {padding-bottom:100px}
@@ -152,6 +160,12 @@ body.category {
 		.info ul {padding-left:0px;color:white;margin-top:30px}
 		.info ul li {line-height:1.8}		
 	}
+}
+
+.joinus {	
+	.page-title {width:150px;}
+	.intro {padding:15px 60px}
+	.content .intro p {font-size:16px;margin-bottom:5px}
 }
 
 .single.single-post {
