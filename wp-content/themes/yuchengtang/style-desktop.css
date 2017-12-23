@@ -630,6 +630,9 @@ body.category #nav-divider {
     margin: 0px !important;
     padding: 0px;
     display: none; }
+  .category-antiques .no-show.empty {
+    width: 1px !important;
+    display: block; }
   .category-antiques #pagepiling {
     width: 1000px;
     margin: auto; }
@@ -709,6 +712,8 @@ body.category #nav-divider {
       color: #ddd;
       text-align: center;
       cursor: pointer; }
+    .category-antiques .sly.wrap .frame ul li.empty {
+      margin: 0px; }
     .category-antiques .sly.wrap .frame ul li:hover .name a {
       color: #ae7b42; }
     .category-antiques .sly.wrap .scrollbar {
