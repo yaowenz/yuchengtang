@@ -45,7 +45,7 @@
 			<li class="culture text">
 				<a href="javascript:;" title="文化教育"><span class="mobile"><span class="text-cn">文化教育</span><span class="text-en">CLUTURE</span></span></a>
 				<ul class="sub-menu">
-					<li><a href="javascript:;">图书出版</a></li>
+					<li><a href="<?php echo site_url('books')?>">图书出版</a></li>
 					<li><a href="javascript:;">讲座课程</a></li>
 				</ul>
 			</li>
@@ -61,6 +61,9 @@
 			</li>
 			<li class="about text">
 				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile"><span class="text-cn">关于</span><span class="text-en">ABOUT</span></span></a>
+			</li>
+			<li class="mobile joinus text">
+				<a href="<?php echo site_url('joinus')?>" title="加入我们"><span class="mobile"><span class="text-cn">加入我们</span><span class="text-en">ABOUT</span></span></a>
 			</li>
 			<li class="language text mobile text-cn">
 				<a href="<?php echo site_url()?>?lang=en" title="ENGLISH">ENGLISH</a>
@@ -91,7 +94,7 @@ jQuery(function($) {
 		function() {
 			if (navMenuAnime == undefined) {
 				navMenuAnime = anime.timeline();
-				for (var i=1; i <= 7; i++) {
+				for (var i=1; i <= 9; i++) {
 					navMenuAnime.add({
 						targets: '#nav .menu li:nth-child(' + i  + ')',
 					    opacity: 1,

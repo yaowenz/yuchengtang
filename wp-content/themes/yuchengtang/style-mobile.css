@@ -287,8 +287,21 @@ body {
   background-color: rgba(214, 161, 43, 0.7);
   display: block; }
 
-.about .about-title {
-  width: 50%;
+.page.about .content, .page.joinus .content, .page.books .content {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 30px; }
+
+.page.about .content .intro p, .page.joinus .content .intro p, .page.books .content .intro p {
+  font-size: 18px;
+  line-height: 1.8; }
+
+.page.about .page-title, .page.joinus .page-title, .page.books .page-title {
+  margin: auto; }
+
+.about .page-title {
+  width: 60%;
   margin: auto;
   padding-top: 10px; }
 
@@ -330,6 +343,16 @@ body {
 .about .content .contact .info ul li {
   line-height: 1.8; }
 
+.page.joinus .page-title, .page.books .page-title {
+  width: 150px; }
+
+.page.joinus .intro, .page.books .intro {
+  padding: 15px 0px; }
+
+.page.joinus .content .intro p, .page.books .content .intro p {
+  font-size: 16px;
+  margin-bottom: 5px; }
+
 .single.single-post .content {
   margin-top: 20px;
   margin-bottom: 20px;
@@ -351,6 +374,39 @@ body {
 
 .single.single-post .post-date {
   text-align: center;
+  font-size: 14px; }
+
+.page.books .page-title {
+  width: 150px; }
+
+.page.books .intro {
+  border-top: 1px dotted #ccc;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.page.books div.book {
+  text-align: center;
+  line-height: 2;
+  margin-bottom: 15px; }
+
+.page.books div.book .book-cover {
+  padding: 15px 0px; }
+
+.page.books div.book .book-cover {
+  display: table-cell;
+  vertical-align: middle; }
+
+.page.books div.book .book-cover img {
+  width: 80%;
+  height: auto;
+  margin: auto; }
+
+.page.books div.book .book-name {
+  color: #be9567;
+  font-size: 18px; }
+
+.page.books div.book .book-publisher {
   font-size: 14px; }
 
 .category .primary.content {
