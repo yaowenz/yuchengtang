@@ -2,7 +2,6 @@
 wp_enqueue_script( 'pagepiling',  get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.js', ['jquery']);
 wp_enqueue_style( 'pagepiling-style', get_template_directory_uri() . '/assets/js/pagepiling/jquery.pagepiling.min.css' );
 
-
 /** 获取各个分类的藏品 **/
 global $wpdb;
 $cateQing = $wpdb->get_results("SELECT * FROM yc_item WHERE niandai LIKE '清%' AND state = 1 ORDER BY id DESC");
@@ -20,6 +19,8 @@ $categories = [
 	'cateMing' => ['明代', 'Ming Dynasty'],
 	'cateQing' => ['清代', 'Qing Dynasty'],
 ];
+
+$subCates = ['瓷器','书画','家具','杂项'];
 ?>
 <?php get_header(); ?>
 <div id="pagepiling" style="height:1000px">
@@ -46,10 +47,15 @@ $categories = [
 		</div>
 		<div class="clear"></div>
 	</div>
+	<?php $sectionCounter = 0;?>
 	<?php foreach ($categories as $k => $v):?>
-	<div class="section">
+	<div class="section section-<?php echo $sectionCounter?>">
 		<div class="wrap sly">
 			<h2><?php echo $v[0]?>&nbsp;<small><?php echo $v[1]?></small></h2>
+			<div class="pager desktop">
+				<div class="prevPage">&lt;上一页</div>
+				<div class="nextPage">下一页&gt;</div>
+			</div>
 			<div class="mobile" style="width:30px;margin:auto;padding-top:5px;margin-bottom:10px">
 				<img src="<?php echo get_template_directory_uri()?>/assets/images/dot-divider.png" width="100%">
 			</div>
@@ -58,10 +64,17 @@ $categories = [
 					<div class="mousearea"></div>
 				</div>
 			</div>
+			<div class="tags" data-section-index="<?php echo $sectionCounter?>">
+				<span class="active" data-selector="">全部</span>
+				<?php foreach ($subCates as $sc):?>
+					<span data-selector="<?php echo $sc?>"><?php echo $sc;?></span>
+				<?php endforeach;?>
+			</div>
+			<div class="clear"></div>
 			<div class="frame" id="frame">
 				<ul class="clearfix">
 					<?php foreach ($$k as $item):?>
-					<li>
+					<li data-category="<?php echo $item->category?>">
 						<?php
 						$coverImageUrl = $item->img_name;
 						if (!preg_match("/^\/m3d\//", $coverImageUrl)) {
@@ -81,26 +94,45 @@ $categories = [
 			<ul class="pages"></ul>
 		</div>
 	</div>
+	<?php $sectionCounter ++ ?>
 	<?php endforeach;?>
 </div>
 <div id="mobile-guide" class="mobile hidden">
-	<a class="prev-slide">&lt;&nbsp;上页</a>&nbsp;|&nbsp;
+	<a class="prev-slide">&lt;&nbsp;上一分类</a>&nbsp;|&nbsp;
 	<a class="home-slide">所有分类</a>&nbsp;|&nbsp;
-	<a class="next-slide">下页&nbsp;&gt;</a>
+	<a class="next-slide">下一分类&nbsp;&gt;</a>
 </div>
 <script>
 jQuery(function($) {
-
-	$('#nav .antiques').addClass('active');
+	var antiqueCates = [];
+	$('.tags span').click(function() {
+		$(this).parent().children().removeClass('active');
+		$(this).addClass('active');
+		var sectionIndex = $(this).parent().data('section-index');
+		var antiques = $('.section-' + sectionIndex + ' ul li');
+		var category = $(this).data('selector');
+		antiques.removeClass('no-show');
+		if ($(this).data('selector').length > 0) {
+			var selector = $(this).data('selector');
+			antiques.each(function(i) {
+				if($(this).data('category') != category) {
+					$(this).addClass('no-show');
+				}
+			});
+		}
+		antiqueCates[sectionIndex].sly('reload');
+	});
 	
+	$('#nav .antiques').addClass('active');
 	var $frames = $('.frame');
+	
 	$frames.each(function (i) {
 		var $frame = $($frames[i]);
 		var $slidee = $frame.children('ul').eq(0);
 		var $wrap   = $frame.parent();
 
 		// Call Sly on frame
-		$frame.sly({
+		antiqueCates.push($frame.sly({
 			horizontal: 1,
 			itemNav: 'basic',
 			smart: 1,
@@ -127,7 +159,7 @@ jQuery(function($) {
 			next: $wrap.find('.next'),
 			prevPage: $wrap.find('.prevPage'),
 			nextPage: $wrap.find('.nextPage')
-		});
+		}));
 	});
 	
 

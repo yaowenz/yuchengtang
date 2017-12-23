@@ -596,6 +596,40 @@ body.category #nav-divider {
     left: 35px; }
   .category-antiques .section.categories .cate-node img {
     width: 180px; }
+  .category-antiques .pager {
+    position: absolute;
+    right: 15px;
+    top: 10px; }
+  .category-antiques .pager > div {
+    float: left;
+    line-height: 35px; }
+  .category-antiques .pager > div.prevPage {
+    margin-right: 15px; }
+  .category-antiques .pager > div:hover {
+    color: #ae7b42;
+    cursor: pointer; }
+  .category-antiques .tags {
+    float: right;
+    padding-right: 15px; }
+  .category-antiques .tags > span {
+    margin-left: 5px;
+    display: inline-block;
+    margin-bottom: 15px;
+    line-height: 35px;
+    font-size: 16px;
+    color: #666;
+    border-bottom: 1px dotted transparent; }
+  .category-antiques .tags > span:hover {
+    cursor: pointer;
+    border-bottom: 1px dotted #999; }
+  .category-antiques .tags > span.active {
+    color: #ae7b42; }
+  .category-antiques .no-show {
+    width: 0px !important;
+    overflow: hidden;
+    margin: 0px !important;
+    padding: 0px;
+    display: none; }
   .category-antiques #pagepiling {
     width: 1000px;
     margin: auto; }
@@ -625,6 +659,7 @@ body.category #nav-divider {
     /* Pages */
     /* Controls */ }
     .category-antiques .sly.wrap h2 {
+      line-height: 35px;
       padding-left: 30px;
       background-image: url("assets/images/icon-square-28px.png");
       background-repeat: no-repeat;
