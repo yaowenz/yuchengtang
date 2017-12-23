@@ -673,7 +673,8 @@ body.category #nav-divider {
     .category-antiques .sly.wrap {
       width: 1000px;
       position: relative;
-      margin: 3em 0; }
+      margin: 3em 0;
+      min-height: 600px; }
     .category-antiques .sly.wrap .name, .category-antiques .sly.wrap .name-en {
       font-size: 16px;
       color: #333;
@@ -699,8 +700,7 @@ body.category #nav-divider {
       margin: 0;
       padding: 0;
       height: 100%;
-      font-size: 50px;
-      min-height: 400px; }
+      font-size: 50px; }
     .category-antiques .sly.wrap .frame ul li {
       float: left;
       width: 190px;

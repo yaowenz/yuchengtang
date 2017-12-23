@@ -89,8 +89,6 @@ $subCates = ['瓷器','书画','家具','杂项'];
 						<div class="name-en"><a href="<?php echo site_url('antique?id=' . $item->id)?>"><?php echo $item->name_en;?></a></div>
 					</li>
 					<?php endforeach;?>
-					<!-- 保持高度 -->
-					<li class="empty"></li>
 				</ul>
 			</div>
 			<ul class="pages"></ul>
