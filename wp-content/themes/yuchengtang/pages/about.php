@@ -1,8 +1,11 @@
-<div class="content wrapper">
-	<div class="page-title">
+<div class="desktop wrapper">
+	<img src="<?php echo get_template_directory_uri() ?>/assets/images/about-title.jpg" width="100%" />
+</div>
+<div class="content wrapper">	
+	<div class="page-title mobile">
 		<img src="<?php echo get_template_directory_uri()?>/assets/images/about-title.png" width="100%">
 	</div>
-	<div style="width:30px;margin:auto;padding-top:40px;margin-bottom:30px">
+	<div style="width:30px;margin:auto;padding-top:40px;margin-bottom:30px" class="mobile">
 		<img src="<?php echo get_template_directory_uri()?>/assets/images/dot-divider.png" width="100%">
 	</div>
 	<div class="intro">
