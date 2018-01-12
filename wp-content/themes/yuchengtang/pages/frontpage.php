@@ -10,11 +10,14 @@
 	<div class="content wrapper">
 		<div class="tickets">
 			<h2 class="text-cn">预约观展</h2>
-			<h2 class="text-en">TICKETS</h2>
-			<p style="color:#A57239;margin-top:25px;margin-bottom:5px;font-size:18px;font-weight:bold">周二 ~ 周六<p>
+			<h2 class="text-en">EXHIBITIONS</h2>
+			<p style="color:#A57239;margin-top:25px;margin-bottom:5px;font-size:18px;font-weight:bold"><span class="text-cn">周二 ~ 周六</span><span class="text-en">OPEN Tuesday - Sunday</span><p>
 			<p style="color:#A57239;font-size:40px;font-family:Impact,Arial">10:00 ~ 16:30</p>
-			<p style="margin-top:5px;font-size:14px">（周日、周一闭馆 ）</p>
-			<p style="color:#3d5079;font-size:18px;margin-top:20px;border-top:1px dotted #999;padding-top:10px">上海市浦三路21弄55-56号银亿滨江中心17楼</p>
+			<p style="margin-top:5px;font-size:14px"><span class="text-cn">（周日、周一闭馆 ）</span><span class="text-en">CLOSED Sunday & Monday</span></p>
+			<p style="color:#3d5079;font-size:18px;margin-top:20px;border-top:1px dotted #999;padding-top:10px">
+				<span class="text-cn">上海市浦三路21弄55-56号银亿滨江中心17楼</span>
+				<span class="text-en" style="font-size:16px">17th floor No55-56Lane, Pudong New District, Shanghai, China (Turn right next to the He Yi Hotel). </span>
+			</p>
 			<div class="more">
 				<a class="btn" style="background:#3d5079" href="<?php echo site_url('reservation');?>"><span class="text-cn">预约</span><span class="text-en">Reserve</span></a>
 			</div>

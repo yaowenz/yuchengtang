@@ -32,28 +32,29 @@ body.category {
 	.menu {
 		position:absolute;top:55px;right:0px
 	}	
-	.menu li {background-size:900px 60px;background-repeat:no-repeat;float:left;width:105px}
+	.menu li {background-size:900px 60px;background-repeat:no-repeat;float:left;width:110px}
 	.menu li[class~=text] {
 		& {background-image:url('assets/images/menu-cn.png');}
-		a {display:inline-block;width:105px;height:45px}
+		a {display:inline-block;width:250px;height:60px}
 	}
 	.menu li[class~=text]:hover, .menu li[class~=text].active {
 		background-image:url('assets/images/menu-cn-active.png');
 	}	
 	.menu li .sub-menu {display:none;z-index:10000;font-size:16px;padding-left:0px}	
 	.menu li:hover .sub-menu {display:block}
-	.sub-menu li {line-height:30px;height:30px;text-align:center;float:none;clear:both}
+	.sub-menu li {line-height:30px;height:30px;text-align:left;float:none;clear:both}
 	.sub-menu li a:hover {color:#AE773E}
 	.menu li {
-		&.antiques {background-position:-122px 0px}
-		&.tickets {background-position:-260px 0px}
-		&.tickets .sub-menu {margin-left:0px}
+		&.news {width:90px}
+		&.antiques {background-position:-122px 0px;width:125px}
+		&.tickets {background-position:-260px 0px;width:125px}
+		&.tickets .sub-menu {margin-left:35px}
 		&.about {background-position:-395px 0px}
 		&.culture {background-position:-515px 0px}
-		&.culture .sub-menu {margin-left:5px}
+		&.culture .sub-menu {margin-left:28px}
 		&.support {background-position:-625px 0px}
-		&.support .sub-menu {margin-left:15px}
-		&.shop {background-position:-745px 0px}
+		&.support .sub-menu {margin-left:50px}
+		&.shop {background-position:-745px 0px;width:90px}
 	}
 	
 	.menu li.search a {margin-top:20px;margin-left:30px;display:inline-block;background-image:url('assets/images/icon-search.png');background-repeat:no-repeat;background-size:cover;height:20px;width:20px}
@@ -77,7 +78,7 @@ body.category {
 		display:inline-block;padding:8px 50px;font-size:16px;background:#AE773E;color:white;border-radius:-5px
 	}
 	
-	#slides {position:absolute;top:180px;width:100%;}
+	#slides {position:absolute;top:180px;width:100%;margin-top:30px}
 	#slides .wrapper {text-align:center}
 	.bg {background-image:url('assets/images/frontpage-bg.jpg')}		
 	.content {	
@@ -521,7 +522,7 @@ body.category {
 		}		
 	}
 	.notice {
-		& {float:right;height: 750px;width: 400px;background-image:url('assets/images/tickets-notice-bg.jpg');padding:15px;line-height:1.6}
+		& {float:right;height: 850px;width: 400px;background-image:url('assets/images/tickets-notice-bg.jpg');padding:15px;line-height:1.6}
 		h2 {font-size:18px;padding-top:15px;margin-bottom:5px;border-top:1px solid #7f7f7f;color:#AA773E}
 		strong {color:#AA773E}
 	}

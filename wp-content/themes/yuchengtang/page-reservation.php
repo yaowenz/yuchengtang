@@ -20,7 +20,8 @@ get_header();
 		</div>
 		 -->
 		<div class="info">
-			<div><img class="info-title" src="<?php echo get_template_directory_uri() ?>/assets/images/tickets-info-title.png" width="130"></div>
+			<div class="text-cn"><img class="info-title" src="<?php echo get_template_directory_uri() ?>/assets/images/tickets-info-title.png" width="130"></div>
+			<div class="text-en" style="font-size:20px;font-weight:bold;color:#AA773E;padding-left:10px">Reserve Information</div>
 			<div class="form row">
 				<?php if ($_GET['success'] == 1 && !empty(intval($_GET['post_id'])) && $post = get_post(intval($_GET['post_id']))):?>
 				<?php $reservation = json_decode($post->post_content, true)?>
@@ -55,52 +56,52 @@ get_header();
 					<div class="row">
 						<div class="input-field col s6">
 							<input id="name" type="text" name="name" class="validate">
-							<label for="name">预约人姓名<span class="required">*</span></label>
+							<label for="name"><span class="text-cn">预约人姓名</span><span class="text-en">Name</span><span class="required">*</span></label>
 						</div>
 						<div class="input-field col s6">
 							<input id="mobile" type="text" name="mobile" class="validate">
-							<label for="mobile">手机号码<span class="required">*</span></label>
+							<label for="mobile"><span class="text-cn">手机号码</span><span class="text-en">Tel</span><span class="required">*</span></label>
 						</div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<input id="id_no" type="text" name="id_no" class="validate">
-							<label for="id_no">身份证号<span class="required">*</span></label>
+							<label for="id_no"><span class="text-cn">身份证号</span><span class="text-en">ID No</span><span class="required">*</span></label>
 						</div>
 					</div>
 					<div class="row static">
 						<div class="col s12 title">
-	          				参观类型<span class="required">*</span>
+	          				<span class="text-cn">参观类型</span><span class="text-en"></span>Forms<span class="required">*</span>
 						</div>
 						<div class="col s12">
 							<label class="checkbox">
 						        <input value="group" class="with-gap" name="reserve_type" type="radio"  />
-						        <span>团体</span>
+						        <span><span class="text-cn">团体</span><span class="text-en">Group</span></span>
 						     </label>
 						     <label class="checkbox">
 						        <input value="individual" class="with-gap" name="reserve_type" type="radio"  />
-						        <span>散客</span>
+						        <span><span class="text-cn">散客</span><span class="text-en">Individual Visitors</span></span>
 						     </label>
 						 </div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<input id="reserve_number" min="1" name="reserve_number" type="number" class="validate">
-							<label for="reserve_number">参观人数<span class="required">*</span></label>
+							<label for="reserve_number"><span class="text-cn">参观人数</span><span class="text-en">Visitors Number</span><span class="required">*</span></label>
 						</div>
 					</div>
 					<div class="row static">
 						<div class="col s12 title">
-	          				参观时间<span class="required">*</span>
+	          				<span class="text-cn">参观时间</span><span class="text-en">Reservation Time<span class="required">*</span>
 						</div>
 						<div class="col s12">
 							<label class="checkbox">
 						        <input class="with-gap" value="morning" name="reserve_time" type="radio"  />
-						        <span>上午</span>
+						        <span><span class="text-cn">上午</span><span class="text-en">Morning</span></span>
 						     </label>
 						     <label class="checkbox">
 						        <input class="with-gap" value="afternoon" name="reserve_time" type="radio"  />
-						        <span>下午</span>
+						        <span><span class="text-cn">下午</span><span class="text-en">Afternoon</span></span>
 						     </label>
 						 </div>
 						 <?php
@@ -134,7 +135,7 @@ get_header();
 					<div class="row">
 						<div class="input-field col s6">
 							<input id="_verify_code" type="text" name="_verify_code" class="validate">
-							<label for="_verify_code">验证码<span class="required">*</span></label>
+							<label for="_verify_code"><span class="text-cn">验证码</span><span class="text-en">Verification Code</span><span class="required">*</span></label>
 						</div>
 						<div class="col s6 verify-code">
 						<?php
@@ -147,26 +148,27 @@ get_header();
 						<img src="<?php echo $captchaData; ?>" valign="middle" width="80%" />
 						</div>
 					</div>
-					<a class="waves-effect waves-light btn" onclick="formSubmit()">预约</a>
+					<a class="waves-effect waves-light btn" onclick="formSubmit()"><span class="text-cn">预约</span><span class="text-en">Submit</span></a>
 				</form>
 				<?php endif;?>
 			</div>
 		</div>
 		<div class="notice">
-			<div><img class="notice-title" src="<?php echo get_template_directory_uri() ?>/assets/images/tickets-notice-title.png" width="130"></div>
-			<p style="margin-bottom:15px;margin-top:10px"><strong>票价：</strong><br>128元/张</p>
-			<p style="margin-bottom:15px"><strong>场馆地址：</strong><br>上海市浦东新区浦三路21弄55-56号银亿滨江中心17楼（和颐酒店旁右转）</p>
-			<p style="margin-bottom:15px"><strong>场馆电话：</strong><br>021-61553566</p>
-			<p><strong>开馆时间：</strong><br>周二至周六 10:00-16:30，周一、周日闭馆。</p>
-			<h2>参观须知</h2>
-			<p>1. 为了不妨碍、影响他人参观及展品安全，请勿在馆内拍照；</p>
-			<p>2. 为了您和他人的健康，请勿在馆内吸烟、乱扔垃圾、随地吐痰；</p>
-			<p>3. 请勿携带宠物进馆参观。</p>
-			<h2>优惠信息</h2>
-			<p>1. 70岁以上（含70岁）老年人凭有效证件，免费参观。</p>
-			<p>2. 身高1.2米以下儿童随监护人参观，门票半价优惠。</p>
-			<p>3. 残疾人凭残疾人证件，免费参观。</p>
-			<p>4. 随团导游凭本人导游证，免费参观。</p>
+			<div class="text-cn"><img class="notice-title" src="<?php echo get_template_directory_uri() ?>/assets/images/tickets-notice-title.png" width="130"></div>
+			<div class="text-en" style="font-size:20px;font-weight:bold;color:#AA773E">Ticketing Notice</div>
+			<p style="margin-bottom:15px;margin-top:10px"><strong><span class="text-cn">票价：</span><span class="text-en">Price:</span></strong><br><span class="text-cn">128元/张</span><span class="text-en">128 RMB</span></p>
+			<p style="margin-bottom:15px"><strong><span class="text-cn">场馆地址：</span><span class="text-en">Address:</span></strong><br>Address: 17th floor No55-56Lane, Pudong New District, Shanghai, China(Turn right next to the He Yi Hotel).</p>
+			<p style="margin-bottom:15px"><strong><span class="text-cn">场馆电话：</span><span class="text-en">Tel:</span></strong><br>021-61553566</p>
+			<p><strong><span class="text-cn">开馆时间：</span><span class="text-en">Opening Time:</span></strong><br><span class="text-cn">周二至周六 10:00-16:30，周一、周日闭馆。</span><span class="text-en">OPEN Tuesday - Sunday 10:00-16:30，<br/>CLOSED Sunday & Monday</span></p>
+			<h2><span class="text-cn">参观须知</span><span class="text-en">Visiting Notice</span></h2>
+			<p>1. <span class="text-cn">为了不妨碍、影响他人参观及展品安全，请勿在馆内拍照；</span><span class="text-en">Photography is not permitted for private.</span></p>
+			<p>2. <span class="text-cn">为了您和他人的健康，请勿在馆内吸烟、乱扔垃圾、随地吐痰；</span><span class="text-en">Smoking, littering and spitting is strictly forbidden inside the exhibition hall. </span></p>
+			<p>3. <span class="text-cn">请勿携带宠物进馆参观。</span><span class="text-en">No pets.</span></p>
+			<h2><span class="text-cn">优惠信息</span><span class="text-en">Concessional Terms</span></h2>
+			<p>1. <span class="text-cn">70岁以上（含70岁）老年人凭有效证件，免费参观。</span><span class="text-en">Free admission for seniors 70 years old and older with valid certificate or proof of age (passport, etc.)</span></p>
+			<p>2. <span class="text-cn">身高1.2米以下儿童随监护人参观，门票半价优惠。</span><span class="text-en">50% discount on concessions for children under 1.2 meters in height.</span></p>
+			<p>3. <span class="text-cn">残疾人凭残疾人证件，免费参观。</span><span class="text-en">Free admission for disabled visitors with personal disability certificate.</span></p>
+			<p>4. <span class="text-cn">随团导游凭本人导游证，免费参观。</span><span class="text-en">Free admission for accompanying guides with personal tourist certificate.</span></p>
 		</div>
 		<div class="clear"></div>
 		

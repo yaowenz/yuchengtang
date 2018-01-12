@@ -33,27 +33,27 @@
 				<a href="<?php echo site_url('archives/category/news')?>" title="资讯"><span class="mobile"><span class="text-cn">资讯</span><span class="text-en">NEWS</span></span></a>
 			</li>
 			<li class="antiques text">
-				<a href="<?php echo site_url('archives/category/antiques')?>" title="藏品"><span class="mobile"><span class="text-cn">藏品</span><span class="text-en">ANTIQUE</span></span></a>
+				<a href="<?php echo site_url('archives/category/antiques')?>" title="藏品"><span class="mobile"><span class="text-cn">藏品</span><span class="text-en">COLLECTIONS</span></span></a>
 			</li>
 			<li class="tickets text">
-				<a href="javascript:;" title="观展"><span class="mobile"><span class="text-cn">观展</span><span class="text-en">TICKETS</span></span></a>
+				<a href="javascript:;" title="观展"><span class="mobile"><span class="text-cn">观展</span><span class="text-en">EXBITIONS</span></span></a>
 				<ul class="sub-menu">
-					<li><a href="<?php echo site_url('reservation')?>">预约购票</a></li>
-					<li><a href="http://720yun.com/t/504j5zkmsk2" target="_blank">360全景展厅</a></li>
+					<li><a href="<?php echo site_url('reservation')?>"><span class="text-cn">预约购票</span><span class="text-en">Reservation</span></a></li>
+					<li><a href="http://720yun.com/t/504j5zkmsk2" target="_blank"><span class="text-cn">360全景展厅</span><span class="text-en">Panoramic Exhibition</span></a></li>
 				</ul>
 			</li>
 			<li class="culture text">
 				<a href="javascript:;" title="文化教育"><span class="mobile"><span class="text-cn">文化教育</span><span class="text-en">CLUTURE</span></span></a>
 				<ul class="sub-menu">
-					<li><a href="<?php echo site_url('books')?>">图书出版</a></li>
-					<li><a href="javascript:;">讲座课程</a></li>
+					<li><a href="<?php echo site_url('books')?>"><span class="text-cn">图书出版</span><span class="text-en">Press Releases</span></a></li>
+					<li><a href="javascript:;"><span class="text-cn">讲座课程</span><span class="text-en">Lectures  & Courses</span></a></li>
 				</ul>
 			</li>
 			<li class="support text">
-				<a href="javascript:;" title="支持"><span class="mobile"><span class="text-cn">支持</span><span class="text-en">SUPPORT</span></span></a>
+				<a href="javascript:;" title="支持"><span class="mobile"><span class="text-cn">支持</span><span class="text-en">SUPPORT US</span></span></a>
 				<ul class="sub-menu">
-					<li><a href="javascript:;">品牌活动</a></li>
-					<li><a href="javascript:;">赞助</a></li>
+					<li><a href="javascript:;"><span class="text-cn">品牌活动</span><span class="text-en">Brand Activities</span></a></li>
+					<li><a href="javascript:;"><span class="text-cn">赞助</span><span class="text-en">Sponsor Us</span></a></li>
 				</ul>
 			</li>
 			<li class="shop text">
@@ -63,7 +63,10 @@
 				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile"><span class="text-cn">关于</span><span class="text-en">ABOUT</span></span></a>
 			</li>
 			<li class="mobile joinus text">
-				<a href="<?php echo site_url('joinus')?>" title="加入我们"><span class="mobile"><span class="text-cn">加入我们</span><span class="text-en">ABOUT</span></span></a>
+				<a href="<?php echo site_url('joinus')?>" title="加入我们"><span class="mobile"><span class="text-cn">加入我们</span><span class="text-en">JOIN US</span></span></a>
+			</li>
+			<li class="mobile joinus text">
+				<a href="<?php echo site_url('about')?>#contactus" title="联系我们"><span class="mobile"><span class="text-cn">联系我们</span><span class="text-en">CONTACT US</span></span></a>
 			</li>
 			<li class="language text mobile text-cn">
 				<a href="<?php echo site_url()?>?lang=en" title="ENGLISH">ENGLISH</a>
@@ -129,7 +132,7 @@ jQuery(function($) {
 			});
 
 			mobileNavMenuAnime = anime.timeline();
-			for (var i=1; i <= 9; i++) {
+			for (var i=1; i <= 11; i++) {
 				mobileNavMenuAnime.add({
 					targets: '#nav .menu li:nth-child(' + i  + ')',
 					translateX: [150, 0],

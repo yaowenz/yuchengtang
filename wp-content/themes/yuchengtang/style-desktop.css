@@ -46,15 +46,15 @@ body.category #nav-divider {
   background-size: 900px 60px;
   background-repeat: no-repeat;
   float: left;
-  width: 105px; }
+  width: 110px; }
 
 #nav .menu li[class~=text] {
   background-image: url("assets/images/menu-cn.png"); }
 
 #nav .menu li[class~=text] a {
   display: inline-block;
-  width: 105px;
-  height: 45px; }
+  width: 250px;
+  height: 60px; }
 
 #nav .menu li[class~=text]:hover, #nav .menu li[class~=text].active {
   background-image: url("assets/images/menu-cn-active.png"); }
@@ -71,21 +71,26 @@ body.category #nav-divider {
 #nav .sub-menu li {
   line-height: 30px;
   height: 30px;
-  text-align: center;
+  text-align: left;
   float: none;
   clear: both; }
 
 #nav .sub-menu li a:hover {
   color: #AE773E; }
 
+#nav .menu li.news {
+  width: 90px; }
+
 #nav .menu li.antiques {
-  background-position: -122px 0px; }
+  background-position: -122px 0px;
+  width: 125px; }
 
 #nav .menu li.tickets {
-  background-position: -260px 0px; }
+  background-position: -260px 0px;
+  width: 125px; }
 
 #nav .menu li.tickets .sub-menu {
-  margin-left: 0px; }
+  margin-left: 35px; }
 
 #nav .menu li.about {
   background-position: -395px 0px; }
@@ -94,16 +99,17 @@ body.category #nav-divider {
   background-position: -515px 0px; }
 
 #nav .menu li.culture .sub-menu {
-  margin-left: 5px; }
+  margin-left: 28px; }
 
 #nav .menu li.support {
   background-position: -625px 0px; }
 
 #nav .menu li.support .sub-menu {
-  margin-left: 15px; }
+  margin-left: 50px; }
 
 #nav .menu li.shop {
-  background-position: -745px 0px; }
+  background-position: -745px 0px;
+  width: 90px; }
 
 #nav .menu li.search a {
   margin-top: 20px;
@@ -161,7 +167,8 @@ body.category #nav-divider {
 .frontpage #slides {
   position: absolute;
   top: 180px;
-  width: 100%; }
+  width: 100%;
+  margin-top: 30px; }
 
 .frontpage #slides .wrapper {
   text-align: center; }
@@ -982,7 +989,7 @@ body.category #nav-divider {
 
 .page.reservation .notice {
   float: right;
-  height: 750px;
+  height: 850px;
   width: 400px;
   background-image: url("assets/images/tickets-notice-bg.jpg");
   padding: 15px;
