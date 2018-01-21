@@ -521,7 +521,7 @@ body.category #nav-divider {
 .antique #nav .menu, .category-antiques #nav .menu {
   position: absolute;
   left: 0px;
-  top: 125px;
+  top: 115px;
   padding-left: 0px;
   margin-left: 0px;
   width: 100px; }
@@ -542,7 +542,7 @@ body.category #nav-divider {
 
 .antique #nav .menu li, .category-antiques #nav .menu li {
   height: auto;
-  width: 115px; }
+  width: 125px; }
 
 .antique #nav .menu li.culture, .category-antiques #nav .menu li.culture {
   background-position: -508px 0px; }
