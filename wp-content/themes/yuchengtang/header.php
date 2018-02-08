@@ -57,7 +57,7 @@
 				</ul>
 			</li>
 			<li class="shop text">
-				<a href="javascript:;" title="商店"><span class="mobile"><span class="text-cn">商店</span><span class="text-en">SHOP</span></span></a>
+				<a href="https://weidian.com/?userid=581132515&ifr=shopdetail&wfr=c" title="商店"><span class="mobile"><span class="text-cn">商店</span><span class="text-en">SHOP</span></span></a>
 			</li>
 			<li class="about text">
 				<a href="<?php echo site_url('about')?>" title="关于"><span class="mobile"><span class="text-cn">关于</span><span class="text-en">ABOUT</span></span></a>
