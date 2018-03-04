@@ -21,7 +21,7 @@ get_header();
 		 -->
 		<div class="info">
 			<div class="text-cn"><img class="info-title" src="<?php echo get_template_directory_uri() ?>/assets/images/tickets-info-title.png" width="130"></div>
-			<div class="text-en" style="font-size:20px;font-weight:bold;color:#AA773E;padding-left:10px">Reserve Information</div>
+			<div class="text-en" style="font-size:20px;font-weight:bold;color:#AA773E;padding-left:10px">Reservation Information</div>
 			<div class="form row">
 				<?php if ($_GET['success'] == 1 && !empty(intval($_GET['post_id'])) && $post = get_post(intval($_GET['post_id']))):?>
 				<?php $reservation = json_decode($post->post_content, true)?>
@@ -71,7 +71,7 @@ get_header();
 					</div>
 					<div class="row static">
 						<div class="col s12 title">
-	          				<span class="text-cn">参观类型</span><span class="text-en"></span>Forms<span class="required">*</span>
+	          				<span class="text-cn">参观类型</span><span class="text-en"></span>Visitor(s)<span class="required">*</span>
 						</div>
 						<div class="col s12">
 							<label class="checkbox">
@@ -80,14 +80,14 @@ get_header();
 						     </label>
 						     <label class="checkbox">
 						        <input value="individual" class="with-gap" name="reserve_type" type="radio"  />
-						        <span><span class="text-cn">散客</span><span class="text-en">Individual Visitors</span></span>
+						        <span><span class="text-cn">散客</span><span class="text-en">Individual</span></span>
 						     </label>
 						 </div>
 					</div>
 					<div class="row">
 						<div class="input-field col s12">
 							<input id="reserve_number" min="1" name="reserve_number" type="number" class="validate">
-							<label for="reserve_number"><span class="text-cn">参观人数</span><span class="text-en">Visitors Number</span><span class="required">*</span></label>
+							<label for="reserve_number"><span class="text-cn">参观人数</span><span class="text-en">Number of Visitor</span><span class="required">*</span></label>
 						</div>
 					</div>
 					<div class="row static">
@@ -156,16 +156,16 @@ get_header();
 		<div class="notice">
 			<div class="text-cn"><img class="notice-title" src="<?php echo get_template_directory_uri() ?>/assets/images/tickets-notice-title.png" width="130"></div>
 			<div class="text-en" style="font-size:20px;font-weight:bold;color:#AA773E">Ticketing Notice</div>
-			<p style="margin-bottom:15px;margin-top:10px"><strong><span class="text-cn">票价：</span><span class="text-en">Price:</span></strong><br><span class="text-cn">128元/张</span><span class="text-en">128 RMB</span></p>
-			<p style="margin-bottom:15px"><strong><span class="text-cn">场馆地址：</span><span class="text-en">Address:</span></strong><br>Address: 17th floor No55-56Lane, Pudong New District, Shanghai, China(Turn right next to the He Yi Hotel).</p>
+			<p style="margin-bottom:15px;margin-top:10px"><strong><span class="text-cn">票价：</span><span class="text-en">Price:</span></strong><br><span class="text-cn">128元/张</span><span class="text-en">128 RMB/Visitor</span></p>
+			<p style="margin-bottom:15px"><strong><span class="text-cn">场馆地址：</span><span class="text-en">Address:</span></strong><br>Address: 17 Floor, Yinyi Bingjiang Center, No. 55-56, Lane 21, Pu San Road, Pudong New District, Shanghai, P. R. China. (Turn Right at He Yi Hotel)</p>
 			<p style="margin-bottom:15px"><strong><span class="text-cn">场馆电话：</span><span class="text-en">Tel:</span></strong><br>021-61553566</p>
-			<p><strong><span class="text-cn">开馆时间：</span><span class="text-en">Opening Time:</span></strong><br><span class="text-cn">周二至周六 10:00-16:30，周一、周日闭馆。</span><span class="text-en">OPEN Tuesday - Sunday 10:00-16:30，<br/>CLOSED Sunday & Monday</span></p>
+			<p><strong><span class="text-cn">开馆时间：</span><span class="text-en">Opening Time:</span></strong><br><span class="text-cn">周二至周六 10:00-16:30，周一、周日闭馆。</span><span class="text-en">OPEN Tuesday - Saturday 10:00-16:30，<br/>CLOSED Sunday & Monday</span></p>
 			<h2><span class="text-cn">参观须知</span><span class="text-en">Visiting Notice</span></h2>
-			<p>1. <span class="text-cn">为了不妨碍、影响他人参观及展品安全，请勿在馆内拍照；</span><span class="text-en">Photography is not permitted for private.</span></p>
+			<p>1. <span class="text-cn">为了不妨碍、影响他人参观及展品安全，请勿在馆内拍照；</span><span class="text-en">No photography.</span></p>
 			<p>2. <span class="text-cn">为了您和他人的健康，请勿在馆内吸烟、乱扔垃圾、随地吐痰；</span><span class="text-en">Smoking, littering and spitting is strictly forbidden inside the exhibition hall. </span></p>
 			<p>3. <span class="text-cn">请勿携带宠物进馆参观。</span><span class="text-en">No pets.</span></p>
 			<h2><span class="text-cn">优惠信息</span><span class="text-en">Concessional Terms</span></h2>
-			<p>1. <span class="text-cn">70岁以上（含70岁）老年人凭有效证件，免费参观。</span><span class="text-en">Free admission for seniors 70 years old and older with valid certificate or proof of age (passport, etc.)</span></p>
+			<p>1. <span class="text-cn">70岁以上（含70岁）老年人凭有效证件，免费参观。</span><span class="text-en">Free admission for seniors 70 years old and older with valid certificate or proof of age (passport, ID, etc.)</span></p>
 			<p>2. <span class="text-cn">身高1.2米以下儿童随监护人参观，门票半价优惠。</span><span class="text-en">50% discount on concessions for children under 1.2 meters in height.</span></p>
 			<p>3. <span class="text-cn">残疾人凭残疾人证件，免费参观。</span><span class="text-en">Free admission for disabled visitors with personal disability certificate.</span></p>
 			<p>4. <span class="text-cn">随团导游凭本人导游证，免费参观。</span><span class="text-en">Free admission for accompanying guides with personal tourist certificate.</span></p>
